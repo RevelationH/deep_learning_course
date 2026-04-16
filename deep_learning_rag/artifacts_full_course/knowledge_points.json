@@ -1,0 +1,523 @@
+[
+  {
+    "kp_id": "kp-深度学习概述",
+    "name": "深度学习概述",
+    "description": "理解深度学习的研究目标、发展背景、表示学习思想，以及其与传统机器学习方法的联系。",
+    "weeks": [
+      "Week1"
+    ],
+    "keywords": [
+      "深度学习",
+      "Deep Learning",
+      "表示学习",
+      "representation learning",
+      "多层表示",
+      "层次特征",
+      "神经网络发展"
+    ],
+    "scenario": "需要从原始数据中自动学习分层特征表示，而不是完全依赖人工设计特征",
+    "source_files": [
+      "Week1/0.1-DeepLearning-Introduction-C1.pdf"
+    ],
+    "support_chunk_ids": [
+      "chunk-df52bc9faa58",
+      "chunk-680d9430a1dc",
+      "chunk-88663a2d2d2c",
+      "chunk-c46a61daad44",
+      "chunk-b64f91e95f2d",
+      "chunk-462cb3511041",
+      "chunk-6894a1a70ef7",
+      "chunk-0225b199eaa0",
+      "chunk-10b184daf754",
+      "chunk-0cee9f42a8e3"
+    ],
+    "support_preview": [
+      "SCHOOL OF COMPUTER SCIENCE AND TECHNOLOGY 计算机科学与技术学院 深度学习(Deep Learning) 张新峰 计算机科学与技术学院 中国科学院大学 邮箱: xfzhang@ucas.ac.cn 引言：深度学习概述",
+      "12 提纲 Ø 深度学习起源和发展 Ø 深度学习与机器学习、AI的关系 Ø 深度学习的基本概念与典型算法 Ø 深度学习的主要应用概述 Ø 中英文术语对照",
+      "深度学习起源和发展1"
+    ]
+  },
+  {
+    "kp_id": "kp-数学基础与机器学习基础",
+    "name": "数学基础与机器学习基础",
+    "description": "掌握深度学习所需的线性代数、概率统计、优化和监督学习基本概念。",
+    "weeks": [
+      "Week2"
+    ],
+    "keywords": [
+      "数学基础",
+      "机器学习基础",
+      "梯度下降",
+      "损失函数",
+      "监督学习",
+      "偏差",
+      "方差",
+      "线性代数",
+      "概率"
+    ],
+    "scenario": "分析模型训练目标、优化方向和泛化能力时，需要先理解基础数学与机器学习框架",
+    "source_files": [
+      "Week2/0.2-DeepLearning-Foundations-C2.pdf",
+      "Week3/0.2-DeepLearning-Foundations-C3.pdf"
+    ],
+    "support_chunk_ids": [
+      "chunk-58184f9c941b",
+      "chunk-05b5dfa44ada",
+      "chunk-f2bff267299e",
+      "chunk-472c6e10fe92",
+      "chunk-d8b662b3aa10",
+      "chunk-59bce01df9a7",
+      "chunk-4606583df218",
+      "chunk-d3ab7d9fe29b",
+      "chunk-b95cf3c97246",
+      "chunk-f941b4560dac"
+    ],
+    "support_preview": [
+      "2 提纲 Ø 数学基础 Ø 机器学习基础 Ø 神经元模型 Ø 感知器及多层感知器 Ø BackPropagation算法 Ø 中英文术语对照",
+      "数学基础1",
+      "SCHOOL OF COMPUTER SCIENCE AND TECHNOLOGY 计算机科学与技术学院 SCHOOL OF COMPUTER SCIENCE AND TECHNOLOGY 计算机科学与技术学院 误差分析 q泛化误差分析 - 假设数据集上需要预测的样本为 Y，特征为 X，潜在模型为 Y=f(X)+ε，其中ε~N(0,σε)是噪声, 估计的模…"
+    ]
+  },
+  {
+    "kp_id": "kp-神经元-感知器与反向传播",
+    "name": "神经元、感知器与反向传播",
+    "description": "理解人工神经元、感知器、多层感知器以及反向传播算法的核心机制。",
+    "weeks": [
+      "Week2",
+      "Week3"
+    ],
+    "keywords": [
+      "神经元模型",
+      "感知器",
+      "多层感知器",
+      "MLP",
+      "BackPropagation",
+      "反向传播",
+      "链式法则",
+      "激活函数"
+    ],
+    "scenario": "需要解释神经网络参数如何根据误差逐层更新时，应重点复习感知器和反向传播",
+    "source_files": [
+      "Week2/0.2-DeepLearning-Foundations-C2.pdf",
+      "Week3/0.2-DeepLearning-Foundations-C3.pdf"
+    ],
+    "support_chunk_ids": [
+      "chunk-58184f9c941b",
+      "chunk-4606583df218",
+      "chunk-0b794d271c28",
+      "chunk-7a93cc8b3aa4",
+      "chunk-a8e30a60ace0",
+      "chunk-43fc4ce6e538",
+      "chunk-984a8bae950c",
+      "chunk-4aa80023caf3",
+      "chunk-6bd8574af84b",
+      "chunk-ab0327a6e30d"
+    ],
+    "support_preview": [
+      "2 提纲 Ø 数学基础 Ø 机器学习基础 Ø 神经元模型 Ø 感知器及多层感知器 Ø BackPropagation算法 Ø 中英文术语对照",
+      "2 提纲 Ø 数学基础 Ø 机器学习基础 Ø 神经元模型 Ø 感知器及多层感知器 Ø BackPropagation算法 Ø 中英文术语对照",
+      "SCHOOL OF COMPUTER SCIENCE AND TECHNOLOGY 计算机科学与技术学院 SCHOOL OF COMPUTER SCIENCE AND TECHNOLOGY 计算机科学与技术学院 BP算法 q BP算法中激活函数 - 通过误差反向传播算法调整多层感知器的连接权重时，一个瓶颈问 题就是激活函数 - M-P 模型中使用阶跃函数作…"
+    ]
+  },
+  {
+    "kp_id": "kp-卷积神经网络基础",
+    "name": "卷积神经网络基础",
+    "description": "掌握卷积层、池化层、感受野、参数共享等 CNN 基本结构与核心思想。",
+    "weeks": [
+      "Week3",
+      "Week4"
+    ],
+    "keywords": [
+      "卷积神经网络",
+      "Convolutional Neural Network",
+      "卷积层",
+      "池化层",
+      "感受野",
+      "参数共享",
+      "局部连接",
+      "特征图"
+    ],
+    "scenario": "处理图像等网格结构数据时，希望利用局部模式和空间结构降低参数规模",
+    "source_files": [
+      "Week3/0.3-DeepLearing-CNN-C3.pdf",
+      "Week4/0.3-DeepLearing-CNN-C4.pdf",
+      "Week5/0.3-DeepLearing-CNN-C5.pdf"
+    ],
+    "support_chunk_ids": [
+      "chunk-2756fa000305",
+      "chunk-d59d15dc06ea",
+      "chunk-8e2850f41ef4",
+      "chunk-c657d29df851",
+      "chunk-34d05a3fabd6",
+      "chunk-ee1c849df2c9",
+      "chunk-6146684f621a",
+      "chunk-09393fafd21a",
+      "chunk-3a229e2ffed2",
+      "chunk-cbdbc30e5535"
+    ],
+    "support_preview": [
+      "SCHOOL OF COMPUTER SCIENCE AND TECHNOLOGY 计算机科学与技术学院 SCHOOL OF COMPUTER SCIENCE AND TECHNOLOGY 计算机科学与技术学院 卷积神经网络的感受野 q感受野的计算 - 可以采用从后往前逐层计算 - 第i层的感受野大小和第i-1层的卷积核大小和步长有关系，同时也与第 （i-…",
+      "SCHOOL OF COMPUTER SCIENCE AND TECHNOLOGY 计算机科学与技术学院 SCHOOL OF COMPUTER SCIENCE AND TECHNOLOGY 计算机科学与技术学院 卷积神经网络的基本结构 q典型的卷积神经网络一般由卷积层（含激活函数）、池化 层、全连接层和输出层构成，其中卷积层与池化层一般交 替排列，之后接一…",
+      "SCHOOL OF COMPUTER SCIENCE AND TECHNOLOGY 计算机科学与技术学院 SCHOOL OF COMPUTER SCIENCE AND TECHNOLOGY 计算机科学与技术学院 卷积神经网络的基本结构 q卷积层 (Convolution) q激活函数(Active Function) q池化层 (Pooling) q全连接…"
+    ]
+  },
+  {
+    "kp_id": "kp-典型卷积网络与视觉应用",
+    "name": "典型卷积网络与视觉应用",
+    "description": "了解 LeNet、AlexNet、VGG、ResNet 等典型 CNN 架构及其在视觉任务中的应用。",
+    "weeks": [
+      "Week4",
+      "Week5"
+    ],
+    "keywords": [
+      "LeNet",
+      "AlexNet",
+      "VGG",
+      "ResNet",
+      "残差连接",
+      "图像分类",
+      "目标检测",
+      "视觉应用"
+    ],
+    "scenario": "比较不同 CNN 架构的设计动机与性能演进时，需要复习典型网络与应用章节",
+    "source_files": [
+      "Week1/0.1-DeepLearning-Introduction-C1.pdf",
+      "Week13/0.8-DeepLearning-tools-C13_modified.pdf",
+      "Week4/0.3-DeepLearing-CNN-C4.pdf"
+    ],
+    "support_chunk_ids": [
+      "chunk-a5a3770376df",
+      "chunk-8816d040b3f7",
+      "chunk-043836696421",
+      "chunk-dddf22d4760f",
+      "chunk-2ed6b6faa441",
+      "chunk-74a5728ca573",
+      "chunk-4e325cdb9d14",
+      "chunk-37ce263683f5",
+      "chunk-fe567a73762c",
+      "chunk-bc0d1a1a5849"
+    ],
+    "support_preview": [
+      "SCHOOL OF COMPUTER SCIENCE AND TECHNOLOGY 计算机科学与技术学院 SCHOOL OF COMPUTER SCIENCE AND TECHNOLOGY 计算机科学与技术学院 经典卷积神经网络 q LeNet-5 q AlexNet q VGGNet q GoolgeNet q ResNet 4",
+      "PaddlePaddle的模型库 q PaddlePaddle 为开发者提供了丰富的模型库，从而可以快 速构建强大的应用，满足各种场景的需求 89 计算机视觉 图像分类是根据图像的语义信息对不同类别图像进行区 分，是计算机视觉中重要的基础问题。主要应用于安防领 域的人脸识别和智能视频分析等，交通领域的交通场景识 别等。PaddlePaddle提供了常用模…",
+      "SCHOOL OF COMPUTER SCIENCE AND TECHNOLOGY 计算机科学与技术学院 SCHOOL OF COMPUTER SCIENCE AND TECHNOLOGY 计算机科学与技术学院 VGG-16 q VGGNet由牛津大学和DeepMind公司提出 - Visual Geometry Group：https://www.rob…"
+    ]
+  },
+  {
+    "kp_id": "kp-循环神经网络与lstm",
+    "name": "循环神经网络与LSTM",
+    "description": "理解 RNN 的序列建模能力、梯度传播问题，以及 LSTM 等改进结构的作用。",
+    "weeks": [
+      "Week6"
+    ],
+    "keywords": [
+      "循环神经网络",
+      "RNN",
+      "Recurrent Neural Network",
+      "LSTM",
+      "长短时记忆",
+      "门控机制",
+      "序列建模",
+      "梯度消失"
+    ],
+    "scenario": "面对文本、语音或时间序列任务，需要建模前后依赖关系时，应优先复习 RNN 与 LSTM",
+    "source_files": [
+      "Week6/0.4-DeepLearing-RNN-C6.pdf"
+    ],
+    "support_chunk_ids": [
+      "chunk-16a748441b83",
+      "chunk-f6597a6d1e8b",
+      "chunk-71a3f6157b13",
+      "chunk-3b940711a2ed",
+      "chunk-e44622f6de86",
+      "chunk-48b0691987b2",
+      "chunk-6cafdeb37561",
+      "chunk-336830748bd2",
+      "chunk-fbbdba781dd7",
+      "chunk-366dd86a504f"
+    ],
+    "support_preview": [
+      "2 提纲 Ø 循环神经网络的起源与发展 Ø 循环神经网络 Ø 长短时记忆网络 Ø 循环神经网络的变种 Ø 循环神经网络的典型应用 Ø 中英文术语对照",
+      "SCHOOL OF COMPUTER SCIENCE AND TECHNOLOGY 计算机科学与技术学院 SCHOOL OF COMPUTER SCIENCE AND TECHNOLOGY 计算机科学与技术学院 中英文术语对照 q 循环神经网络：Recurrent Neural Networks，RNN q 基于时间的反向传播算法：Backward Pro…",
+      "SCHOOL OF COMPUTER SCIENCE AND TECHNOLOGY 计算机科学与技术学院 SCHOOL OF COMPUTER SCIENCE AND TECHNOLOGY 计算机科学与技术学院 循环神经网络的起源与发展 4 Hopﬁeld networks 1982 1986 Jordan Network Elman Network 19…"
+    ]
+  },
+  {
+    "kp_id": "kp-注意力机制与transformer",
+    "name": "注意力机制与Transformer",
+    "description": "掌握注意力机制、自注意力、位置编码及 Transformer 编码器-解码器结构。",
+    "weeks": [
+      "Week7"
+    ],
+    "keywords": [
+      "注意力机制",
+      "attention",
+      "self-attention",
+      "Transformer",
+      "位置编码",
+      "query",
+      "key",
+      "value"
+    ],
+    "scenario": "当需要并行建模长距离依赖并提升序列信息交互效率时，Transformer 是重点知识点",
+    "source_files": [
+      "Week7/0.5-Transformer-C7.pdf",
+      "Week8/0.5-Transformer-C8.pdf"
+    ],
+    "support_chunk_ids": [
+      "chunk-706e33d667f6",
+      "chunk-a32997dbedbf",
+      "chunk-151c17866020",
+      "chunk-6fe39c62bb3e",
+      "chunk-062c9dd9f471",
+      "chunk-1fe98fcc23d1",
+      "chunk-f8f23a273ddc",
+      "chunk-ab8bba41e29c",
+      "chunk-4ecf892b84af",
+      "chunk-19803e7ecbad"
+    ],
+    "support_preview": [
+      "注意力机制的抽象理解 q Attention函数的本质可以被描述为一个查询（query）到一 系列（键key-值value）对的映射 14 Attention(Query, Source) = =1 (Query, Keyi)*Valuei Vaswani A, Shazeer N, Parmar N, et al. Attention is all yo…",
+      "注意力机制的抽象理解 q 注意力系数计算 15 Ø 阶段1：根据Query和Key计算两者 的相似性或者相关性 Ø 阶段2：对第一阶段的原始分值进 行归一化处理 Ø 阶段3：根据权重系数对Value进行 加权求和，得到Attention Value - Source(K, V） - Target(Q）",
+      "注意力机制的抽象理解 q Self-attention layer in \"Attention is all you need\" 22 c11=k1Tq1/ a1 a2 a3 a4 q1 k1 v1 q2 k2 v2 q3 k3 v3 q4 k4 v4 Wq Wk Wv c12 c13 c14 Softmax 11 12 13 14 × b1 b2 b3…"
+    ]
+  },
+  {
+    "kp_id": "kp-gpt-bert与视觉transformer",
+    "name": "GPT、BERT与视觉Transformer",
+    "description": "理解基于 Transformer 的预训练模型家族，包括 GPT、BERT 与 Swin Transformer 的差异。",
+    "weeks": [
+      "Week8"
+    ],
+    "keywords": [
+      "GPT",
+      "BERT",
+      "Swin Transformer",
+      "预训练模型",
+      "语言模型",
+      "双向编码",
+      "自回归",
+      "视觉Transformer"
+    ],
+    "scenario": "比较不同 Transformer 模型在训练目标、结构设计和应用任务上的差异时，需要复习该部分",
+    "source_files": [
+      "Week7/0.5-Transformer-C7.pdf",
+      "Week8/0.5-Transformer-C8.pdf"
+    ],
+    "support_chunk_ids": [
+      "chunk-2a86b0d793c4",
+      "chunk-6225475e2f32",
+      "chunk-9a72ede80f34",
+      "chunk-ea077b2c73af",
+      "chunk-28bd506135a8",
+      "chunk-ef3f842671d4",
+      "chunk-ed7094993f47",
+      "chunk-ab8bba41e29c",
+      "chunk-a547cafd5d06",
+      "chunk-c8f3d269e00e"
+    ],
+    "support_preview": [
+      "GPT预训练模型 q 生成式预训练Transformer（Generative Pre-trained Transformer，GPT）是一种基于Transformer的自回归语 言模型，即模型能够迭代地根据已经生成的单词来逐个预 测后面的单词。 q GPT由OpenAI公司在2018年提出，广泛应用于自然语言处 理中的各项任务，如文本分类、文本蕴含、文本…",
+      "与其他大规模预训练模型的区别 q BERT的设计者认为单向的语言模型只能关注之前的单词， 在对于诸如问答类任务时，效果可能不是最优的，能够从 两个方向合并上下文信息是必要的。 q BERT使用P(wi│w1,…,wi-1,wi+1,…,wn)为目标函数进行训练， 它是一个双向编码模型。 70",
+      "2 提纲 Ø 注意力机制 Ø Transformer Ø GPT系列模型 Ø BERT系列模型 Ø Swin Transformer Ø Transformer的主要应用 Ø 中英文术语对照"
+    ]
+  },
+  {
+    "kp_id": "kp-gan-对抗生成",
+    "name": "GAN 对抗生成",
+    "description": "理解生成器与判别器的对抗训练机制，以及条件 GAN、结构优化等扩展思路。",
+    "weeks": [
+      "Week8",
+      "Week9"
+    ],
+    "keywords": [
+      "GAN",
+      "Generative Adversarial Networks",
+      "生成器",
+      "判别器",
+      "对抗训练",
+      "条件GAN",
+      "模式崩塌"
+    ],
+    "scenario": "当任务目标是生成逼真的新样本，并通过博弈方式提升生成质量时，应重点复习 GAN",
+    "source_files": [
+      "Week8/0.6-GAN-C8.pdf",
+      "Week9/0.6-GAN-C9.pdf"
+    ],
+    "support_chunk_ids": [
+      "chunk-cd702f7f493d",
+      "chunk-577a351724a9",
+      "chunk-f3bfbda0c946",
+      "chunk-1216d86b4fa8",
+      "chunk-d4e1c1ad989e",
+      "chunk-db689788fea6",
+      "chunk-4c350f296d9e",
+      "chunk-48a78bfd26d1",
+      "chunk-399e5f5b3ac4",
+      "chunk-27bcd9ae3429"
+    ],
+    "support_preview": [
+      "SCHOOL OF COMPUTER SCIENCE AND TECHNOLOGY 计算机科学与技术学院 SCHOOL OF COMPUTER SCIENCE AND TECHNOLOGY 计算机科学与技术学院 Pix2Pix q x是输入的边缘图，y是真实图像，G为生成器，G(x)是生成 的图像，D为判别器。生成器学习如何欺骗判别器以生成更 逼真的图像，…",
+      "SCHOOL OF COMPUTER SCIENCE AND TECHNOLOGY 计算机科学与技术学院 SCHOOL OF COMPUTER SCIENCE AND TECHNOLOGY 计算机科学与技术学院 GAN产生背景 q 生成对抗网络：Generative Adversarial Networks，GAN q 零和博弈：Zero-sum Game…",
+      "SCHOOL OF COMPUTER SCIENCE AND TECHNOLOGY 计算机科学与技术学院 SCHOOL OF COMPUTER SCIENCE AND TECHNOLOGY 计算机科学与技术学院 GAN模型 q GAN主要由两部分组成：生成器（Generator）和判别器 （Discriminator），它们分别扮演了两个不同的角色。 -…"
+    ]
+  },
+  {
+    "kp_id": "kp-深度生成模型与扩散模型",
+    "name": "深度生成模型与扩散模型",
+    "description": "掌握自编码器、RBM、DBN、Hopfield 网络及扩散模型等深度生成模型的核心思想。",
+    "weeks": [
+      "Week10"
+    ],
+    "keywords": [
+      "深度生成模型",
+      "Hopfield",
+      "玻尔兹曼机",
+      "受限玻尔兹曼机",
+      "RBM",
+      "深度信念网络",
+      "自编码器",
+      "扩散模型"
+    ],
+    "scenario": "当需要从概率建模角度理解样本生成过程时，应优先复习深度生成模型章节",
+    "source_files": [
+      "Week10/0.6-GenerativeModel-C10.pdf"
+    ],
+    "support_chunk_ids": [
+      "chunk-6d1639c19592",
+      "chunk-851e6876c1d0",
+      "chunk-8807169bc718",
+      "chunk-12275d2f218b",
+      "chunk-0e0f14f73b7a",
+      "chunk-11175d87739e",
+      "chunk-84ee6590cd3b",
+      "chunk-9f1f9cd03004",
+      "chunk-abd1162fb64e",
+      "chunk-0bf960485ab0"
+    ],
+    "support_preview": [
+      "2 提纲 Ø 深度生成模型概述 Ø Hopfield神经网络 Ø 玻尔兹曼机和受限玻尔兹曼机 Ø 深度玻尔兹曼机和深度信念网络 Ø 自编码器及其变种 Ø 扩散模型",
+      "SCHOOL OF COMPUTER SCIENCE AND TECHNOLOGY 计算机科学与技术学院 SCHOOL OF COMPUTER SCIENCE AND TECHNOLOGY 计算机科学与技术学院 深度生成模型概述 q Sigmoid信念网（Sigmoid Belief Networks，SBN）就是一 种生成式多层神经网络，并采用变分近似的…",
+      "SCHOOL OF COMPUTER SCIENCE AND TECHNOLOGY 计算机科学与技术学院 SCHOOL OF COMPUTER SCIENCE AND TECHNOLOGY 计算机科学与技术学院 深度生成模型概述 q将深度生成模型分为三类：一类是以受限玻尔兹曼机为基 础的深度玻尔兹曼机与深度信念网络，一类是以自编码器 为基础的深度自编码器，…"
+    ]
+  },
+  {
+    "kp_id": "kp-正则化与优化",
+    "name": "正则化与优化",
+    "description": "理解参数范数正则化、数据增强、提前终止、Dropout、归一化及优化方法对泛化的影响。",
+    "weeks": [
+      "Week11",
+      "Week12"
+    ],
+    "keywords": [
+      "正则化",
+      "optimization",
+      "参数范数",
+      "数据增强",
+      "Bagging",
+      "提前终止",
+      "Dropout",
+      "归一化",
+      "优化"
+    ],
+    "scenario": "训练模型出现过拟合、收敛缓慢或不稳定时，需要从正则化与优化角度分析问题",
+    "source_files": [
+      "Week11/0.7-RegularizationOptimization-C11.pdf",
+      "Week12/0.7-RegularizationOptimization-C12.pdf"
+    ],
+    "support_chunk_ids": [
+      "chunk-6e9bd270b356",
+      "chunk-ed12471d004a",
+      "chunk-b0e7d3f02f54",
+      "chunk-e556c314ce59",
+      "chunk-31ce50cc612b",
+      "chunk-578d09bff85e",
+      "chunk-d46aa3296a0d",
+      "chunk-31821b08c25c",
+      "chunk-7450dc7f3bc5",
+      "chunk-3f91b000eaec"
+    ],
+    "support_preview": [
+      "2 提纲 Ø 深度学习模型的训练与测试 Ø 参数范数正则化 Ø 数据增强 Ø Bagging Ø 提前终止 Ø Dropout和DropConnect Ø 归一化与优化",
+      "2 提纲 Ø 深度学习模型的训练与测试 Ø 参数范数正则化 Ø 数据增强 Ø Bagging Ø 提前终止 Ø Dropout和DropConnect Ø 归一化与优化",
+      "SCHOOL OF COMPUTER SCIENCE AND TECHNOLOGY 计算机科学与技术学院 SCHOOL OF COMPUTER SCIENCE AND TECHNOLOGY 计算机科学与技术学院 正则化与优化 q机器学习中的正则化方法可分为两类：狭义正则化和广义 正则化。 - 狭义正则化是指通过在模型的损失函数中增加惩罚项来增强模型泛 化能…"
+    ]
+  },
+  {
+    "kp_id": "kp-深度学习开发平台",
+    "name": "深度学习开发平台",
+    "description": "熟悉 TensorFlow、PyTorch、Keras、PaddlePaddle 等开发平台及其特点。",
+    "weeks": [
+      "Week13"
+    ],
+    "keywords": [
+      "深度学习平台",
+      "development platform",
+      "TensorFlow",
+      "PyTorch",
+      "Keras",
+      "PaddlePaddle",
+      "Huawei",
+      "框架"
+    ],
+    "scenario": "比较不同深度学习框架的开发体验、生态和部署方式时，应复习开发平台部分",
+    "source_files": [
+      "Week13/0.8-DeepLearning-tools-C13_modified.pdf"
+    ],
+    "support_chunk_ids": [
+      "chunk-46498bbd6855",
+      "chunk-de0e1dccc216",
+      "chunk-84ab9f6da872",
+      "chunk-0e99b8d1af99",
+      "chunk-2e0f393221eb",
+      "chunk-142b38fbbdb0",
+      "chunk-f6b444f2af3a",
+      "chunk-a9d043523379",
+      "chunk-fa6f08aac102",
+      "chunk-8054959f46d2"
+    ],
+    "support_preview": [
+      "2 提纲 Ø 深度学习平台概览 Ø Tensorflow Ø PyTorch Ø Keras Ø PaddlePaddle Ø Huawei平台",
+      "TensorFlow2.0 q为应对PyTorch等框架的挑战，Google于2019年正式发布 TensorFlow 2.0 q移除Session - 所有的计算都会直接执行，结果会即时返回，无需显式创建会话或 图。变量和操作会在执行时立即进行计算。 q API精简 - 引入了更加简化和高层的API，特别是tf.keras，提供了简洁的模型 构建和训练接…",
+      "SCHOOL OF COMPUTER SCIENCE AND TECHNOLOGY 计算机科学与技术学院 SCHOOL OF COMPUTER SCIENCE AND TECHNOLOGY 计算机科学与技术学院 深度学习框架对照 5 深度学习框架 发布时间 发布者 支持语言 主要特点 官方网址 TensorFlow 2015年 Google Python/…"
+    ]
+  },
+  {
+    "kp_id": "kp-决策树-随机森林与-deepforest",
+    "name": "决策树、随机森林与 DeepForest",
+    "description": "理解树模型、随机森林与 DeepForest 的集成学习思想及其与深度网络的关系。",
+    "weeks": [
+      "Week11"
+    ],
+    "keywords": [
+      "决策树",
+      "Decision Tree",
+      "随机森林",
+      "Random Forest",
+      "集成学习",
+      "DeepForest",
+      "森林"
+    ],
+    "scenario": "当需要对比树模型集成方法与深度神经网络时，应重点复习 DeepForest 补充材料",
+    "source_files": [
+      "Week11/DeepForest-C11.pdf"
+    ],
+    "support_chunk_ids": [
+      "chunk-dbe25372a50e",
+      "chunk-3f2101f58261",
+      "chunk-0eb8e434bb1a",
+      "chunk-d33b8206b871",
+      "chunk-1c14c27038dd",
+      "chunk-5e0e875b4567",
+      "chunk-5a49716f4e37",
+      "chunk-a42d84e57230",
+      "chunk-92fd8353fe07",
+      "chunk-7dc9915e79bd"
+    ],
+    "support_preview": [
+      "随机森林 q 随机森林（Random Forest） - 用随机的方式建立起一棵棵决策树，然后由这些决策树组成一个森 林，其中每棵决策树之间没有关联，当有一个新的样本输入时，就 让每棵树独立的做出判断，按照多数原则决定该样本的分类结果。 这是一种典型的集成学习思想 - 集成学习(Ensemble learning) - 组合多个弱监督模型以期得到一个更好更…",
+      "随机森林 q 随机森林的生成方法 - 从样本集中通过重采样的方式产生n个样本 - 假设样本特征数目为a，对n个样本选择a中的k个特征，用建立决策 树的方式获得最佳分割点(例如ID3算法) - 重复m次，产生m棵决策树 q 预测步骤：多数投票机制来进行预测 - 向建立好的随机森林中输入一个新样本 - 随机森林中的每棵决策树都独立的做出判断 - 将得到票数最多…",
+      "决策树 q 决策树(Decision Tree) - 是一种基于树结构进行决策的机器学习方法，这恰是人类面临决策 时一种很自然的处理机制 q 决策树生成过程： - 寻找最适合分割的特征 - 根据纯度判断方法，寻找最优的分割点，基于这一特征把数据分割 成纯度更高的两部分数据 - 判断是否达到要求，若未达到，重复步骤一继续分割，直到达到要 求停止为止 - 剪枝…"
+    ]
+  }
+]

@@ -1,0 +1,558 @@
+﻿{% extends "base.html" %}
+{% block title %}学习报告{% endblock %}
+{% block extra_css %}
+.report-note{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:7px 12px;
+    border-radius:999px;
+    background:var(--brand-soft);
+    border:1px solid rgba(16,163,127,.18);
+    color:var(--brand-strong);
+    font-size:12px;
+    font-weight:700;
+}
+.report-status-banner{
+    margin-top:14px;
+    padding:12px 14px;
+    border-radius:16px;
+    border:1px solid rgba(16,163,127,.18);
+    background:#f0fdf4;
+    color:#166534;
+    line-height:1.65;
+}
+.report-status-banner.pending{
+    background:#f8fafc;
+    border-color:#dbe4ee;
+    color:#334155;
+}
+.report-status-banner.failed{
+    background:#fff7ed;
+    border-color:#fed7aa;
+    color:#9a3412;
+}
+.stats{
+    display:grid;
+    grid-template-columns:repeat(5,minmax(0,1fr));
+    gap:14px;
+    align-items:stretch;
+}
+.stat{
+    padding:18px;
+    border-radius:22px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    display:grid;
+    align-content:space-between;
+    gap:14px;
+    min-height:152px;
+}
+.stat b{
+    display:block;
+    margin-top:10px;
+    font-size:28px;
+    line-height:1;
+    letter-spacing:-.03em;
+}
+.stat small{
+    display:block;
+    margin-top:8px;
+    color:var(--muted);
+    line-height:1.5;
+}
+.report-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+    align-items:stretch;
+}
+.panel{
+    padding:20px 22px;
+    border-radius:24px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    box-shadow:var(--shadow);
+    height:100%;
+}
+.stack{
+    display:grid;
+    gap:14px;
+    align-content:start;
+}
+.topic-card{
+    padding:16px 17px;
+    border-radius:18px;
+    background:var(--surface-2);
+    border:1px solid var(--line);
+    display:grid;
+    gap:8px;
+}
+.topic-card h4,
+.review-card h4,
+.follow-card h4{
+    margin:0;
+    font-size:17px;
+    line-height:1.45;
+}
+.meta-row{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+.pill-soft{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:7px 10px;
+    border-radius:999px;
+    background:#f3f4f6;
+    border:1px solid var(--line);
+    font-size:12px;
+    font-weight:700;
+    color:#374151;
+}
+.topic-card p,
+.review-card p,
+.follow-card p{
+    margin:0;
+    color:#374151;
+    line-height:1.65;
+}
+.recommend-list{
+    display:grid;
+    gap:12px;
+}
+.recommend-item{
+    padding:15px 16px;
+    border-radius:18px;
+    background:var(--surface-2);
+    border:1px solid var(--line);
+    line-height:1.7;
+    color:#374151;
+}
+.breakdown{
+    display:grid;
+    gap:12px;
+}
+.break-row{
+    padding:16px 17px;
+    border-radius:20px;
+    background:var(--surface-2);
+    border:1px solid var(--line);
+    display:grid;
+    gap:10px;
+}
+.break-head{
+    display:flex;
+    justify-content:space-between;
+    gap:14px;
+    align-items:flex-start;
+}
+.break-head h4{
+    margin:0;
+    font-size:18px;
+    line-height:1.35;
+}
+.progress-track{
+    height:10px;
+    border-radius:999px;
+    background:#e5e7eb;
+    overflow:hidden;
+}
+.progress-track span{
+    display:block;
+    height:100%;
+    background:linear-gradient(90deg,var(--brand),#34d399);
+}
+.progress-track.warn span{
+    background:linear-gradient(90deg,#f59e0b,#fb7185);
+}
+.review-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:18px;
+    align-items:stretch;
+}
+.review-card,
+.activity-card,
+.follow-card{
+    padding:18px;
+    border-radius:22px;
+    background:var(--surface-2);
+    border:1px solid var(--line);
+    display:grid;
+    gap:10px;
+    align-content:start;
+}
+.list{
+    display:grid;
+    gap:12px;
+}
+.small{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.6;
+}
+.ref-list{
+    display:grid;
+    gap:8px;
+}
+.ref-link{
+    display:block;
+    padding:10px 12px;
+    border-radius:14px;
+    border:1px solid var(--line);
+    background:#fff;
+    color:var(--ink);
+    text-decoration:none;
+    line-height:1.55;
+}
+.ref-link:hover{
+    border-color:rgba(16,163,127,.45);
+}
+.follow-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:16px;
+    align-items:stretch;
+}
+.options{
+    display:grid;
+    gap:9px;
+}
+.option{
+    padding:11px 12px;
+    border-radius:15px;
+    background:#fff;
+    border:1px solid var(--line);
+    line-height:1.6;
+}
+.follow-card figure{
+    margin:0;
+    padding:14px;
+    border-radius:18px;
+    background:#fff;
+    border:1px solid var(--line);
+}
+.follow-card img{
+    display:block;
+    width:100%;
+    max-height:250px;
+    object-fit:contain;
+    border-radius:12px;
+    background:#f3f4f6;
+}
+.follow-card figcaption{
+    margin-top:10px;
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.5;
+    text-align:center;
+}
+.answer-toggle{
+    border-radius:16px;
+    border:1px solid var(--line);
+    background:#fff;
+    overflow:hidden;
+}
+.answer-toggle summary{
+    list-style:none;
+    cursor:pointer;
+    padding:12px 14px;
+    font-weight:700;
+}
+.answer-toggle summary::-webkit-details-marker{display:none}
+.answer-body{
+    padding:0 14px 14px;
+    display:grid;
+    gap:10px;
+}
+.empty{
+    padding:18px;
+    border-radius:18px;
+    background:var(--surface-2);
+    border:1px dashed var(--line-strong);
+    color:#374151;
+    line-height:1.7;
+}
+@media(max-width:1180px){
+    .stats{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .follow-grid{grid-template-columns:1fr}
+}
+@media(max-width:960px){
+    .report-grid,.review-grid{grid-template-columns:1fr}
+    .stats{grid-template-columns:1fr 1fr}
+}
+@media(max-width:720px){
+    .stats{grid-template-columns:1fr}
+}
+{% endblock %}
+{% block content %}
+<section class="hero">
+    <div class="report-note">课程学习概况</div>
+    <h2 style="margin-top:14px;">学习报告</h2>
+    <p>本报告会根据你的练习记录，总结当前强项、薄弱项，并推荐下一步应重点补强的问题。</p>
+    {% if report_status and report_status.pending %}
+    <div class="report-status-banner pending">
+        学习报告正在根据你的最新练习记录更新。页面当前展示的是最近一次可用结果；如果你刚刚提交了新题目，稍后刷新即可看到更新后的分析。
+    </div>
+    {% elif report_status and report_status.state == 'failed' %}
+    <div class="report-status-banner failed">
+        学习报告的最新分析暂时未能生成。你仍然可以查看上一版结果，稍后刷新页面即可再次尝试。
+    </div>
+    {% endif %}
+</section>
+
+<section class="card">
+    <div class="stats">
+        <div class="stat">
+            <span class="muted">学生账号</span>
+            <b>{{ profile.account_name or profile.display_name }}</b>
+            <small>当前登录学生</small>
+        </div>
+        <div class="stat">
+            <span class="muted">已作答</span>
+            <b>{{ summary.answered }}</b>
+            <small>按最近一次作答统计的课程练习记录</small>
+        </div>
+        <div class="stat">
+            <span class="muted">正确率</span>
+            <b>{{ summary.accuracy }}%</b>
+            <small>答对 {{ summary.correct }} | 答错 {{ summary.wrong }}</small>
+        </div>
+        <div class="stat">
+            <span class="muted">掌握较稳的知识点</span>
+            <b>{{ summary.mastered_points }}</b>
+            <small>当前表现较稳定的知识点数量</small>
+        </div>
+        <div class="stat">
+            <span class="muted">近期趋势</span>
+            <b style="font-size:24px;">{{ summary.trend_label }}</b>
+            <small>{{ summary.trend_note }}</small>
+        </div>
+    </div>
+</section>
+
+<div class="report-grid">
+    <section class="panel">
+        <h3 class="section-title">优势概览</h3>
+        <div class="stack">
+            {% if strength_points %}
+                {% for row in strength_points %}
+                <article class="topic-card">
+                    <h4>{{ row.kp_name }}</h4>
+                    <div class="meta-row">
+                        <span class="pill-soft">正确率 {{ row.accuracy }}%</span>
+                        <span class="pill-soft">答对 {{ row.correct }}/{{ row.answered }}</span>
+                        {% for week in row.weeks %}
+                        <span class="pill-soft">{{ week }}</span>
+                        {% endfor %}
+                    </div>
+                    <p>{{ row.description }}</p>
+                </article>
+                {% endfor %}
+            {% else %}
+                <div class="empty">当前还没有形成明显优势项。完成更多练习后，这里会显示逐渐稳定的知识点。</div>
+            {% endif %}
+        </div>
+    </section>
+
+    <section class="panel">
+        <h3 class="section-title">优先回顾</h3>
+        <div class="stack">
+            {% if weak_points %}
+                {% for row in weak_points %}
+                <article class="topic-card">
+                    <h4>{{ row.kp_name }}</h4>
+                    <div class="meta-row">
+                        <span class="pill-soft">正确率 {{ row.accuracy }}%</span>
+                        <span class="pill-soft">错题 {{ row.wrong }}</span>
+                        <span class="pill-soft">已作答 {{ row.answered }}</span>
+                    </div>
+                    {% if row.latest_mistake_question %}
+                    <p><strong>最近问题：</strong> {{ row.latest_mistake_question }}</p>
+                    {% endif %}
+                    {% if row.latest_mistake_explanation %}
+                    <p>{{ row.latest_mistake_explanation }}</p>
+                    {% endif %}
+                    {% if row.review_refs %}
+                    <div class="ref-list">
+                        {% for ref in row.review_refs[:2] %}
+                        <a class="ref-link" href="{{ ref.material_url }}" target="_blank" rel="noreferrer">
+                            {{ ref.display_source }} | {{ ref.location }} | {{ ref.section }}
+                        </a>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </article>
+                {% endfor %}
+            {% else %}
+                <div class="empty">当前没有特别突出的薄弱项，建议继续练习以维持已掌握知识点的稳定度。</div>
+            {% endif %}
+        </div>
+    </section>
+</div>
+
+<section class="card">
+    <h3 class="section-title">学习建议</h3>
+    <div class="recommend-list">
+        {% for item in recommendations %}
+        <div class="recommend-item">{{ item }}</div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="card">
+    <div style="display:flex;justify-content:space-between;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:14px;">
+        <div>
+            <h3 class="section-title" style="margin-bottom:4px;">知识点拆解</h3>
+            <div class="muted">你可以据此判断哪些知识点需要完整回顾，哪些只需要少量热身练习。</div>
+        </div>
+        <div class="meta-row">
+            <span class="pill-soft">已覆盖 {{ summary.explored_points }} 个知识点</span>
+            <span class="pill-soft">最近正确率 {{ summary.recent_accuracy }}%</span>
+        </div>
+    </div>
+    <div class="breakdown">
+        {% for row in kp_stats %}
+        <article class="break-row">
+            <div class="break-head">
+                <div>
+                    <h4>{{ row.kp_name }}</h4>
+                    <div class="small">{{ row.description }}</div>
+                </div>
+                <div class="meta-row">
+                    {% for week in row.weeks %}
+                    <span class="pill-soft">{{ week }}</span>
+                    {% endfor %}
+                    <span class="pill-soft">已作答 {{ row.answered }}</span>
+                </div>
+            </div>
+            <div class="progress-track {% if row.wrong > 0 %}warn{% endif %}">
+                <span style="width: {{ row.accuracy if row.answered else 0 }}%;"></span>
+            </div>
+            <div class="meta-row">
+                <span class="pill-soft">答对 {{ row.correct }}</span>
+                <span class="pill-soft">答错 {{ row.wrong }}</span>
+                <span class="pill-soft">正确率 {{ row.accuracy }}%</span>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+
+<div class="review-grid">
+    <section class="panel">
+        <h3 class="section-title">优先修正的题目</h3>
+        <div class="list">
+            {% if review_queue %}
+                {% for item in review_queue %}
+                <article class="review-card">
+                    <h4>{{ item.kp_name }}</h4>
+                    <p>{{ item.question }}</p>
+                    {% if item.explanation %}
+                    <p>{{ item.explanation }}</p>
+                    {% endif %}
+                    <div class="small">最近出现时间：{{ item.timestamp_display }}</div>
+                    {% if item.review_refs %}
+                    <div class="ref-list">
+                        {% for ref in item.review_refs[:2] %}
+                        <a class="ref-link" href="{{ ref.material_url }}" target="_blank" rel="noreferrer">
+                            {{ ref.display_source }} | {{ ref.location }} | {{ ref.section }}
+                        </a>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </article>
+                {% endfor %}
+            {% else %}
+                <div class="empty">当前记录中没有待优先修正的问题。</div>
+            {% endif %}
+        </div>
+    </section>
+
+    <section class="panel">
+        <h3 class="section-title">最近练习记录</h3>
+        <div class="list">
+            {% if recent_attempts %}
+                {% for item in recent_attempts %}
+                <article class="activity-card">
+                    <h4>{{ item.kp_name }}</h4>
+                    <p>{{ item.question }}</p>
+                    <div class="meta-row">
+                        <span class="pill-soft">{{ '回答正确' if item.is_correct else '需要回顾' }}</span>
+                        <span class="pill-soft">{{ item.timestamp_display }}</span>
+                    </div>
+                </article>
+                {% endfor %}
+            {% else %}
+                <div class="empty">你还没有完成任何练习题。</div>
+            {% endif %}
+        </div>
+    </section>
+</div>
+
+<section class="card">
+    <div style="display:flex;justify-content:space-between;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:14px;">
+        <div>
+            <h3 class="section-title" style="margin-bottom:4px;">推荐下一步练习</h3>
+            <div class="muted">这些题目会优先针对你最近最不稳定的知识点进行补强。</div>
+        </div>
+        <a class="btn alt" href="{{ url_for('quiz_dashboard_deep_learning') }}">打开练习</a>
+    </div>
+
+    {% if follow_up_questions %}
+    <div class="follow-grid">
+        {% for item in follow_up_questions %}
+        <article class="follow-card">
+            <div class="meta-row">
+                <span class="pill-soft">{{ item.kp_name }}</span>
+            </div>
+            <p>{{ item.reason }}</p>
+            <h4>{{ item.question }}</h4>
+
+            {% if item.image_path %}
+            <figure>
+                <img src="{{ url_for('deep_learning_artifact_asset', filename=item.image_path) }}" alt="{{ item.image_caption or item.question }}">
+                {% if item.image_caption %}
+                <figcaption>{{ item.image_caption }}</figcaption>
+                {% endif %}
+            </figure>
+            {% endif %}
+
+            <div class="options">
+                {% for option in item.parsed_options %}
+                <div class="option"><strong>{{ option.label }}.</strong> {{ option.text }}</div>
+                {% endfor %}
+            </div>
+
+            <details class="answer-toggle">
+                <summary>展开答案与讲义来源</summary>
+                <div class="answer-body">
+                    <div><strong>建议答案：</strong> {{ item.reference_answer }}</div>
+                    {% if item.explanation %}
+                    <div>{{ item.explanation }}</div>
+                    {% endif %}
+                    {% if item.review_refs %}
+                    <div class="ref-list">
+                        {% for ref in item.review_refs[:2] %}
+                        <a class="ref-link" href="{{ ref.material_url }}" target="_blank" rel="noreferrer">
+                            {{ ref.display_source }} | {{ ref.location }} | {{ ref.section }}
+                        </a>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+            </details>
+
+            <a class="btn" href="{{ url_for('quiz_practice_deep_learning', kp_id=item.kp_id) }}">进入该知识点练习</a>
+        </article>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty">当前还没有足够的数据来生成更多推荐题。随着练习记录增加，这里会自动补充新的题目。</div>
+    {% endif %}
+</section>
+{% endblock %}
+

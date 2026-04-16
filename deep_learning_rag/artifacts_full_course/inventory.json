@@ -1,0 +1,39 @@
+{
+  "course_root": "deep_learning\\deep_learning_materials",
+  "file_count": 16,
+  "raw_document_count": 1201,
+  "weeks": {
+    "Week1": 57,
+    "Week10": 100,
+    "Week11": 94,
+    "Week12": 81,
+    "Week13": 132,
+    "Week2": 82,
+    "Week3": 91,
+    "Week4": 104,
+    "Week5": 61,
+    "Week6": 114,
+    "Week7": 97,
+    "Week8": 130,
+    "Week9": 58
+  },
+  "sources": {
+    "0.1-DeepLearning-Introduction-C1.pdf": 57,
+    "0.2-DeepLearning-Foundations-C2.pdf": 82,
+    "0.2-DeepLearning-Foundations-C3.pdf": 32,
+    "0.3-DeepLearing-CNN-C3.pdf": 59,
+    "0.3-DeepLearing-CNN-C4.pdf": 104,
+    "0.3-DeepLearing-CNN-C5.pdf": 61,
+    "0.4-DeepLearing-RNN-C6.pdf": 114,
+    "0.5-Transformer-C7.pdf": 97,
+    "0.5-Transformer-C8.pdf": 54,
+    "0.6-GAN-C8.pdf": 76,
+    "0.6-GAN-C9.pdf": 58,
+    "0.6-GenerativeModel-C10.pdf": 100,
+    "0.7-RegularizationOptimization-C11.pdf": 68,
+    "0.7-RegularizationOptimization-C12.pdf": 81,
+    "0.8-DeepLearning-tools-C13_modified.pdf": 132,
+    "DeepForest-C11.pdf": 26
+  },
+  "issues": []
+}

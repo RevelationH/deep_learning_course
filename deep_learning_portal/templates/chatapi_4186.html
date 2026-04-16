@@ -1,0 +1,1624 @@
+﻿{% extends "base.html" %}
+{% block title %}课程问答{% endblock %}
+{% block extra_css %}
+.workspace{
+    padding:14px 16px 12px;
+}
+.page{
+    height:calc(100vh - 26px);
+    max-width:none;
+    gap:12px;
+    grid-template-rows:auto minmax(0,1fr);
+}
+.hero{
+    padding:18px 22px;
+    border-radius:22px;
+}
+.hero h2{
+    font-size:26px;
+}
+.hero p{
+    margin-top:8px;
+    font-size:14px;
+}
+.sidebar-chat-history{
+    display:grid;
+    gap:10px;
+    flex:1 1 220px;
+    min-height:220px;
+    overflow:hidden;
+}
+.history-shell{
+    display:grid;
+    grid-template-rows:auto minmax(0,1fr);
+    gap:10px;
+    min-height:0;
+    height:100%;
+}
+.history-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+}
+.history-inline-btn{
+    appearance:none;
+    border:1px solid var(--line);
+    background:var(--surface-2);
+    color:var(--muted);
+    border-radius:999px;
+    padding:7px 11px;
+    font-size:12px;
+    font-weight:700;
+    cursor:pointer;
+    transition:background-color .18s ease,border-color .18s ease,color .18s ease;
+}
+.history-inline-btn:hover{
+    background:#fff;
+    border-color:var(--line-strong);
+    color:var(--ink);
+}
+.history-list{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    min-height:0;
+    height:100%;
+    overflow-y:auto;
+    overflow-x:visible;
+    padding-right:4px;
+    padding-bottom:10px;
+}
+.history-row{
+    width:100%;
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    min-height:48px;
+    padding:0 10px 0 12px;
+    border-radius:18px;
+    border:1px solid var(--line);
+    background:var(--surface);
+    cursor:pointer;
+    overflow:visible;
+    flex:0 0 auto;
+    transition:background-color .18s ease,border-color .18s ease,transform .18s ease,box-shadow .18s ease;
+}
+.history-row:hover{
+    background:#fff;
+    border-color:var(--line-strong);
+    transform:translateY(-1px);
+    box-shadow:0 10px 22px rgba(15,23,42,.08);
+    z-index:30;
+}
+.history-row.active{
+    background:var(--brand-soft);
+    border-color:rgba(16,163,127,.28);
+}
+.history-row-main{
+    flex:1 1 auto;
+    min-width:0;
+    text-align:left;
+    padding:13px 0 12px;
+}
+.history-row-title{
+    font-size:13px;
+    font-weight:700;
+    line-height:1.25;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.history-hover-card{
+    position:absolute;
+    left:12px;
+    right:44px;
+    top:calc(100% + 6px);
+    z-index:25;
+    display:grid;
+    gap:6px;
+    padding:10px 12px;
+    border-radius:14px;
+    border:1px solid var(--line);
+    background:#fff;
+    box-shadow:0 12px 28px rgba(15,23,42,.12);
+    opacity:0;
+    transform:translateY(-3px);
+    pointer-events:none;
+    transition:opacity .18s ease,transform .18s ease;
+}
+.history-row:hover .history-hover-card,
+.history-row:focus-within .history-hover-card{
+    opacity:1;
+    transform:translateY(0);
+}
+.history-hover-meta{
+    color:var(--muted);
+    font-size:11px;
+    line-height:1.35;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.history-hover-preview{
+    color:#4b5563;
+    font-size:12px;
+    line-height:1.45;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:3;
+    overflow:hidden;
+}
+.history-delete{
+    appearance:none;
+    width:28px;
+    height:28px;
+    border-radius:10px;
+    border:1px solid transparent;
+    background:transparent;
+    color:var(--muted);
+    cursor:pointer;
+    flex:0 0 auto;
+    opacity:0;
+    pointer-events:none;
+    transition:background-color .18s ease,color .18s ease,border-color .18s ease,opacity .18s ease;
+}
+.history-row:hover .history-delete{
+    opacity:1;
+    pointer-events:auto;
+}
+.history-delete:hover{
+    background:#fff;
+    color:#b91c1c;
+    border-color:#fecaca;
+}
+.history-empty{
+    padding:10px 2px;
+    color:var(--muted);
+    line-height:1.6;
+    font-size:12px;
+}
+.history-list::-webkit-scrollbar{
+    width:7px;
+}
+.history-list::-webkit-scrollbar-track{
+    background:transparent;
+}
+.history-list::-webkit-scrollbar-thumb{
+    background:#d1d5db;
+    border-radius:999px;
+}
+.chat-panel{
+    display:grid;
+    grid-template-rows:auto minmax(0,1fr) auto;
+    min-height:0;
+    height:100%;
+    border-radius:24px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    box-shadow:var(--shadow);
+    overflow:hidden;
+}
+.chat-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:16px;
+    padding:16px 18px;
+    border-bottom:1px solid var(--line);
+    background:var(--surface);
+}
+.chat-head h3{
+    margin:0;
+    font-size:18px;
+    letter-spacing:-.01em;
+}
+.chat-head p{
+    margin:6px 0 0 0;
+    color:var(--muted);
+    line-height:1.6;
+    font-size:14px;
+}
+.chat-head-actions{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+}
+.chat-status{
+    padding:7px 10px;
+    border-radius:999px;
+    background:var(--surface-2);
+    border:1px solid var(--line);
+    color:var(--muted);
+    font-size:12px;
+    font-weight:700;
+}
+.chat-log{
+    min-height:0;
+    overflow-y:auto;
+    padding:18px 18px 24px;
+    background:linear-gradient(180deg,#ffffff 0%,#fafafa 100%);
+}
+.msg{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    margin-bottom:18px;
+}
+.msg.me{
+    justify-content:flex-end;
+}
+.avatar{
+    width:34px;
+    height:34px;
+    border-radius:12px;
+    display:grid;
+    place-items:center;
+    flex:0 0 auto;
+    font-size:12px;
+    font-weight:800;
+    border:1px solid var(--line);
+}
+.msg.bot .avatar{
+    background:#eef2ff;
+    color:#1f2937;
+}
+.msg.me .avatar{
+    background:var(--brand);
+    color:#fff;
+    border-color:var(--brand);
+}
+.bubble-wrap{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:8px;
+    max-width:min(960px, 88%);
+}
+.msg.me .bubble-wrap{
+    align-items:flex-end;
+}
+.bubble{
+    width:100%;
+    padding:14px 16px;
+    border-radius:20px;
+    border:1px solid var(--line);
+    line-height:1.75;
+    white-space:pre-wrap;
+    word-break:break-word;
+}
+.msg.bot .bubble{
+    background:#ffffff;
+    border-color:#ececf1;
+    white-space:normal;
+}
+.msg.me .bubble{
+    background:#ffffff;
+    color:var(--ink);
+    border-color:#ececf1;
+}
+.bubble.plain-text{
+    white-space:pre-wrap;
+}
+.bubble.user-plain{
+    white-space:pre-wrap;
+}
+.bubble > *:first-child{
+    margin-top:0;
+}
+.bubble > *:last-child{
+    margin-bottom:0;
+}
+.bubble p{
+    margin:0 0 14px;
+}
+.bubble h1,
+.bubble h2,
+.bubble h3{
+    margin:2px 0 14px;
+    line-height:1.4;
+    font-weight:750;
+    letter-spacing:-0.01em;
+}
+.bubble h1{font-size:23px}
+.bubble h2{font-size:20px}
+.bubble h3{font-size:17px}
+.bubble ul,
+.bubble ol{
+    margin:0 0 14px 22px;
+    padding:0;
+}
+.bubble li{
+    margin:0 0 7px;
+}
+.bubble strong{
+    font-weight:700;
+}
+.bubble em{
+    font-style:italic;
+}
+.bubble blockquote{
+    margin:0 0 14px;
+    padding:4px 0 4px 14px;
+    border-left:3px solid #d1d5db;
+    color:#4b5563;
+    background:transparent;
+}
+.bubble a{
+    color:#2563eb;
+    text-decoration:none;
+    border-bottom:1px solid rgba(37,99,235,.2);
+}
+.bubble a:hover{
+    color:#1d4ed8;
+    border-bottom-color:rgba(37,99,235,.4);
+}
+.bubble code{
+    display:inline;
+    padding:2px 6px;
+    border-radius:7px;
+    background:#f4f4f5;
+    color:#111827;
+    border:1px solid #e4e4e7;
+    font-size:.95em;
+    font-family:"SFMono-Regular","Cascadia Code","Consolas","Liberation Mono",monospace;
+}
+.code-block{
+    margin:2px 0 14px;
+    border:1px solid #27272a;
+    border-radius:18px;
+    overflow:hidden;
+    background:#111111;
+    box-shadow:0 8px 24px rgba(15,23,42,.12);
+}
+.code-block-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+    padding:10px 14px;
+    background:#111111;
+    color:#d4d4d8;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.02em;
+    text-transform:none;
+}
+.code-block-lang{
+    min-width:0;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+.code-copy{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:84px;
+    padding:6px 10px;
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:10px;
+    background:#18181b;
+    color:#f4f4f5;
+    cursor:pointer;
+    font-size:11px;
+    font-weight:700;
+    line-height:1;
+    transition:background-color .16s ease, border-color .16s ease, color .16s ease;
+}
+.code-copy:hover{
+    background:#27272a;
+    border-color:rgba(255,255,255,.22);
+}
+.code-block pre{
+    margin:0;
+    padding:16px 18px;
+    overflow:auto;
+    background:#111111;
+    color:#f5f5f5;
+    white-space:pre;
+    line-height:1.65;
+    font-size:13.5px;
+}
+.code-block pre code{
+    display:block;
+    padding:0;
+    background:transparent;
+    border:none;
+    color:inherit;
+    border-radius:0;
+    font-size:inherit;
+}
+.bubble hr{
+    margin:18px 0;
+    border:none;
+    border-top:1px solid #e5e7eb;
+}
+.bubble table{
+    width:100%;
+    margin:2px 0 14px;
+    border-collapse:separate;
+    border-spacing:0;
+    overflow:hidden;
+    border:1px solid #e5e7eb;
+    border-radius:14px;
+    font-size:14px;
+}
+.bubble thead th{
+    background:#f9fafb;
+    font-weight:700;
+    color:#111827;
+}
+.bubble th,
+.bubble td{
+    padding:10px 12px;
+    text-align:left;
+    vertical-align:top;
+    border-bottom:1px solid #e5e7eb;
+}
+.bubble tr:last-child td{
+    border-bottom:none;
+}
+.course-source-line{
+    display:grid;
+    gap:8px;
+    margin:14px 0 0;
+    padding:12px 0 0;
+    border-radius:16px;
+    border:none;
+    border-top:1px solid #ececf1;
+    background:transparent;
+    color:#374151;
+    font-size:12.5px;
+    line-height:1.6;
+}
+.course-source-label{
+    display:inline-flex;
+    align-items:center;
+    width:max-content;
+    padding:0;
+    border-radius:0;
+    background:transparent;
+    color:#6b7280;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.02em;
+    text-transform:none;
+}
+.course-source-prefix{
+    color:#4b5563;
+}
+.course-source-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+.course-source-item{
+    margin:0;
+    padding:5px 10px;
+    border-radius:999px;
+    border:1px solid #e5e7eb;
+    background:#fafafa;
+    color:#374151;
+    font-weight:600;
+}
+.bubble.thinking-bubble{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:auto;
+    min-width:0;
+    padding:0 10px;
+    height:calc(1em * 1.72 + 28px);
+    min-height:calc(1em * 1.72 + 28px);
+    border-radius:12px;
+    line-height:1;
+    white-space:normal;
+}
+.bubble.typing{
+    position:relative;
+}
+.bubble.typing::after{
+    content:"";
+    display:inline-block;
+    width:2px;
+    height:1.15em;
+    margin-left:3px;
+    border-radius:999px;
+    background:currentColor;
+    vertical-align:-0.15em;
+    animation:caretBlink .9s steps(1) infinite;
+}
+.thinking-shell{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    height:100%;
+    min-width:0;
+    color:var(--muted);
+}
+.thinking-dots{
+    display:inline-flex;
+    gap:5px;
+    align-items:center;
+}
+.thinking-dots span{
+    width:6px;
+    height:6px;
+    border-radius:999px;
+    background:#9ca3af;
+    animation:thinkingPulse 1s ease-in-out infinite;
+}
+.thinking-dots span:nth-child(2){animation-delay:.16s}
+.thinking-dots span:nth-child(3){animation-delay:.32s}
+.msg-sources{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+}
+.source-pill{
+    display:inline-flex;
+    align-items:center;
+    padding:6px 11px;
+    border-radius:999px;
+    border:1px solid #d1d5db;
+    background:#ffffff;
+    color:#374151;
+    font-size:12px;
+    line-height:1.3;
+    text-decoration:none;
+    font-weight:600;
+}
+.source-pill:hover{
+    border-color:#9ca3af;
+    background:#f9fafb;
+}
+.input-wrap{
+    padding:14px 16px 16px;
+    border-top:1px solid var(--line);
+    background:var(--surface);
+}
+.composer{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    gap:12px;
+    align-items:end;
+}
+.composer textarea{
+    width:100%;
+    min-height:56px;
+    max-height:180px;
+    padding:14px 16px;
+    resize:none;
+    border-radius:18px;
+    border:1px solid var(--line-strong);
+    background:var(--surface-2);
+    color:var(--ink);
+    line-height:1.6;
+    outline:none;
+    overflow-y:auto;
+}
+.composer textarea:focus{
+    border-color:rgba(16,163,127,.55);
+    box-shadow:0 0 0 4px rgba(16,163,127,.08);
+}
+@media(max-width:1100px){
+    .page{
+        height:auto;
+        min-height:calc(100vh - 220px);
+    }
+}
+@media(max-width:760px){
+    .workspace{
+        padding:12px;
+    }
+    .page{
+        height:auto;
+        grid-template-rows:auto auto;
+    }
+    .chat-head{
+        flex-direction:column;
+    }
+    .composer{
+        grid-template-columns:1fr;
+    }
+    .bubble-wrap{
+        max-width:100%;
+    }
+}
+@keyframes thinkingPulse{
+    0%,80%,100%{transform:translateY(0);opacity:.28}
+    40%{transform:translateY(-3px);opacity:1}
+}
+@keyframes caretBlink{
+    0%,49%{opacity:1}
+    50%,100%{opacity:0}
+}
+{% endblock %}
+{% block sidebar_extra %}
+<section class="sidebar-card sidebar-chat-history">
+    <div class="history-shell">
+        <div class="history-head">
+            <h3 class="sidebar-title" style="margin:0;">最近对话</h3>
+            <button id="new-chat-btn" class="history-inline-btn" type="button">新建对话</button>
+        </div>
+        <div id="chat-history-list" class="history-list">
+            <div class="history-empty">你最近保存的课程对话会显示在这里。</div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+{% block content %}
+<section class="hero">
+    <h2>深度学习课程问答</h2>
+    <p>欢迎进入深度学习课程问答区。回答会优先结合课程讲义、知识点和练习内容生成。</p>
+</section>
+
+<section class="chat-panel">
+    <div class="chat-head">
+        <div>
+            <h3 id="chat-session-title">课程对话</h3>
+            <p id="chat-session-subtitle">你可以提问概念、模型结构、训练方法、代码实现思路，或指定某一页讲义继续追问。</p>
+        </div>
+        <div class="chat-head-actions">
+            <div id="chat-status" class="chat-status">草稿对话</div>
+        </div>
+    </div>
+
+    <div id="chat-log" class="chat-log"></div>
+
+    <div class="input-wrap">
+        <div class="composer">
+            <textarea id="chat-input" placeholder="请输入与深度学习课程相关的问题，例如模型原理、训练技巧、框架使用或代码实现。"></textarea>
+            <button id="send-btn" class="btn">发送</button>
+        </div>
+    </div>
+</section>
+{% endblock %}
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+<script>
+const historyState = [];
+let currentSessionId = '';
+let sessionListState = [];
+const userAvatarText = {{ ((course4186_profile.account_name or course4186_profile.display_name)[:2]|upper)|tojson }} || '我';
+const starterAssistantText = `欢迎来到深度学习课程学习平台。
+
+你可以直接提问，例如：
+- 什么是反向传播？
+- CNN 中为什么要用参数共享？
+- Transformer 和 RNN 有什么区别？
+- 给我一个用 PyTorch 搭建卷积层的示例。
+
+你最近保存的课程对话会出现在左侧历史列表中。`;
+
+function resizeComposer() {
+    const input = document.getElementById('chat-input');
+    if (!input) return;
+    input.style.height = 'auto';
+    input.style.height = `${Math.min(input.scrollHeight, 180)}px`;
+}
+
+function scrollChatToBottom() {
+    const log = document.getElementById('chat-log');
+    log.scrollTop = log.scrollHeight;
+}
+
+function relativeDateLabel(rawValue) {
+    if (!rawValue) return '刚刚';
+    const when = new Date(rawValue);
+    if (Number.isNaN(when.getTime())) return '已保存';
+    const now = new Date();
+    const diffMinutes = Math.round((now - when) / 60000);
+    if (diffMinutes < 1) return '刚刚';
+    if (diffMinutes < 60) return `${diffMinutes} 分钟前`;
+    const diffHours = Math.round(diffMinutes / 60);
+    if (diffHours < 24) return `${diffHours} 小时前`;
+    return when.toLocaleDateString('zh-CN', { month: 'numeric', day: 'numeric' });
+}
+
+function setChatHeader(title, subtitle, statusText) {
+    document.getElementById('chat-session-title').textContent = title;
+    document.getElementById('chat-session-subtitle').textContent = subtitle;
+    document.getElementById('chat-status').textContent = statusText;
+}
+
+function clearChatLog() {
+    document.getElementById('chat-log').innerHTML = '';
+}
+
+function normalizeMessageRole(role) {
+    const normalized = String(role || '').trim().toLowerCase();
+    return normalized === 'assistant' ? 'assistant' : 'user';
+}
+
+function createMessageRow(role) {
+    const resolvedRole = normalizeMessageRole(role);
+    const log = document.getElementById('chat-log');
+    const row = document.createElement('div');
+    row.className = `msg ${resolvedRole === 'user' ? 'me' : 'bot'}`;
+    row.innerHTML = `
+        ${resolvedRole === 'user' ? '' : '<div class="avatar">AI</div>'}
+        <div class="bubble-wrap">
+            <div class="bubble"></div>
+            <div class="msg-sources"></div>
+        </div>
+        ${resolvedRole === 'user' ? `<div class="avatar">${userAvatarText}</div>` : ''}
+    `;
+    log.appendChild(row);
+    scrollChatToBottom();
+    return row;
+}
+
+function appendMessage(role, text, citations = []) {
+    const resolvedRole = normalizeMessageRole(role);
+    const row = createMessageRow(resolvedRole);
+    renderBubbleContent(row.querySelector('.bubble'), resolvedRole, text, citations);
+    renderInlineSources(row, resolvedRole === 'assistant' ? citations : []);
+    return row;
+}
+
+function renderStarterConversation() {
+    clearChatLog();
+    appendMessage('assistant', starterAssistantText, []);
+    setChatHeader(
+        '课程对话',
+        '你可以提问概念、模型结构、训练方法、代码实现思路，或指定某一页讲义继续追问。',
+        '草稿对话'
+    );
+}
+
+function appendThinkingMessage() {
+    const row = createMessageRow('assistant');
+    const bubble = row.querySelector('.bubble');
+    bubble.classList.add('thinking-bubble');
+    row.querySelector('.msg-sources').remove();
+    bubble.innerHTML = `
+        <div class="thinking-shell" aria-live="polite" aria-label="正在生成回答">
+            <span class="thinking-dots" aria-hidden="true">
+                <span></span><span></span><span></span>
+            </span>
+        </div>
+    `;
+    return row;
+}
+
+function typeWriter(element, text, citations = []) {
+    return new Promise(resolve => {
+        const content = sanitizeAssistantTransportText(String(text || ''));
+        const step = content.length > 900 ? 5 : content.length > 480 ? 4 : content.length > 220 ? 3 : 2;
+        let index = 0;
+        element.textContent = '';
+        element.classList.add('typing', 'plain-text');
+
+        function pump() {
+            index = Math.min(content.length, index + step);
+            element.textContent = content.slice(0, index);
+            scrollChatToBottom();
+            if (index < content.length) {
+                setTimeout(pump, 14);
+                return;
+            }
+            element.classList.remove('typing');
+            element.classList.remove('plain-text');
+            renderBubbleContent(element, 'assistant', content, citations);
+            resolve();
+        }
+
+        pump();
+    });
+}
+
+function setComposerBusy(isBusy) {
+    const button = document.getElementById('send-btn');
+    const input = document.getElementById('chat-input');
+    button.disabled = isBusy;
+    input.disabled = isBusy;
+    button.textContent = '发送';
+}
+
+function renderInlineSources(row, citations) {
+    const box = row.querySelector('.msg-sources');
+    if (!box) return;
+    box.innerHTML = '';
+    (citations || []).slice(0, 4).forEach(item => {
+        const chip = document.createElement(item.material_url ? 'a' : 'div');
+        const location = formatChatSourceLocation(item.location || `片段 ${item.chunk_index}`);
+        const sourceName = formatChatSourceName(item.display_source || String(item.source || '课程讲义').split(/[/\\\\]/).pop());
+        chip.className = 'source-pill';
+        chip.textContent = location ? `${sourceName} - ${location}` : sourceName;
+        chip.title = `${sourceName}${location ? ` | ${location}` : ''}${item.section ? ` | ${item.section}` : ''}${item.snippet ? `\n${item.snippet}` : ''}`;
+        if (item.material_url) {
+            chip.href = item.material_url;
+            chip.target = '_blank';
+            chip.rel = 'noreferrer';
+        }
+        box.appendChild(chip);
+    });
+}
+
+function renderHistoryList() {
+    const container = document.getElementById('chat-history-list');
+    container.innerHTML = '';
+
+    if (!currentSessionId) {
+        const draft = document.createElement('div');
+        draft.className = 'history-row active';
+        draft.innerHTML = `
+            <div class="history-row-main">
+                <div class="history-row-title">新对话</div>
+            </div>
+            <div class="history-hover-card">
+                <div class="history-hover-meta">草稿对话</div>
+                <div class="history-hover-preview">开始一段新的课程对话。发送第一条消息后，系统会自动保存这段历史记录。</div>
+            </div>
+            <div></div>
+        `;
+        draft.addEventListener('click', startDraftConversation);
+        container.appendChild(draft);
+    }
+
+    if (!sessionListState.length) {
+        if (currentSessionId) return;
+        const empty = document.createElement('div');
+        empty.className = 'history-empty';
+        empty.textContent = '当前还没有保存的对话。发送第一条课程问题后，它会自动出现在这里。';
+        container.appendChild(empty);
+        return;
+    }
+
+    sessionListState.forEach(item => {
+        const row = document.createElement('div');
+        row.className = `history-row ${item.session_id === currentSessionId ? 'active' : ''}`;
+        row.innerHTML = `
+            <div class="history-row-main">
+                <div class="history-row-title">${escapeHtml(item.title || '新对话')}</div>
+            </div>
+            <div class="history-hover-card">
+                <div class="history-hover-meta">${relativeDateLabel(item.updated_at)} | ${item.message_count || 0} 条消息</div>
+                <div class="history-hover-preview">${escapeHtml(item.last_message_preview || '已保存的课程对话')}</div>
+            </div>
+            <button class="history-delete" type="button" title="删除对话" aria-label="删除对话">x</button>
+        `;
+        row.addEventListener('click', event => {
+            if (event.target.closest('.history-delete')) return;
+            openConversation(item.session_id).catch(error => {
+                console.error(error);
+                alert(error.message || '无法打开该对话。');
+            });
+        });
+        row.querySelector('.history-delete').addEventListener('click', async event => {
+            event.stopPropagation();
+            try {
+                await deleteConversation(item.session_id);
+            } catch (error) {
+                console.error(error);
+                alert(error.message || '无法删除该对话。');
+            }
+        });
+        container.appendChild(row);
+    });
+}
+
+function escapeHtml(text) {
+    return String(text || '')
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
+}
+
+function formatChatSourceName(value) {
+    let name = String(value || '').split(/[/\\\\]/).pop().trim();
+    if (!name) return '课程讲义';
+    name = name.replace(/\.[^.]+$/, '');
+    name = name.replace(/(?:\s*\(\d+\))+$/g, '');
+    name = name.replace(/_/g, ' ');
+    name = name.replace(/([A-Za-z])(\d)/g, '$1 $2');
+    name = name.replace(/(\d)([A-Za-z])/g, '$1 $2');
+    name = name.replace(/\s+/g, ' ').trim();
+    return name || '课程讲义';
+}
+
+function formatChatSourceLocation(value) {
+    const location = String(value || '').replace(/\s+/g, ' ').trim();
+    if (!location) return '';
+    return location
+        .replace(/^slide\s+(\d+)/i, '第 $1 页')
+        .replace(/^page\s+(\d+)/i, '第 $1 页')
+        .replace(/^section\s+(\d+)/i, '第 $1 节')
+        .replace(/^document\b/i, '整份讲义');
+}
+
+function formatChatSourceReference(sourceName, location) {
+    const prettyName = formatChatSourceName(sourceName);
+    const prettyLocation = formatChatSourceLocation(location);
+    return prettyLocation ? `${prettyName}, ${prettyLocation}` : prettyName;
+}
+
+function humanizeCourseReferences(text) {
+    return String(text || '')
+        .replace(/([A-Za-z][A-Za-z0-9 _-]*?)\.pdf\s*\(\s*(page|slide|section|document)\s*([0-9]+)\s*\)/gi, (_match, sourceName, unitType, unitIndex) => {
+            return formatChatSourceReference(`${sourceName}.pdf`, `${unitType} ${unitIndex}`);
+        })
+        .replace(/([A-Za-z][A-Za-z0-9 _-]*?)\.pdf\b/gi, (_match, sourceName) => formatChatSourceName(`${sourceName}.pdf`));
+}
+
+function normalizeListFormatting(text) {
+    const normalized = String(text ?? '').replace(/\r\n/g, '\n');
+    const lines = normalized.split('\n');
+    const out = [];
+
+    for (let i = 0; i < lines.length; i += 1) {
+        const line = lines[i];
+        const orderedMatch = line.match(/^(\s*)(\d+)\.\s*$/);
+        const unorderedMatch = line.match(/^(\s*)([-*+])\s*$/);
+
+        if (orderedMatch || unorderedMatch) {
+            const marker = orderedMatch ? `${orderedMatch[1]}${orderedMatch[2]}.` : `${unorderedMatch[1]}${unorderedMatch[2]}`;
+            let j = i + 1;
+            let nextContent = '';
+
+            while (j < lines.length) {
+                const candidate = lines[j];
+                if (!candidate.trim()) {
+                    j += 1;
+                    continue;
+                }
+                if (/^\s*\d+\.\s*$/.test(candidate) || /^\s*[-*+]\s*$/.test(candidate)) {
+                    break;
+                }
+                nextContent = candidate.trim();
+                j += 1;
+                break;
+            }
+
+            if (nextContent) {
+                out.push(`${marker} ${nextContent}`);
+                i = j - 1;
+                continue;
+            }
+        }
+
+        out.push(line);
+    }
+
+    return out.join('\n');
+}
+
+function normalizeLooseCodeBlocks(text) {
+    let normalized = String(text || '').replace(/\r\n/g, '\n');
+    const patterns = [
+        /``([a-zA-Z0-9_+-]+)\s+([\s\S]*?)\s`(?=\s*(?:This|That|These|The|Here|In this|In practice|Note|You can|To apply|Course source:|讲义来源：|这里|这段|例如|说明|注意|你可以|可以|在这个例子中|在实践中|$))/g,
+        /``\s*([\s\S]*?)\s`(?=\s*(?:This|That|These|The|Here|In this|In practice|Note|You can|To apply|Course source:|讲义来源：|这里|这段|例如|说明|注意|你可以|可以|在这个例子中|在实践中|$))/g,
+    ];
+
+    normalized = normalized.replace(patterns[0], (_match, language, code) => `\n\n\`\`\`${language}\n${String(code || '').trim()}\n\`\`\`\n\n`);
+    normalized = normalized.replace(patterns[1], (_match, code) => `\n\n\`\`\`\n${String(code || '').trim()}\n\`\`\`\n\n`);
+    return normalized;
+}
+
+function buildCourseSourceCardHtml(sourceText) {
+    const refs = humanizeCourseReferences(String(sourceText || '').replace(/^(?:Course source:|讲义来源：)\s*/i, '').trim())
+        .replace(/\.$/, '')
+        .replace(/。$/, '')
+        .split(/\s*;\s*/)
+        .map(item => item.trim())
+        .filter(Boolean);
+    const listHtml = refs.length
+        ? `<ul class="course-source-list">${refs.map(item => `<li class="course-source-item">${escapeHtml(item)}</li>`).join('')}</ul>`
+        : '';
+    return `
+        <div class="course-source-line">
+            <span class="course-source-label">讲义来源</span>
+            <div class="course-source-prefix">建议回看以下讲义位置：</div>
+            ${listHtml}
+        </div>
+    `;
+}
+
+function decodeJsonAnswerLiteral(value) {
+    try {
+        return JSON.parse(`"${String(value || '')}"`);
+    } catch (_error) {
+        return String(value || '')
+            .replace(/\\n/g, '\n')
+            .replace(/\\"/g, '"')
+            .replace(/\\\\/g, '\\');
+    }
+}
+
+function sanitizeAssistantTransportText(text) {
+    let candidate = String(text || '').trim();
+    if (!candidate) return '';
+
+    if (/^```json\b/i.test(candidate)) {
+        candidate = candidate.replace(/^```json\s*/i, '').replace(/\s*```$/, '').trim();
+    }
+
+    try {
+        const parsed = JSON.parse(candidate);
+        if (parsed && typeof parsed === 'object' && typeof parsed.answer === 'string') {
+            candidate = parsed.answer;
+        }
+    } catch (_error) {
+        const jsonish = candidate.match(/"answer"\s*:\s*"((?:\\.|[^"])*)"/is);
+        if (jsonish) {
+            candidate = decodeJsonAnswerLiteral(jsonish[1]);
+        }
+    }
+
+    candidate = candidate.replace(/(?:^|\n)\s*["']?used_sources["']?\s*:\s*\[[^\]]*\].*$/gim, '');
+    candidate = candidate.replace(/,\s*["']?used_sources["']?\s*:\s*\[[\s\S]*$/i, '');
+    candidate = candidate.replace(/@@COURSE_SOURCE_\d+@@/g, '');
+    candidate = candidate.replace(/^\s*\{\s*["']?answer["']?\s*:\s*/is, '');
+    candidate = candidate.replace(/\s*\}\s*$/is, '');
+    const cutPatterns = [
+        /\n```json\b[\s\S]*$/i,
+        /(?:\n|^)\s*\{\s*["']?answer["']?\s*:[\s\S]*$/i
+    ];
+    const cutPoints = [];
+    cutPatterns.forEach(pattern => {
+        const match = candidate.match(pattern);
+        if (!match || typeof match.index !== 'number') return;
+        const prefix = candidate.slice(0, match.index).trim();
+        if (prefix && /[A-Za-z0-9\u4e00-\u9fff]/.test(prefix)) {
+            cutPoints.push(match.index);
+        }
+    });
+    if (cutPoints.length) {
+        candidate = candidate.slice(0, Math.min(...cutPoints)).trimEnd();
+    }
+    candidate = candidate.trim().replace(/\n{3,}/g, '\n\n').trim();
+    candidate = candidate.replace(/^"(.*)"$/s, '$1').trim();
+    return candidate;
+}
+
+function extractCourseSourceBlocks(text, enabled = true) {
+    if (!enabled) {
+        return {
+            markdown: String(text || ''),
+            placeholders: [],
+        };
+    }
+    const segments = String(text || '').split(/\n{2,}/);
+    const placeholders = [];
+    const rebuilt = segments.map(segment => {
+        const trimmed = segment.trim();
+        if (!/^(?:Course source:|讲义来源：)/i.test(trimmed)) {
+            return segment;
+        }
+        const token = `@@COURSE_SOURCE_${placeholders.length}@@`;
+        placeholders.push(buildCourseSourceCardHtml(trimmed));
+        return token;
+    });
+    return {
+        markdown: rebuilt.join('\n\n'),
+        placeholders,
+    };
+}
+
+function upgradeRenderedMarkdown(html, placeholders) {
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = html;
+
+    wrapper.querySelectorAll('a').forEach(link => {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noreferrer');
+    });
+
+    const walker = document.createTreeWalker(wrapper, NodeFilter.SHOW_TEXT);
+    const textNodes = [];
+    while (walker.nextNode()) {
+        textNodes.push(walker.currentNode);
+    }
+    textNodes.forEach(node => {
+        if (!node.parentElement || node.parentElement.closest('pre, code')) return;
+        const text = node.textContent || '';
+        const matches = [...text.matchAll(/@@COURSE_SOURCE_(\d+)@@/g)];
+        if (!matches.length) return;
+
+        const fragment = document.createDocumentFragment();
+        let cursor = 0;
+        matches.forEach(match => {
+            const start = match.index ?? 0;
+            const end = start + match[0].length;
+            const before = text.slice(cursor, start);
+            if (before) {
+                fragment.appendChild(document.createTextNode(before));
+            }
+            const replacement = document.createElement('div');
+            replacement.innerHTML = placeholders[Number(match[1])] || '';
+            while (replacement.firstChild) {
+                fragment.appendChild(replacement.firstChild);
+            }
+            cursor = end;
+        });
+        const after = text.slice(cursor);
+        if (after) {
+            fragment.appendChild(document.createTextNode(after));
+        }
+        node.parentNode.replaceChild(fragment, node);
+    });
+
+    wrapper.querySelectorAll('pre > code').forEach(codeNode => {
+        const text = codeNode.textContent || '';
+        const matches = [...text.matchAll(/@@COURSE_SOURCE_(\d+)@@/g)];
+        if (!matches.length) return;
+
+        const seen = new Set();
+        codeNode.textContent = text.replace(/@@COURSE_SOURCE_\d+@@/g, '').replace(/\n{3,}/g, '\n\n').trimEnd();
+        const pre = codeNode.parentElement;
+        if (!pre) return;
+        const fragment = document.createDocumentFragment();
+        matches.forEach(match => {
+            const index = Number(match[1]);
+            if (seen.has(index)) return;
+            seen.add(index);
+            const replacement = document.createElement('div');
+            replacement.innerHTML = placeholders[index] || '';
+            while (replacement.firstChild) {
+                fragment.appendChild(replacement.firstChild);
+            }
+        });
+        pre.after(fragment);
+    });
+
+    wrapper.querySelectorAll('pre > code').forEach(codeNode => {
+        const pre = codeNode.parentElement;
+        if (!pre || pre.parentElement?.classList.contains('code-block')) return;
+
+        const langClass = Array.from(codeNode.classList).find(className => className.startsWith('language-')) || '';
+        const languageLabel = langClass ? langClass.replace(/^language-/, '') : '代码';
+        const block = document.createElement('div');
+        block.className = 'code-block';
+
+        const head = document.createElement('div');
+        head.className = 'code-block-head';
+
+        const lang = document.createElement('span');
+        lang.className = 'code-block-lang';
+        lang.textContent = languageLabel;
+
+        const button = document.createElement('button');
+        button.className = 'code-copy';
+        button.type = 'button';
+        button.textContent = '复制代码';
+
+        head.appendChild(lang);
+        head.appendChild(button);
+        block.appendChild(head);
+        block.appendChild(pre.cloneNode(true));
+        pre.replaceWith(block);
+    });
+
+    wrapper.innerHTML = wrapper.innerHTML.replace(/@@COURSE_SOURCE_\d+@@/g, '');
+
+    return wrapper.innerHTML;
+}
+
+function normalizeAssistantMathOperatorsForMarkdown(text) {
+    const candidate = String(text || '');
+    if (!candidate) return '';
+    const parts = candidate.split(/(```[\s\S]*?```|`[^`\n]+`)/g);
+    return parts.map(part => {
+        if (!part) return '';
+        if (part.startsWith('```') || /^`[^`\n]+`$/.test(part)) {
+            return part;
+        }
+        let segment = part.replace(/(?<=[0-9A-Za-z\)\]])\s*\*\s*(?=[0-9A-Za-z\(\[])/g, ' x ');
+        segment = segment.replace(/[ \t]{2,}/g, ' ');
+        return segment;
+    }).join('');
+}
+
+function normalizeCodeFenceBoundariesForMarkdown(text) {
+    let candidate = String(text || '').replace(/\r\n/g, '\n');
+    if (!candidate || !candidate.includes('```')) return candidate;
+    candidate = candidate.replace(/([^\n])(```[A-Za-z0-9_-]*\n)/g, '$1\n\n$2');
+    candidate = candidate.replace(/(```[A-Za-z0-9_-]*\n[\s\S]*?```)(?=[^\n])/g, '$1\n\n');
+    candidate = candidate.replace(/\n{3,}/g, '\n\n');
+    return candidate.trim();
+}
+
+function renderInlineMarkdown(text) {
+    return normalizeAssistantMathOperatorsForMarkdown(
+        humanizeCourseReferences(String(text || ''))
+    )
+        .split(/(`[^`\n]+`)/g)
+        .map(part => {
+            if (/^`[^`\n]+`$/.test(part)) {
+                return `<code>${escapeHtml(part.slice(1, -1))}</code>`;
+            }
+            let html = escapeHtml(part);
+            html = html.replace(
+                /\[([^\]]+)\]\(((?:https?:\/\/|\/|#)[^)]+)\)/g,
+                '<a href="$2" target="_blank" rel="noreferrer">$1</a>'
+            );
+            html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+            html = html.replace(/\*([^*\n]+)\*/g, '<em>$1</em>');
+            return html;
+        })
+        .join('');
+}
+
+function renderCodeBlock(code, language = '') {
+    const languageLabel = escapeHtml((language || '').trim() || '代码');
+    const normalizedCode = String(code || '').replace(/\n+$/, '');
+    return `
+        <div class="code-block">
+            <div class="code-block-head">
+                <span class="code-block-lang">${languageLabel}</span>
+                <button class="code-copy" type="button">复制代码</button>
+            </div>
+            <pre><code>${escapeHtml(normalizedCode)}</code></pre>
+        </div>
+    `;
+}
+
+function renderMarkdownTable(lines) {
+    const splitRow = line => line
+        .trim()
+        .replace(/^\|/, '')
+        .replace(/\|$/, '')
+        .split('|')
+        .map(cell => cell.trim());
+    const headerCells = splitRow(lines[0]);
+    const bodyRows = lines.slice(2).map(splitRow).filter(row => row.length);
+    const headerHtml = `<tr>${headerCells.map(cell => `<th>${renderInlineMarkdown(cell)}</th>`).join('')}</tr>`;
+    const bodyHtml = bodyRows
+        .map(row => `<tr>${headerCells.map((_, index) => `<td>${renderInlineMarkdown(row[index] || '')}</td>`).join('')}</tr>`)
+        .join('');
+    return `<table><thead>${headerHtml}</thead><tbody>${bodyHtml}</tbody></table>`;
+}
+
+function renderMarkdown(text, options = {}) {
+    if (!text) return '';
+    const allowLegacyCourseSource = options.allowLegacyCourseSource !== false;
+    const normalized = normalizeCodeFenceBoundariesForMarkdown(
+        normalizeLooseCodeBlocks(
+            normalizeListFormatting(
+                normalizeAssistantMathOperatorsForMarkdown(
+                    humanizeCourseReferences(sanitizeAssistantTransportText(String(text || '')))
+                )
+            )
+        )
+    );
+    const extracted = extractCourseSourceBlocks(normalized, allowLegacyCourseSource);
+    const rawHtml = window.marked
+        ? window.marked.parse(extracted.markdown, { gfm: true, breaks: true })
+        : `<p>${escapeHtml(extracted.markdown).replace(/\n/g, '<br>')}</p>`;
+    const safeHtml = window.DOMPurify
+        ? window.DOMPurify.sanitize(rawHtml)
+        : rawHtml;
+    return upgradeRenderedMarkdown(safeHtml, extracted.placeholders);
+}
+
+function renderBubbleContent(element, role, text, citations = []) {
+    const resolvedRole = normalizeMessageRole(role);
+    const content = resolvedRole === 'assistant'
+        ? sanitizeAssistantTransportText(String(text || ''))
+        : String(text || '');
+    element.classList.remove('user-plain', 'assistant-markdown');
+    if (resolvedRole === 'assistant') {
+        element.classList.add('assistant-markdown');
+        element.innerHTML = renderMarkdown(content, {
+            allowLegacyCourseSource: !(citations || []).length
+        });
+        return;
+    }
+    element.classList.add('plain-text', 'user-plain');
+    element.replaceChildren(document.createTextNode(content));
+}
+
+async function parseApiJsonResponse(response) {
+    const rawText = await response.text();
+    const contentType = String(response.headers.get('content-type') || '').toLowerCase();
+    const trimmed = String(rawText || '').trim();
+
+    if (contentType.includes('application/json')) {
+        try {
+            return JSON.parse(rawText || '{}');
+        } catch (_error) {
+            throw new Error('服务器返回了无效的 JSON 数据。');
+        }
+    }
+
+    try {
+        return JSON.parse(rawText || '{}');
+    } catch (_error) {
+        // Fall through to richer HTML/text diagnostics below.
+    }
+
+    if (trimmed.startsWith('<')) {
+        const looksLikeLogin = /login_deep_learning|登录|注册/i.test(response.url || '') || /<form[\s\S]*password|继续登录/i.test(trimmed);
+        if (looksLikeLogin) {
+            throw new Error('当前登录状态已失效，请重新登录。');
+        }
+        throw new Error('服务器返回了 HTML 错误页，而不是 JSON 数据。');
+    }
+
+    if (!response.ok) {
+        throw new Error(trimmed || `请求失败，状态码 ${response.status}。`);
+    }
+
+    throw new Error('服务器没有返回 JSON 数据。');
+}
+
+async function refreshSessions() {
+    const response = await fetch('{{ url_for("api_chat_sessions_deep_learning") }}');
+    const payload = await parseApiJsonResponse(response);
+    if (!payload.ok) throw new Error(payload.error || '无法加载对话历史。');
+    sessionListState = payload.sessions || [];
+    renderHistoryList();
+}
+
+function syncHistoryStateFromMessages(messages) {
+    historyState.length = 0;
+    (messages || []).forEach(item => {
+        if (item.role && item.content) {
+            historyState.push({
+                role: item.role,
+                content: item.role === 'assistant'
+                    ? sanitizeAssistantTransportText(item.content)
+                    : item.content
+            });
+        }
+    });
+}
+
+function renderConversationMessages(messages, sessionData) {
+    clearChatLog();
+    if (!(messages || []).length) {
+        renderStarterConversation();
+        return;
+    }
+    (messages || []).forEach(item => {
+        appendMessage(item.role, item.content, item.citations || []);
+    });
+    setChatHeader(
+        sessionData.title || '课程对话',
+        '当前显示的是你已保存的课程对话历史。',
+        '已自动保存'
+    );
+}
+
+async function openConversation(sessionId) {
+    if (!sessionId) {
+        startDraftConversation();
+        return;
+    }
+    const response = await fetch(`{{ url_for("api_chat_sessions_deep_learning") }}/${encodeURIComponent(sessionId)}`);
+    const payload = await parseApiJsonResponse(response);
+    if (!payload.ok) throw new Error(payload.error || '无法打开该对话。');
+    currentSessionId = sessionId;
+    syncHistoryStateFromMessages(payload.messages || []);
+    renderConversationMessages(payload.messages || [], payload.session || {});
+    renderHistoryList();
+}
+
+function startDraftConversation() {
+    currentSessionId = '';
+    historyState.length = 0;
+    renderStarterConversation();
+    renderHistoryList();
+    document.getElementById('chat-input').focus();
+}
+
+async function deleteConversation(sessionId) {
+    if (!sessionId) return;
+    if (!confirm('确认删除这段已保存的对话吗？')) return;
+    const response = await fetch(`{{ url_for("api_chat_sessions_deep_learning") }}/${encodeURIComponent(sessionId)}`, { method: 'DELETE' });
+    const payload = await parseApiJsonResponse(response);
+    if (!payload.ok) {
+        alert(payload.error || '无法删除该对话。');
+        return;
+    }
+    if (currentSessionId === sessionId) {
+        startDraftConversation();
+    }
+    await refreshSessions();
+}
+
+function sleep(ms) {
+    return new Promise(resolve => window.setTimeout(resolve, ms));
+}
+
+function formatWaitSeconds(seconds) {
+    const total = Math.max(Number(seconds || 0), 0);
+    if (!total) return '';
+    if (total < 60) return `预计 ${Math.round(total)} 秒`;
+    const minutes = Math.floor(total / 60);
+    const remainSeconds = Math.round(total % 60);
+    return remainSeconds > 0 ? `预计 ${minutes} 分 ${remainSeconds} 秒` : `预计 ${minutes} 分钟`;
+}
+
+function applyJobStatus(job) {
+    const statusNode = document.getElementById('chat-status');
+    if (!statusNode) return;
+    const queuePosition = Math.max(Number(job?.queue_position || 0), 0);
+    const estimatedWaitSeconds = Math.max(Number(job?.estimated_wait_seconds || 0), 0);
+    if (job?.status === 'queued') {
+        const parts = [];
+        if (queuePosition > 0) {
+            parts.push(`前方 ${queuePosition} 条`);
+        } else {
+            parts.push('排队中');
+        }
+        const waitLabel = formatWaitSeconds(estimatedWaitSeconds);
+        if (waitLabel) {
+            parts.push(waitLabel);
+        }
+        statusNode.textContent = parts.join(' · ');
+        return;
+    }
+    if (job?.status === 'running') {
+        statusNode.textContent = '正在生成回答';
+        return;
+    }
+    if (job?.status === 'completed') {
+        statusNode.textContent = '已自动保存';
+        return;
+    }
+    statusNode.textContent = '课程对话';
+}
+
+async function pollChatJob(jobId) {
+    const pollUrl = `{{ url_for("api_chat_deep_learning") }}/jobs/${encodeURIComponent(jobId)}`;
+    for (let attempt = 0; attempt < 180; attempt += 1) {
+        const response = await fetch(pollUrl);
+        const payload = await parseApiJsonResponse(response);
+        if (!payload.ok) {
+            throw new Error(payload.error || '无法读取当前回答状态。');
+        }
+        const job = payload.job || {};
+        if (job.status === 'completed') {
+            return job;
+        }
+        if (job.status === 'failed') {
+            throw new Error(job.error_message || '当前回答生成失败，请稍后再试。');
+        }
+        if (job.status === 'queued') {
+            applyJobStatus(job);
+            await sleep(1200);
+            continue;
+        }
+        applyJobStatus(job);
+        await sleep(900);
+    }
+    throw new Error('等待时间过长，请稍后刷新页面查看结果。');
+}
+
+async function handleCodeCopy(button) {
+    const block = button.closest('.code-block');
+    const codeNode = block ? block.querySelector('pre code') : null;
+    const codeText = codeNode ? codeNode.textContent || '' : '';
+    if (!codeText) return;
+    const originalLabel = button.textContent;
+    try {
+        await navigator.clipboard.writeText(codeText);
+        button.textContent = '已复制';
+    } catch (_error) {
+        button.textContent = '复制失败';
+    }
+    window.setTimeout(() => {
+        button.textContent = originalLabel;
+    }, 1400);
+}
+
+async function initializeChatPage() {
+    renderStarterConversation();
+    await refreshSessions();
+    if (sessionListState.length) {
+        await openConversation(sessionListState[0].session_id);
+    }
+}
+
+async function sendMessage() {
+    const input = document.getElementById('chat-input');
+    const message = (input.value || '').trim();
+    if (!message) return;
+
+    appendMessage('user', message);
+    historyState.push({ role: 'user', content: message });
+    input.value = '';
+    resizeComposer();
+    const thinkingRow = appendThinkingMessage();
+    setComposerBusy(true);
+
+    try {
+        const response = await fetch('{{ url_for("api_chat_deep_learning") }}', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                message,
+                session_id: currentSessionId
+            })
+        });
+        const payload = await parseApiJsonResponse(response);
+        let activeJob = null;
+        if (!payload.ok) {
+            if (response.status === 429 && payload.active_job && payload.active_job.job_id) {
+                activeJob = payload.active_job;
+            } else {
+                const retryAfterSeconds = Number(payload.retry_after_seconds || 0);
+                const retryLabel = retryAfterSeconds > 0 ? ` 建议 ${retryAfterSeconds} 秒后再试。` : '';
+                throw new Error((payload.error || '当前无法生成回答。') + retryLabel);
+            }
+        }
+        const acceptedJob = activeJob || payload.job;
+        if (!acceptedJob || !acceptedJob.job_id) {
+            throw new Error('服务器没有返回有效的聊天任务。');
+        }
+        if (payload.session && payload.session.session_id) {
+            currentSessionId = payload.session.session_id;
+            setChatHeader(
+                payload.session.title || '课程对话',
+                '当前显示的是你已保存的课程对话历史。',
+                '排队中'
+            );
+            await refreshSessions();
+        }
+        applyJobStatus(acceptedJob);
+
+        const job = await pollChatJob(acceptedJob.job_id);
+        const result = job.result || {};
+        thinkingRow.remove();
+        const assistantRow = appendMessage('assistant', '', []);
+        const assistantBubble = assistantRow.querySelector('.bubble');
+        const assistantText = sanitizeAssistantTransportText(result.answer || '');
+        await typeWriter(assistantBubble, assistantText, result.citations || []);
+        renderInlineSources(assistantRow, result.citations || []);
+        historyState.push({ role: 'assistant', content: assistantText });
+
+        if (result.session && result.session.session_id) {
+            currentSessionId = result.session.session_id;
+            setChatHeader(
+                result.session.title || '课程对话',
+                '当前显示的是你已保存的课程对话历史。',
+                '已自动保存'
+            );
+            await refreshSessions();
+        }
+    } catch (error) {
+        thinkingRow.remove();
+        const assistantRow = appendMessage('assistant', '', []);
+        const assistantBubble = assistantRow.querySelector('.bubble');
+        await typeWriter(assistantBubble, `当前无法生成回答。${error.message}`);
+    } finally {
+        setComposerBusy(false);
+        input.focus();
+    }
+}
+
+document.getElementById('send-btn').addEventListener('click', sendMessage);
+document.getElementById('new-chat-btn').addEventListener('click', startDraftConversation);
+document.getElementById('chat-input').addEventListener('input', resizeComposer);
+document.getElementById('chat-input').addEventListener('keydown', event => {
+    if (event.key === 'Enter' && !event.shiftKey) {
+        event.preventDefault();
+        sendMessage();
+    }
+});
+document.addEventListener('click', event => {
+    const copyButton = event.target.closest('.code-copy');
+    if (!copyButton) return;
+    handleCodeCopy(copyButton);
+});
+
+resizeComposer();
+initializeChatPage().catch(error => {
+    console.error(error);
+    renderStarterConversation();
+});
+</script>
+{% endblock %}
+

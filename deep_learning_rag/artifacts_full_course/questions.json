@@ -1,0 +1,4040 @@
+[
+  {
+    "question_id": "kp-深度学习概述-q1",
+    "kp_id": "kp-深度学习概述",
+    "kp_name": "深度学习概述",
+    "question_type": "multiple_choice",
+    "question": "与传统机器学习相比，深度学习在特征处理上的核心特点是什么？",
+    "answer": "模型不仅学习分类边界，还从原始数据中自动学习有用的特征表示。",
+    "explanation": "深度学习的重要特点是表示学习，即模型不仅完成分类，还能从原始数据中自动学习分层特征。",
+    "options": [
+      "A. 模型只要记住训练样本即可，不需要形成可迁移的内部表示。",
+      "B. 网络一旦变深，就可以不再关心特征是如何形成的。",
+      "C. 先由人工把特征设计好，模型只负责最后的分类决策。",
+      "D. 模型不仅学习分类边界，还从原始数据中自动学习有用的特征表示。"
+    ],
+    "correct_option": "D",
+    "source_chunk_ids": [
+      "chunk-df52bc9faa58",
+      "chunk-680d9430a1dc",
+      "chunk-88663a2d2d2c",
+      "chunk-c46a61daad44",
+      "chunk-b64f91e95f2d",
+      "chunk-462cb3511041",
+      "chunk-6894a1a70ef7",
+      "chunk-0225b199eaa0"
+    ],
+    "source_files": [
+      "Week1/0.1-DeepLearning-Introduction-C1.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week1/0.1-DeepLearning-Introduction-C1.pdf",
+        "unit_type": "page",
+        "unit_index": 37,
+        "chunk_index": 1,
+        "section": "小结",
+        "excerpt": "小结 q人工智能旨在为机器赋予人的智能，并使得机器在某些方 面超越人类。 q机器学习是人工智能的重要组成部分，让机器具有像人一",
+        "location": "第 37 页"
+      },
+      {
+        "source": "Week1/0.1-DeepLearning-Introduction-C1.pdf",
+        "unit_type": "page",
+        "unit_index": 40,
+        "chunk_index": 1,
+        "section": "深度学习基本概念",
+        "excerpt": "深度学习基本概念 q深度学习定义 深度学习是指通过构建多层神经网络结构来学习数据的特征，以便 于进行数据分类、回归与生成。",
+        "location": "第 40 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-深度学习概述-q2",
+    "kp_id": "kp-深度学习概述",
+    "kp_name": "深度学习概述",
+    "question_type": "multiple_choice",
+    "question": "如果图像分类流程不再手工设计 HOG / SIFT，而是让模型直接从像素学到类别，应该优先考虑哪类方案？",
+    "answer": "端到端的深度学习方法。",
+    "explanation": "深度学习的重要优势之一，就是能够从原始数据中逐层学习任务相关表示。",
+    "options": [
+      "A. 把任务完全改写成人工规则驱动的专家系统。",
+      "B. 先固定手工特征，再配一个浅层分类器。",
+      "C. 端到端的深度学习方法。",
+      "D. 只保留随机特征映射，再交给最近邻或查表方法处理。"
+    ],
+    "correct_option": "C",
+    "source_chunk_ids": [
+      "chunk-df52bc9faa58",
+      "chunk-680d9430a1dc",
+      "chunk-88663a2d2d2c",
+      "chunk-c46a61daad44",
+      "chunk-b64f91e95f2d",
+      "chunk-462cb3511041",
+      "chunk-6894a1a70ef7",
+      "chunk-0225b199eaa0"
+    ],
+    "source_files": [
+      "Week1/0.1-DeepLearning-Introduction-C1.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week1/0.1-DeepLearning-Introduction-C1.pdf",
+        "unit_type": "page",
+        "unit_index": 22,
+        "chunk_index": 1,
+        "section": "深度学习的发展",
+        "excerpt": "深度学习的发展 q 2014年起：R-CNN、Fast R-CNN、Faster R-CNN等一系列 目标检测模型的提出，极大地提升了目标检测的精度，但 是它们一般要经过特征提取、分类/回归两个阶段才能完成，",
+        "location": "第 22 页"
+      },
+      {
+        "source": "Week1/0.1-DeepLearning-Introduction-C1.pdf",
+        "unit_type": "page",
+        "unit_index": 49,
+        "chunk_index": 1,
+        "section": "深度学习主要应用",
+        "excerpt": "深度学习主要应用 q图像处理领域主要应用 图像分类（物体识别）：整幅图像的分类或识别 物体检测：检测图像中物体的位置进而识别物体",
+        "location": "第 49 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-深度学习概述-q3",
+    "kp_id": "kp-深度学习概述",
+    "kp_name": "深度学习概述",
+    "question_type": "multiple_choice",
+    "question": "关于人工智能、机器学习和深度学习的层级关系，下列说法哪一项正确？",
+    "answer": "深度学习属于机器学习的重要分支，而机器学习又是人工智能的重要实现路径之一。",
+    "explanation": "课程通常用包含关系来说明三者层级：AI 范围最大，ML 是其中方法，DL 是 ML 的重要分支。",
+    "options": [
+      "A. 深度学习与人工智能彼此独立，只是研究者习惯放在一起讨论。",
+      "B. 人工智能是深度学习中的一个小分支。",
+      "C. 深度学习属于机器学习的重要分支，而机器学习又是人工智能的重要实现路径之一。",
+      "D. 机器学习和深度学习本质上是同一个概念，只是叫法不同。"
+    ],
+    "correct_option": "C",
+    "source_chunk_ids": [
+      "chunk-df52bc9faa58",
+      "chunk-680d9430a1dc",
+      "chunk-88663a2d2d2c",
+      "chunk-c46a61daad44",
+      "chunk-b64f91e95f2d",
+      "chunk-462cb3511041",
+      "chunk-6894a1a70ef7",
+      "chunk-0225b199eaa0"
+    ],
+    "source_files": [
+      "Week1/0.1-DeepLearning-Introduction-C1.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week1/0.1-DeepLearning-Introduction-C1.pdf",
+        "unit_type": "page",
+        "unit_index": 37,
+        "chunk_index": 1,
+        "section": "小结",
+        "excerpt": "小结 q人工智能旨在为机器赋予人的智能，并使得机器在某些方 面超越人类。 q机器学习是人工智能的重要组成部分，让机器具有像人一",
+        "location": "第 37 页"
+      },
+      {
+        "source": "Week1/0.1-DeepLearning-Introduction-C1.pdf",
+        "unit_type": "page",
+        "unit_index": 36,
+        "chunk_index": 1,
+        "section": "AI和机器学习参考书",
+        "excerpt": "AI和机器学习参考书 q人工智能参考书 史忠植. 高级人工智能. 北京: 科学出版社 [美]史蒂芬·卢奇（Stephen Lucci）, 丹尼·科佩克（Danny Kopec）",
+        "location": "第 36 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-深度学习概述-q4",
+    "kp_id": "kp-深度学习概述",
+    "kp_name": "深度学习概述",
+    "question_type": "multiple_choice",
+    "question": "关于\"把网络做深\"的含义，下列说法正确的是？",
+    "answer": "通过更多层非线性变换，逐步形成更抽象、更任务相关的表示。",
+    "explanation": "\"深\"首先强调的是层次化表示和多层非线性映射，而不是单纯参数量或训练时长。",
+    "options": [
+      "A. 通过更多层非线性变换，逐步形成更抽象、更任务相关的表示。",
+      "B. 保持网络结构不变，只把训练轮数拉长。",
+      "C. 只是把每一层做得更宽、参数更多，而层间功能不变。",
+      "D. 简单重复同一个线性映射，不再引入新的非线性表达。"
+    ],
+    "correct_option": "A",
+    "source_chunk_ids": [
+      "chunk-df52bc9faa58",
+      "chunk-680d9430a1dc",
+      "chunk-88663a2d2d2c",
+      "chunk-c46a61daad44",
+      "chunk-b64f91e95f2d",
+      "chunk-462cb3511041",
+      "chunk-6894a1a70ef7",
+      "chunk-0225b199eaa0"
+    ],
+    "source_files": [
+      "Week1/0.1-DeepLearning-Introduction-C1.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week1/0.1-DeepLearning-Introduction-C1.pdf",
+        "unit_type": "page",
+        "unit_index": 40,
+        "chunk_index": 1,
+        "section": "深度学习基本概念",
+        "excerpt": "深度学习基本概念 q深度学习定义 深度学习是指通过构建多层神经网络结构来学习数据的特征，以便 于进行数据分类、回归与生成。",
+        "location": "第 40 页"
+      },
+      {
+        "source": "Week1/0.1-DeepLearning-Introduction-C1.pdf",
+        "unit_type": "page",
+        "unit_index": 57,
+        "chunk_index": 1,
+        "section": "中英文术语对照",
+        "excerpt": "中英文术语对照 q卷积神经网络：Convolutional Neural Networks，CNN q深度信念网络：Deep Belief Networks，DBN q高斯混合模型：Gaussian Mixture Model，GMM",
+        "location": "第 57 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-深度学习概述-q5",
+    "kp_id": "kp-深度学习概述",
+    "kp_name": "深度学习概述",
+    "question_type": "multiple_choice",
+    "question": "根据图中 2012 年与后续竞赛节点的描述，哪项最能解释 AlexNet 为什么常被视为视觉深度学习竞赛时代的起点？",
+    "answer": "它先把 ImageNet 错误率由 26% 降到 15% 并夺冠，随后图中又列出 VGG、GoogleNet、ResNet、SENet 持续刷新结果，说明 AlexNet 打开了后续架构竞赛式迭代的起点。",
+    "explanation": "要答对这题，必须同时利用图中 AlexNet 的成绩和后续网络持续压低错误率这两层信息，而不是只记住单个年份。",
+    "options": [
+      "A. 它先把 ImageNet 错误率由 26% 降到 15% 并夺冠，随后图中又列出 VGG、GoogleNet、ResNet、SENet 持续刷新结果，说明 AlexNet 打开了后续架构竞赛式迭代的起点。",
+      "B. 它直接把错误率降到 2.25%，并在同一年结束了 ImageNet 比赛。",
+      "C. 它并未参与图像识别竞赛，图中真正的转折点其实是 2012 年的语音识别结果。",
+      "D. 它之后没有出现新的视觉网络，图中的发展脉络在 2012 年已经结束。"
+    ],
+    "correct_option": "A",
+    "source_chunk_ids": [
+      "chunk-df52bc9faa58",
+      "chunk-680d9430a1dc",
+      "chunk-88663a2d2d2c",
+      "chunk-c46a61daad44",
+      "chunk-b64f91e95f2d",
+      "chunk-462cb3511041",
+      "chunk-6894a1a70ef7",
+      "chunk-0225b199eaa0"
+    ],
+    "source_files": [
+      "Week1/0.1-DeepLearning-Introduction-C1.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week1/0.1-DeepLearning-Introduction-C1.pdf",
+        "unit_type": "page",
+        "unit_index": 21,
+        "chunk_index": 1,
+        "section": "深度学习的发展",
+        "excerpt": "深度学习的发展 q 2012年：Frank Seide等人使用深度神经网络进行语音识别， 相比于传统的GMM和HMM，识别错误率下降了20%-30%， 取得了突破性的进展。",
+        "location": "第 21 页"
+      },
+      {
+        "source": "Week1/0.1-DeepLearning-Introduction-C1.pdf",
+        "unit_type": "page",
+        "unit_index": 54,
+        "chunk_index": 1,
+        "section": "深度学习主要应用",
+        "excerpt": "深度学习主要应用 q综合应用（多模态） 图像描述：根据图像给出图像的描述句子 可视问答：根据图像或视频回答问题",
+        "location": "第 54 页"
+      }
+    ],
+    "image_path": "images/0-1-deeplearning-introduction-c1/page-021.png",
+    "image_caption": "0.1-DeepLearning-Introduction-C1.pdf 第 21 页"
+  },
+  {
+    "question_id": "kp-深度学习概述-q6",
+    "kp_id": "kp-深度学习概述",
+    "kp_name": "深度学习概述",
+    "question_type": "multiple_choice",
+    "question": "图中先并列给出 2012 年语音识别突破与 AlexNet，随后又连续列出 VGG、GoogleNet、ResNet、SENet。仅依据这一排布，后续发展主线更接近哪一项？",
+    "answer": "以 ImageNet 为牵引的视觉网络架构持续迭代，而不是停留在单一语音识别突破上。",
+    "explanation": "这题要看图中的事件排布方式，而不是只看某一句文字。前面是两个 2012 年突破，后面却几乎全是视觉竞赛网络，说明课程叙事的主轴已经转向视觉架构演进。",
+    "options": [
+      "A. 以 ImageNet 为牵引的视觉网络架构持续迭代，而不是停留在单一语音识别突破上。",
+      "B. 以 GMM/HMM 之类传统语音模型的小修小补为主线。",
+      "C. 以彻底脱离基准测试为主线，因此后续模型不再比较错误率。",
+      "D. 以 2018 年停办比赛为主线，因此后续网络发展不再重要。"
+    ],
+    "correct_option": "A",
+    "source_chunk_ids": [
+      "chunk-df52bc9faa58",
+      "chunk-680d9430a1dc",
+      "chunk-88663a2d2d2c",
+      "chunk-c46a61daad44",
+      "chunk-b64f91e95f2d",
+      "chunk-462cb3511041",
+      "chunk-6894a1a70ef7",
+      "chunk-0225b199eaa0"
+    ],
+    "source_files": [
+      "Week1/0.1-DeepLearning-Introduction-C1.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week1/0.1-DeepLearning-Introduction-C1.pdf",
+        "unit_type": "page",
+        "unit_index": 21,
+        "chunk_index": 1,
+        "section": "深度学习的发展",
+        "excerpt": "深度学习的发展 q 2012年：Frank Seide等人使用深度神经网络进行语音识别， 相比于传统的GMM和HMM，识别错误率下降了20%-30%， 取得了突破性的进展。",
+        "location": "第 21 页"
+      },
+      {
+        "source": "Week1/0.1-DeepLearning-Introduction-C1.pdf",
+        "unit_type": "page",
+        "unit_index": 52,
+        "chunk_index": 1,
+        "section": "深度学习主要应用",
+        "excerpt": "深度学习主要应用 q语音识别领域主要应用 语音识别：将语音识别为文字 声纹识别：识别是哪个人的声音",
+        "location": "第 52 页"
+      }
+    ],
+    "image_path": "images/0-1-deeplearning-introduction-c1/page-021.png",
+    "image_caption": "0.1-DeepLearning-Introduction-C1.pdf 第 21 页"
+  },
+  {
+    "question_id": "kp-数学基础与机器学习基础-q1",
+    "kp_id": "kp-数学基础与机器学习基础",
+    "kp_name": "数学基础与机器学习基础",
+    "question_type": "multiple_choice",
+    "question": "在监督学习里，如果没有损失函数，训练阶段最直接会缺少什么？",
+    "answer": "度量模型预测与真实标签之间的差距，并据此指导参数更新。",
+    "explanation": "损失函数是训练时被优化的目标，作用是把\"预测得有多差\"量化出来。",
+    "options": [
+      "A. 度量模型预测与真实标签之间的差距，并据此指导参数更新。",
+      "B. 缺少网络结构定义，因此模型无法前向计算。",
+      "C. 缺少可视化曲线，因此无法观察训练过程。",
+      "D. 缺少数据预处理步骤，因此样本不能输入模型。"
+    ],
+    "correct_option": "A",
+    "source_chunk_ids": [
+      "chunk-58184f9c941b",
+      "chunk-05b5dfa44ada",
+      "chunk-f2bff267299e",
+      "chunk-472c6e10fe92",
+      "chunk-d8b662b3aa10",
+      "chunk-59bce01df9a7",
+      "chunk-4606583df218",
+      "chunk-d3ab7d9fe29b"
+    ],
+    "source_files": [
+      "Week2/0.2-DeepLearning-Foundations-C2.pdf",
+      "Week3/0.2-DeepLearning-Foundations-C3.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week2/0.2-DeepLearning-Foundations-C2.pdf",
+        "unit_type": "page",
+        "unit_index": 33,
+        "chunk_index": 1,
+        "section": "信息论",
+        "excerpt": "信息论 q交叉熵(cross entropy) 一般用来求目标与预测值之间的差距，深度学习中经常用到的一类 损失函数度量，比如在对抗生成网络（ GAN ）中",
+        "location": "第 33 页"
+      },
+      {
+        "source": "Week2/0.2-DeepLearning-Foundations-C2.pdf",
+        "unit_type": "page",
+        "unit_index": 61,
+        "chunk_index": 1,
+        "section": "有监督学习-线性回归",
+        "excerpt": "有监督学习-线性回归 q线性回归 在样本属性和标签中找到一个线性关系的方法 根据训练数据找到一个线性模型，使得模型产生的预测值与样本标",
+        "location": "第 61 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-数学基础与机器学习基础-q2",
+    "kp_id": "kp-数学基础与机器学习基础",
+    "kp_name": "数学基础与机器学习基础",
+    "question_type": "multiple_choice",
+    "question": "用梯度下降最小化目标函数时，参数更新的基本方向是什么？",
+    "answer": "沿着损失函数梯度的反方向更新。",
+    "explanation": "梯度给出局部上升最快方向；要做最小化，就应沿其反方向移动。",
+    "options": [
+      "A. 沿着损失函数梯度的反方向更新。",
+      "B. 沿梯度正方向更新，因为梯度本身就是最优下降方向。",
+      "C. 每一步只更新偏置，不更新权重，也能完成最小化。",
+      "D. 先固定更新方向，再只靠学习率去调损失大小。"
+    ],
+    "correct_option": "A",
+    "source_chunk_ids": [
+      "chunk-58184f9c941b",
+      "chunk-05b5dfa44ada",
+      "chunk-f2bff267299e",
+      "chunk-472c6e10fe92",
+      "chunk-d8b662b3aa10",
+      "chunk-59bce01df9a7",
+      "chunk-4606583df218",
+      "chunk-d3ab7d9fe29b"
+    ],
+    "source_files": [
+      "Week2/0.2-DeepLearning-Foundations-C2.pdf",
+      "Week3/0.2-DeepLearning-Foundations-C3.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week2/0.2-DeepLearning-Foundations-C2.pdf",
+        "unit_type": "page",
+        "unit_index": 37,
+        "chunk_index": 1,
+        "section": "最优化估计方法",
+        "excerpt": "最优化估计方法 q最小二乘法(Least Squares Method) 数学定义：给定函数f(x;0,α1, α2,…, αm)及其在N个不同点x1,x2,…,xn 的测量值y1,y2,…,yn, 即f(x;0, α1, α2,…, αm)的值，那么确定未知参数",
+        "location": "第 37 页"
+      },
+      {
+        "source": "Week3/0.2-DeepLearning-Foundations-C3.pdf",
+        "unit_type": "page",
+        "unit_index": 31,
+        "chunk_index": 1,
+        "section": "中英文术语对照",
+        "excerpt": "中英文术语对照 q反向传播算法: (error) Back Propagation, BP q梯度下降：Gradient Descent q修正线性单元：Rectified Linear Unit, ReLU",
+        "location": "第 31 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-数学基础与机器学习基础-q3",
+    "kp_id": "kp-数学基础与机器学习基础",
+    "kp_name": "数学基础与机器学习基础",
+    "question_type": "multiple_choice",
+    "question": "如果训练误差和测试误差都偏大，这种现象更像下面哪一种？",
+    "answer": "模型表达能力不足或训练不充分，属于欠拟合倾向。",
+    "explanation": "训练和测试都差，通常先看欠拟合，而不是一开始就判断成过拟合。",
+    "options": [
+      "A. 说明模型已经接近最优，只需要继续保持当前设置。",
+      "B. 典型过拟合，因为测试集一差就说明模型太复杂。",
+      "C. 主要是测试集出了问题，模型本身通常没有明显缺陷。",
+      "D. 模型表达能力不足或训练不充分，属于欠拟合倾向。"
+    ],
+    "correct_option": "D",
+    "source_chunk_ids": [
+      "chunk-58184f9c941b",
+      "chunk-05b5dfa44ada",
+      "chunk-f2bff267299e",
+      "chunk-472c6e10fe92",
+      "chunk-d8b662b3aa10",
+      "chunk-59bce01df9a7",
+      "chunk-4606583df218",
+      "chunk-d3ab7d9fe29b"
+    ],
+    "source_files": [
+      "Week2/0.2-DeepLearning-Foundations-C2.pdf",
+      "Week3/0.2-DeepLearning-Foundations-C3.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week2/0.2-DeepLearning-Foundations-C2.pdf",
+        "unit_type": "page",
+        "unit_index": 52,
+        "chunk_index": 1,
+        "section": "误差分析",
+        "excerpt": "误差分析 q模型训练的状态 欠拟合、合适和过拟合的模型 训练集和测试集误",
+        "location": "第 52 页"
+      },
+      {
+        "source": "Week2/0.2-DeepLearning-Foundations-C2.pdf",
+        "unit_type": "page",
+        "unit_index": 51,
+        "chunk_index": 1,
+        "section": "误差分析",
+        "excerpt": "误差分析 q欠拟合 是指模型还没有很好地训练出数据的一般规律，模型拟合程度不高 的现象",
+        "location": "第 51 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-数学基础与机器学习基础-q4",
+    "kp_id": "kp-数学基础与机器学习基础",
+    "kp_name": "数学基础与机器学习基础",
+    "question_type": "multiple_choice",
+    "question": "在监督学习中，标签之所以重要，核心原因是什么？",
+    "answer": "为模型提供明确的学习目标，使误差能够被计算并反向用于更新参数。",
+    "explanation": "没有标签，监督学习就无法形成\"预测值和目标值之间的误差\"这一核心信号。",
+    "options": [
+      "A. 它的作用主要是帮助打乱样本顺序，而不是定义学习目标。",
+      "B. 它主要用于测试阶段展示结果，对训练过程不产生作用。",
+      "C. 为模型提供明确的学习目标，使误差能够被计算并反向用于更新参数。",
+      "D. 它只是决定 batch 的组织方式，不直接进入目标函数。"
+    ],
+    "correct_option": "C",
+    "source_chunk_ids": [
+      "chunk-58184f9c941b",
+      "chunk-05b5dfa44ada",
+      "chunk-f2bff267299e",
+      "chunk-472c6e10fe92",
+      "chunk-d8b662b3aa10",
+      "chunk-59bce01df9a7",
+      "chunk-4606583df218",
+      "chunk-d3ab7d9fe29b"
+    ],
+    "source_files": [
+      "Week2/0.2-DeepLearning-Foundations-C2.pdf",
+      "Week3/0.2-DeepLearning-Foundations-C3.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week2/0.2-DeepLearning-Foundations-C2.pdf",
+        "unit_type": "page",
+        "unit_index": 33,
+        "chunk_index": 1,
+        "section": "信息论",
+        "excerpt": "信息论 q交叉熵(cross entropy) 一般用来求目标与预测值之间的差距，深度学习中经常用到的一类 损失函数度量，比如在对抗生成网络（ GAN ）中",
+        "location": "第 33 页"
+      },
+      {
+        "source": "Week2/0.2-DeepLearning-Foundations-C2.pdf",
+        "unit_type": "page",
+        "unit_index": 49,
+        "chunk_index": 1,
+        "section": "误差分析",
+        "excerpt": "误差分析 q误差 算法实际预测输出与样本真实输出之间的差异 模型在训练集上的误差称为\"训练误差\"",
+        "location": "第 49 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-数学基础与机器学习基础-q5",
+    "kp_id": "kp-数学基础与机器学习基础",
+    "kp_name": "数学基础与机器学习基础",
+    "question_type": "multiple_choice",
+    "question": "根据图中的噪声假设 Y=f(X)+ε 和误差分解式，若 Bias^2 与 Var 都已较小，测试误差仍存在稳定下界，最合理的解释是？",
+    "answer": "由 ε 引出的不可约噪声项 sigma_e^2 仍保留在误差分解中，这部分误差不是继续调模型复杂度就能消掉的。",
+    "explanation": "这题要同时看图中的噪声假设和下方展开式。Bias^2 与 Var 之外，sigma_e^2 才是误差下界的来源。",
+    "options": [
+      "A. 只要正则化足够强，误差分解中的剩余项就一定会消失。",
+      "B. 由 ε 引出的不可约噪声项 sigma_e^2 仍保留在误差分解中，这部分误差不是继续调模型复杂度就能消掉的。",
+      "C. 训练误差会作为独立项永久保留在泛化误差分解式中。",
+      "D. 学习率本身就是测试误差分解的一部分，因此下界主要由学习率决定。"
+    ],
+    "correct_option": "B",
+    "source_chunk_ids": [
+      "chunk-58184f9c941b",
+      "chunk-05b5dfa44ada",
+      "chunk-f2bff267299e",
+      "chunk-472c6e10fe92",
+      "chunk-d8b662b3aa10",
+      "chunk-59bce01df9a7",
+      "chunk-4606583df218",
+      "chunk-d3ab7d9fe29b"
+    ],
+    "source_files": [
+      "Week2/0.2-DeepLearning-Foundations-C2.pdf",
+      "Week3/0.2-DeepLearning-Foundations-C3.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week2/0.2-DeepLearning-Foundations-C2.pdf",
+        "unit_type": "page",
+        "unit_index": 53,
+        "chunk_index": 1,
+        "section": "误差分析",
+        "excerpt": "误差分析 q泛化误差分析 假设数据集上需要预测的样本为 Y，特征为 X，潜在模型为 Y=f(X)+ε，其中ε~N(0,σε)是噪声, 估计的模型为 X",
+        "location": "第 53 页"
+      },
+      {
+        "source": "Week2/0.2-DeepLearning-Foundations-C2.pdf",
+        "unit_type": "page",
+        "unit_index": 54,
+        "chunk_index": 1,
+        "section": "误差分析",
+        "excerpt": "误差分析 q泛化误差分析 假设数据集上需要预测的样本为 Y，特征为 X，潜在模型为 Y=f(X)+ε，其中ε~N(0,σε)是噪声, 估计的模型为 X",
+        "location": "第 54 页"
+      }
+    ],
+    "image_path": "images/0-2-deeplearning-foundations-c2/page-053.png",
+    "image_caption": "0.2-DeepLearning-Foundations-C2.pdf 第 53 页"
+  },
+  {
+    "question_id": "kp-数学基础与机器学习基础-q6",
+    "kp_id": "kp-数学基础与机器学习基础",
+    "kp_name": "数学基础与机器学习基础",
+    "question_type": "multiple_choice",
+    "question": "某同学认为\"只要继续把网络做深，泛化误差最终一定可以逼近 0\"。结合图中的分解式，这一说法最直接忽略了什么？",
+    "answer": "忽略了由数据噪声带来的不可约误差项；即使模型更复杂，也不意味着这部分下界会消失。",
+    "explanation": "正确答案必须同时用到图里的噪声假设和展开式。公式已经明确说明：误差下界不只由 Bias 和 Var 决定。",
+    "options": [
+      "A. 忽略了学习率本身就是误差分解中的决定性项。",
+      "B. 忽略了训练误差始终会单独出现在泛化误差公式中。",
+      "C. 忽略了只要正则化系数足够大，误差的各项都会同时变成 0。",
+      "D. 忽略了由数据噪声带来的不可约误差项；即使模型更复杂，也不意味着这部分下界会消失。"
+    ],
+    "correct_option": "D",
+    "source_chunk_ids": [
+      "chunk-58184f9c941b",
+      "chunk-05b5dfa44ada",
+      "chunk-f2bff267299e",
+      "chunk-472c6e10fe92",
+      "chunk-d8b662b3aa10",
+      "chunk-59bce01df9a7",
+      "chunk-4606583df218",
+      "chunk-d3ab7d9fe29b"
+    ],
+    "source_files": [
+      "Week2/0.2-DeepLearning-Foundations-C2.pdf",
+      "Week3/0.2-DeepLearning-Foundations-C3.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week2/0.2-DeepLearning-Foundations-C2.pdf",
+        "unit_type": "page",
+        "unit_index": 53,
+        "chunk_index": 1,
+        "section": "误差分析",
+        "excerpt": "误差分析 q泛化误差分析 假设数据集上需要预测的样本为 Y，特征为 X，潜在模型为 Y=f(X)+ε，其中ε~N(0,σε)是噪声, 估计的模型为 X",
+        "location": "第 53 页"
+      },
+      {
+        "source": "Week2/0.2-DeepLearning-Foundations-C2.pdf",
+        "unit_type": "page",
+        "unit_index": 54,
+        "chunk_index": 1,
+        "section": "误差分析",
+        "excerpt": "误差分析 q泛化误差分析 假设数据集上需要预测的样本为 Y，特征为 X，潜在模型为 Y=f(X)+ε，其中ε~N(0,σε)是噪声, 估计的模型为 X",
+        "location": "第 54 页"
+      }
+    ],
+    "image_path": "images/0-2-deeplearning-foundations-c2/page-053.png",
+    "image_caption": "0.2-DeepLearning-Foundations-C2.pdf 第 53 页"
+  },
+  {
+    "question_id": "kp-神经元-感知器与反向传播-q1",
+    "kp_id": "kp-神经元-感知器与反向传播",
+    "kp_name": "神经元、感知器与反向传播",
+    "question_type": "multiple_choice",
+    "question": "单层感知器最适合直接处理哪类二分类问题？",
+    "answer": "线性可分的分类问题。",
+    "explanation": "感知器的判别边界本质上是线性的，因此适合线性可分任务。",
+    "options": [
+      "A. 依赖自注意力来整合全局上下文的信息建模问题。",
+      "B. 像 XOR 这类明显非线性可分的问题。",
+      "C. 需要长期记忆和门控机制的序列建模问题。",
+      "D. 线性可分的分类问题。"
+    ],
+    "correct_option": "D",
+    "source_chunk_ids": [
+      "chunk-58184f9c941b",
+      "chunk-4606583df218",
+      "chunk-0b794d271c28",
+      "chunk-7a93cc8b3aa4",
+      "chunk-a8e30a60ace0",
+      "chunk-43fc4ce6e538",
+      "chunk-984a8bae950c",
+      "chunk-4aa80023caf3"
+    ],
+    "source_files": [
+      "Week2/0.2-DeepLearning-Foundations-C2.pdf",
+      "Week3/0.2-DeepLearning-Foundations-C3.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week3/0.2-DeepLearning-Foundations-C3.pdf",
+        "unit_type": "page",
+        "unit_index": 12,
+        "chunk_index": 1,
+        "section": "多层感知器",
+        "excerpt": "多层感知器 q单层感知器只能解决线性可分问题，而不能解决线性不可 分问题，为了解决线性不可分问题，我们需要使用多层感 知器",
+        "location": "第 12 页"
+      },
+      {
+        "source": "Week2/0.2-DeepLearning-Foundations-C2.pdf",
+        "unit_type": "page",
+        "unit_index": 64,
+        "chunk_index": 1,
+        "section": "有监督学习-SVM",
+        "excerpt": "有监督学习-SVM q以线性分类为例 二类可分数据集 = 1,1 , 2,2 ,⋯, , , 其中y=1和y= -1 分别表示两类样本",
+        "location": "第 64 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-神经元-感知器与反向传播-q2",
+    "kp_id": "kp-神经元-感知器与反向传播",
+    "kp_name": "神经元、感知器与反向传播",
+    "question_type": "multiple_choice",
+    "question": "多层感知器里如果去掉激活函数，首先失去的是什么能力？",
+    "answer": "为网络引入非线性，使多层堆叠具备更强表达能力。",
+    "explanation": "如果没有非线性激活，多层线性层叠加后仍可等价成一个线性变换。",
+    "options": [
+      "A. 参数共享能力，因此每一层将无法复用特征。",
+      "B. 把输入转换成概率分布的能力，因此网络无法训练。",
+      "C. 损失函数的定义能力，因此网络不再需要优化目标。",
+      "D. 为网络引入非线性，使多层堆叠具备更强表达能力。"
+    ],
+    "correct_option": "D",
+    "source_chunk_ids": [
+      "chunk-58184f9c941b",
+      "chunk-4606583df218",
+      "chunk-0b794d271c28",
+      "chunk-7a93cc8b3aa4",
+      "chunk-a8e30a60ace0",
+      "chunk-43fc4ce6e538",
+      "chunk-984a8bae950c",
+      "chunk-4aa80023caf3"
+    ],
+    "source_files": [
+      "Week2/0.2-DeepLearning-Foundations-C2.pdf",
+      "Week3/0.2-DeepLearning-Foundations-C3.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week3/0.2-DeepLearning-Foundations-C3.pdf",
+        "unit_type": "page",
+        "unit_index": 13,
+        "chunk_index": 1,
+        "section": "多层感知器",
+        "excerpt": "多层感知器 q多层感知器指的是由多层结构的感知器递阶组成的输入值 向前传播的网络，也被称为前馈网络或正向传播网络 以三层结构的多层感知器为例，它由输入层、中间层及输出层组成",
+        "location": "第 13 页"
+      },
+      {
+        "source": "Week3/0.2-DeepLearning-Foundations-C3.pdf",
+        "unit_type": "page",
+        "unit_index": 17,
+        "chunk_index": 1,
+        "section": "BP算法",
+        "excerpt": "BP算法 q BP算法中激活函数 通过误差反向传播算法调整多层感知器的连接权重时，一个瓶颈问 题就是激活函数",
+        "location": "第 17 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-神经元-感知器与反向传播-q3",
+    "kp_id": "kp-神经元-感知器与反向传播",
+    "kp_name": "神经元、感知器与反向传播",
+    "question_type": "multiple_choice",
+    "question": "反向传播把输出误差一层层传回去，本质上反复用到哪条求导规则？",
+    "answer": "链式法则。",
+    "explanation": "反向传播本质上就是借助链式法则，把复合函数的梯度逐层拆开计算。",
+    "options": [
+      "A. 链式法则。",
+      "B. 贝叶斯公式。",
+      "C. 主成分分析中的特征分解。",
+      "D. 独立同分布假设。"
+    ],
+    "correct_option": "A",
+    "source_chunk_ids": [
+      "chunk-58184f9c941b",
+      "chunk-4606583df218",
+      "chunk-0b794d271c28",
+      "chunk-7a93cc8b3aa4",
+      "chunk-a8e30a60ace0",
+      "chunk-43fc4ce6e538",
+      "chunk-984a8bae950c",
+      "chunk-4aa80023caf3"
+    ],
+    "source_files": [
+      "Week2/0.2-DeepLearning-Foundations-C2.pdf",
+      "Week3/0.2-DeepLearning-Foundations-C3.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week3/0.2-DeepLearning-Foundations-C3.pdf",
+        "unit_type": "page",
+        "unit_index": 15,
+        "chunk_index": 1,
+        "section": "BP算法",
+        "excerpt": "BP算法 q多层感知器的训练使用误差反向传播算法（Error Back Propagation），即BP算法 BP算法最早由沃博斯于1974年提出，鲁梅尔哈特等人进一步发展了",
+        "location": "第 15 页"
+      },
+      {
+        "source": "Week3/0.2-DeepLearning-Foundations-C3.pdf",
+        "unit_type": "page",
+        "unit_index": 16,
+        "chunk_index": 1,
+        "section": "BP算法",
+        "excerpt": "BP算法 q多层感知器的训练使用误差反向传播算法（Error Back Propagation），即BP算法 BP算法就是通过比较实际输出和期望输出得到误差信号，把误差信",
+        "location": "第 16 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-神经元-感知器与反向传播-q4",
+    "kp_id": "kp-神经元-感知器与反向传播",
+    "kp_name": "神经元、感知器与反向传播",
+    "question_type": "multiple_choice",
+    "question": "如果某个激活函数在大范围输入上梯度都接近 0，深层训练最常见的后果是什么？",
+    "answer": "梯度在反向传播过程中不断衰减，前层难以有效更新。",
+    "explanation": "局部导数过小会在链式相乘时导致梯度消失，这是深层网络训练中的典型问题。",
+    "options": [
+      "A. 网络会自动把前馈结构改写成循环结构。",
+      "B. 前面层会自动学到长期记忆，不再需要门控结构。",
+      "C. 梯度在反向传播过程中不断衰减，前层难以有效更新。",
+      "D. 学习率会自动等效放大，因此训练更快收敛。"
+    ],
+    "correct_option": "C",
+    "source_chunk_ids": [
+      "chunk-58184f9c941b",
+      "chunk-4606583df218",
+      "chunk-0b794d271c28",
+      "chunk-7a93cc8b3aa4",
+      "chunk-a8e30a60ace0",
+      "chunk-43fc4ce6e538",
+      "chunk-984a8bae950c",
+      "chunk-4aa80023caf3"
+    ],
+    "source_files": [
+      "Week2/0.2-DeepLearning-Foundations-C2.pdf",
+      "Week3/0.2-DeepLearning-Foundations-C3.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week3/0.2-DeepLearning-Foundations-C3.pdf",
+        "unit_type": "page",
+        "unit_index": 15,
+        "chunk_index": 1,
+        "section": "BP算法",
+        "excerpt": "BP算法 q多层感知器的训练使用误差反向传播算法（Error Back Propagation），即BP算法 BP算法最早由沃博斯于1974年提出，鲁梅尔哈特等人进一步发展了",
+        "location": "第 15 页"
+      },
+      {
+        "source": "Week3/0.2-DeepLearning-Foundations-C3.pdf",
+        "unit_type": "page",
+        "unit_index": 17,
+        "chunk_index": 1,
+        "section": "BP算法",
+        "excerpt": "BP算法 q BP算法中激活函数 通过误差反向传播算法调整多层感知器的连接权重时，一个瓶颈问 题就是激活函数",
+        "location": "第 17 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-神经元-感知器与反向传播-q5",
+    "kp_id": "kp-神经元-感知器与反向传播",
+    "kp_name": "神经元、感知器与反向传播",
+    "question_type": "multiple_choice",
+    "question": "根据图中\"阶跃函数 → Sigmoid\"的替换关系，BP 训练真正需要修复的是阶跃函数的哪一缺陷？",
+    "answer": "不是它只能输出 0/1，而是它不连续、不可导，导致误差难以按链式法则稳定回传。",
+    "explanation": "图里把阶跃函数和 Sigmoid 并列，不是让学生背名字，而是让学生判断：为了让 BP 成立，被替换掉的是\"不可导\"这一训练瓶颈。",
+    "options": [
+      "A. 阶跃函数会破坏卷积层的参数共享，所以 CNN 无法训练。",
+      "B. 阶跃函数无法输出负值，因此网络不能做二分类。",
+      "C. 阶跃函数会让输出层自动失去类别概率解释，因此 softmax 无法定义。",
+      "D. 不是它只能输出 0/1，而是它不连续、不可导，导致误差难以按链式法则稳定回传。"
+    ],
+    "correct_option": "D",
+    "source_chunk_ids": [
+      "chunk-58184f9c941b",
+      "chunk-4606583df218",
+      "chunk-0b794d271c28",
+      "chunk-7a93cc8b3aa4",
+      "chunk-a8e30a60ace0",
+      "chunk-43fc4ce6e538",
+      "chunk-984a8bae950c",
+      "chunk-4aa80023caf3"
+    ],
+    "source_files": [
+      "Week2/0.2-DeepLearning-Foundations-C2.pdf",
+      "Week3/0.2-DeepLearning-Foundations-C3.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week3/0.2-DeepLearning-Foundations-C3.pdf",
+        "unit_type": "page",
+        "unit_index": 17,
+        "chunk_index": 1,
+        "section": "BP算法",
+        "excerpt": "BP算法 q BP算法中激活函数 通过误差反向传播算法调整多层感知器的连接权重时，一个瓶颈问 题就是激活函数",
+        "location": "第 17 页"
+      },
+      {
+        "source": "Week2/0.2-DeepLearning-Foundations-C2.pdf",
+        "unit_type": "page",
+        "unit_index": 55,
+        "chunk_index": 1,
+        "section": "误差分析",
+        "excerpt": "误差分析 q泛化误差分析 偏差（bias）反映了模型在 样本上的期望输出与真实",
+        "location": "第 55 页"
+      }
+    ],
+    "image_path": "images/0-2-deeplearning-foundations-c3/page-017.png",
+    "image_caption": "0.2-DeepLearning-Foundations-C3.pdf 第 17 页"
+  },
+  {
+    "question_id": "kp-神经元-感知器与反向传播-q6",
+    "kp_id": "kp-神经元-感知器与反向传播",
+    "kp_name": "神经元、感知器与反向传播",
+    "question_type": "multiple_choice",
+    "question": "若仍希望输出层表达\"接近 0/1\"的二值倾向，图中为什么训练阶段也不回到阶跃函数？",
+    "answer": "因为训练阶段首先需要可用于求导的激活函数；是否接近二值输出是次要的，能否稳定回传梯度才是前提。",
+    "explanation": "这题不能只凭常识去答，需要利用图中\"阶跃函数不可导、Sigmoid 可导\"的对照关系来判断训练优先级。",
+    "options": [
+      "A. 因为阶跃函数会自动取消损失函数，所以训练目标无法定义。",
+      "B. 因为阶跃函数只能用于无监督学习，不能用于有标签任务。",
+      "C. 因为阶跃函数会让卷积层失去参数共享，所以网络规模会立刻失控。",
+      "D. 因为训练阶段首先需要可用于求导的激活函数；是否接近二值输出是次要的，能否稳定回传梯度才是前提。"
+    ],
+    "correct_option": "D",
+    "source_chunk_ids": [
+      "chunk-58184f9c941b",
+      "chunk-4606583df218",
+      "chunk-0b794d271c28",
+      "chunk-7a93cc8b3aa4",
+      "chunk-a8e30a60ace0",
+      "chunk-43fc4ce6e538",
+      "chunk-984a8bae950c",
+      "chunk-4aa80023caf3"
+    ],
+    "source_files": [
+      "Week2/0.2-DeepLearning-Foundations-C2.pdf",
+      "Week3/0.2-DeepLearning-Foundations-C3.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week3/0.2-DeepLearning-Foundations-C3.pdf",
+        "unit_type": "page",
+        "unit_index": 17,
+        "chunk_index": 1,
+        "section": "BP算法",
+        "excerpt": "BP算法 q BP算法中激活函数 通过误差反向传播算法调整多层感知器的连接权重时，一个瓶颈问 题就是激活函数",
+        "location": "第 17 页"
+      },
+      {
+        "source": "Week3/0.2-DeepLearning-Foundations-C3.pdf",
+        "unit_type": "page",
+        "unit_index": 24,
+        "chunk_index": 1,
+        "section": "BP算法",
+        "excerpt": "BP算法 q中间层的值zj对连接权重w1ij求导 = 和y一样，zj也是sigmoid函数，对zj求导，得到下式：",
+        "location": "第 24 页"
+      }
+    ],
+    "image_path": "images/0-2-deeplearning-foundations-c3/page-017.png",
+    "image_caption": "0.2-DeepLearning-Foundations-C3.pdf 第 17 页"
+  },
+  {
+    "question_id": "kp-卷积神经网络基础-q1",
+    "kp_id": "kp-卷积神经网络基础",
+    "kp_name": "卷积神经网络基础",
+    "question_type": "multiple_choice",
+    "question": "和全连接层相比，卷积层最能体现 CNN 图像建模特点的两个结构设定是什么？",
+    "answer": "局部连接和参数共享。",
+    "explanation": "CNN 适合图像数据的重要原因之一，就是局部连接保留空间结构，参数共享降低参数规模。",
+    "options": [
+      "A. 局部连接和参数共享。",
+      "B. 不同空间位置必须学习完全不同的卷积参数，不能共享。",
+      "C. 主要依靠池化完成特征提取，卷积核本身不是关键。",
+      "D. 每个输出单元都连接整幅输入，并且每个位置都使用独立参数。"
+    ],
+    "correct_option": "A",
+    "source_chunk_ids": [
+      "chunk-2756fa000305",
+      "chunk-d59d15dc06ea",
+      "chunk-8e2850f41ef4",
+      "chunk-c657d29df851",
+      "chunk-34d05a3fabd6",
+      "chunk-ee1c849df2c9",
+      "chunk-6146684f621a",
+      "chunk-09393fafd21a"
+    ],
+    "source_files": [
+      "Week3/0.3-DeepLearing-CNN-C3.pdf",
+      "Week4/0.3-DeepLearing-CNN-C4.pdf",
+      "Week5/0.3-DeepLearing-CNN-C5.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week5/0.3-DeepLearing-CNN-C5.pdf",
+        "unit_type": "page",
+        "unit_index": 39,
+        "chunk_index": 1,
+        "section": "DeepFace",
+        "excerpt": "DeepFace q 表示 前3层采用传统的卷积和池化提取信息，共享卷积核。 后3个卷积层采用局部连接，提取不同维度上的特征，不共享卷积核。",
+        "location": "第 39 页"
+      },
+      {
+        "source": "Week3/0.3-DeepLearing-CNN-C3.pdf",
+        "unit_type": "page",
+        "unit_index": 10,
+        "chunk_index": 1,
+        "section": "卷积神经网络的基本结构",
+        "excerpt": "卷积神经网络的基本结构 q卷积层 (Convolution) q激活函数(Active Function) q池化层 (Pooling)",
+        "location": "第 10 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-卷积神经网络基础-q2",
+    "kp_id": "kp-卷积神经网络基础",
+    "kp_name": "卷积神经网络基础",
+    "question_type": "multiple_choice",
+    "question": "在 CNN 中插入池化层，通常是为了什么？",
+    "answer": "在保留主要响应的同时降低特征图尺寸，并增强一定的平移鲁棒性。",
+    "explanation": "池化层常被视为一种下采样操作，用来压缩表示并保留较显著特征。",
+    "options": [
+      "A. 显著增加参数量和存储量，以提升模型记忆训练集的能力。",
+      "B. 把所有特征压成一个类别标签，提前结束后续计算。",
+      "C. 在保留主要响应的同时降低特征图尺寸，并增强一定的平移鲁棒性。",
+      "D. 让每一个卷积核都被全连接层替代，便于统一建模。"
+    ],
+    "correct_option": "C",
+    "source_chunk_ids": [
+      "chunk-2756fa000305",
+      "chunk-d59d15dc06ea",
+      "chunk-8e2850f41ef4",
+      "chunk-c657d29df851",
+      "chunk-34d05a3fabd6",
+      "chunk-ee1c849df2c9",
+      "chunk-6146684f621a",
+      "chunk-09393fafd21a"
+    ],
+    "source_files": [
+      "Week3/0.3-DeepLearing-CNN-C3.pdf",
+      "Week4/0.3-DeepLearing-CNN-C4.pdf",
+      "Week5/0.3-DeepLearing-CNN-C5.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week3/0.3-DeepLearing-CNN-C3.pdf",
+        "unit_type": "page",
+        "unit_index": 49,
+        "chunk_index": 1,
+        "section": "池化层",
+        "excerpt": "池化层 q池化的作用 对输入对象进行\"降采样（Downsampling）\"操作，一定程度上提 高了模型的容错能力",
+        "location": "第 49 页"
+      },
+      {
+        "source": "Week5/0.3-DeepLearing-CNN-C5.pdf",
+        "unit_type": "page",
+        "unit_index": 40,
+        "chunk_index": 1,
+        "section": "DeepFace",
+        "excerpt": "DeepFace q 表示 C1，C3表示卷积层， M2表示最大池化层，前三层主要提取低水平特 征，其中最大池化可以使输出对微小的偏移更加鲁棒",
+        "location": "第 40 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-卷积神经网络基础-q3",
+    "kp_id": "kp-卷积神经网络基础",
+    "kp_name": "卷积神经网络基础",
+    "question_type": "multiple_choice",
+    "question": "随着网络加深，某一层单元的感受野变大，通常说明什么？",
+    "answer": "该层单元能整合更大输入区域中的上下文信息。",
+    "explanation": "感受野描述的是某个单元在原始输入上能够\"看到\"的区域范围，是理解 CNN 的关键概念。",
+    "options": [
+      "A. 感受野大小主要由类别数决定，与卷积结构关系不大。",
+      "B. 该层反而只能看到更少的像素，因此更适合局部去噪。",
+      "C. 该层单元能整合更大输入区域中的上下文信息。",
+      "D. 感受野越大，模型参数就一定越少。"
+    ],
+    "correct_option": "C",
+    "source_chunk_ids": [
+      "chunk-2756fa000305",
+      "chunk-d59d15dc06ea",
+      "chunk-8e2850f41ef4",
+      "chunk-c657d29df851",
+      "chunk-34d05a3fabd6",
+      "chunk-ee1c849df2c9",
+      "chunk-6146684f621a",
+      "chunk-09393fafd21a"
+    ],
+    "source_files": [
+      "Week3/0.3-DeepLearing-CNN-C3.pdf",
+      "Week4/0.3-DeepLearing-CNN-C4.pdf",
+      "Week5/0.3-DeepLearing-CNN-C5.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week5/0.3-DeepLearing-CNN-C5.pdf",
+        "unit_type": "page",
+        "unit_index": 56,
+        "chunk_index": 1,
+        "section": "中英文术语对照",
+        "excerpt": "中英文术语对照 q 卷积神经网络：Convolutional Neural Networks，CNN q 感受野：Receptive Field q 中心感受野：In-center Receptive Field",
+        "location": "第 56 页"
+      },
+      {
+        "source": "Week3/0.3-DeepLearing-CNN-C3.pdf",
+        "unit_type": "page",
+        "unit_index": 27,
+        "chunk_index": 1,
+        "section": "卷积神经网络的感受野",
+        "excerpt": "卷积神经网络的感受野 q感受野 卷积神经网络每一层输出的特征图（feature map）上的像素点在输 入图片上映射的区域大小，即特征图上的一个点对应输入图上的区",
+        "location": "第 27 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-卷积神经网络基础-q4",
+    "kp_id": "kp-卷积神经网络基础",
+    "kp_name": "卷积神经网络基础",
+    "question_type": "multiple_choice",
+    "question": "根据图中 CNN 基本结构的排列顺序，若把全连接层放到卷积/池化之前，最先破坏的是哪一设计逻辑？",
+    "answer": "模型还没有完成从局部模式到高层表示的逐层抽取，就过早进入全局判定。",
+    "explanation": "题目要利用图中的模块顺序来判断。该页体现的是\"先提特征、后做判定\"的结构逻辑，而不是把各层随意互换。",
+    "options": [
+      "A. 卷积核将不再能够共享参数，因此卷积运算本身会失效。",
+      "B. 池化层将无法降低分辨率，因此特征图尺寸不会发生变化。",
+      "C. 激活函数将不再提供非线性，因此所有层都会退化成恒等映射。",
+      "D. 模型还没有完成从局部模式到高层表示的逐层抽取，就过早进入全局判定。"
+    ],
+    "correct_option": "D",
+    "source_chunk_ids": [
+      "chunk-2756fa000305",
+      "chunk-d59d15dc06ea",
+      "chunk-8e2850f41ef4",
+      "chunk-c657d29df851",
+      "chunk-34d05a3fabd6",
+      "chunk-ee1c849df2c9",
+      "chunk-6146684f621a",
+      "chunk-09393fafd21a"
+    ],
+    "source_files": [
+      "Week3/0.3-DeepLearing-CNN-C3.pdf",
+      "Week4/0.3-DeepLearing-CNN-C4.pdf",
+      "Week5/0.3-DeepLearing-CNN-C5.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week3/0.3-DeepLearing-CNN-C3.pdf",
+        "unit_type": "page",
+        "unit_index": 10,
+        "chunk_index": 1,
+        "section": "卷积神经网络的基本结构",
+        "excerpt": "卷积神经网络的基本结构 q卷积层 (Convolution) q激活函数(Active Function) q池化层 (Pooling)",
+        "location": "第 10 页"
+      },
+      {
+        "source": "Week4/0.3-DeepLearing-CNN-C4.pdf",
+        "unit_type": "page",
+        "unit_index": 74,
+        "chunk_index": 1,
+        "section": "R-CNN系列",
+        "excerpt": "R-CNN系列 在R-CNN中的流程是先提proposal，然后CNN提取特征， 之后用SVM分类器，最后再做Bbox回归进行候选框的微 调。",
+        "location": "第 74 页"
+      }
+    ],
+    "image_path": "images/0-3-deeplearing-cnn-c3/page-010.png",
+    "image_caption": "0.3-DeepLearing-CNN-C3.pdf 第 10 页"
+  },
+  {
+    "question_id": "kp-卷积神经网络基础-q5",
+    "kp_id": "kp-卷积神经网络基础",
+    "kp_name": "卷积神经网络基础",
+    "question_type": "multiple_choice",
+    "question": "根据图中的感受野连线，若两类样本局部纹理相似、只有更大范围上下文不同，最容易误判的是哪类单元？",
+    "answer": "感受野较小的浅层单元，因为它们覆盖的输入区域不足以区分更大范围的上下文差异。",
+    "explanation": "答这题必须利用图中的映射关系来判断：哪类节点只\"看到\"局部区域，哪类节点才有条件利用更大的上下文。",
+    "options": [
+      "A. 只要卷积核大小固定，感受野大小就不会影响最终分类判断。",
+      "B. 感受野较小的浅层单元，因为它们覆盖的输入区域不足以区分更大范围的上下文差异。",
+      "C. 任意层都一样，因为图中每个特征点都默认对应整幅输入图像。",
+      "D. 感受野最大的高层单元，因为它们会自动丢掉所有局部纹理信息。"
+    ],
+    "correct_option": "B",
+    "source_chunk_ids": [
+      "chunk-2756fa000305",
+      "chunk-d59d15dc06ea",
+      "chunk-8e2850f41ef4",
+      "chunk-c657d29df851",
+      "chunk-34d05a3fabd6",
+      "chunk-ee1c849df2c9",
+      "chunk-6146684f621a",
+      "chunk-09393fafd21a"
+    ],
+    "source_files": [
+      "Week3/0.3-DeepLearing-CNN-C3.pdf",
+      "Week4/0.3-DeepLearing-CNN-C4.pdf",
+      "Week5/0.3-DeepLearing-CNN-C5.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week3/0.3-DeepLearing-CNN-C3.pdf",
+        "unit_type": "page",
+        "unit_index": 27,
+        "chunk_index": 1,
+        "section": "卷积神经网络的感受野",
+        "excerpt": "卷积神经网络的感受野 q感受野 卷积神经网络每一层输出的特征图（feature map）上的像素点在输 入图片上映射的区域大小，即特征图上的一个点对应输入图上的区",
+        "location": "第 27 页"
+      },
+      {
+        "source": "Week5/0.3-DeepLearing-CNN-C5.pdf",
+        "unit_type": "page",
+        "unit_index": 40,
+        "chunk_index": 1,
+        "section": "DeepFace",
+        "excerpt": "DeepFace q 表示 C1，C3表示卷积层， M2表示最大池化层，前三层主要提取低水平特 征，其中最大池化可以使输出对微小的偏移更加鲁棒",
+        "location": "第 40 页"
+      }
+    ],
+    "image_path": "images/0-3-deeplearing-cnn-c3/page-027.png",
+    "image_caption": "0.3-DeepLearing-CNN-C3.pdf 第 27 页"
+  },
+  {
+    "question_id": "kp-卷积神经网络基础-q6",
+    "kp_id": "kp-卷积神经网络基础",
+    "kp_name": "卷积神经网络基础",
+    "question_type": "multiple_choice",
+    "question": "若图中某个特征点只对应输入中的很小局部区域，那么把它直接当作\"整幅图像类别证据\"最可能出现什么问题？",
+    "answer": "该点看到的信息范围过窄，可能只反映局部纹理而不足以支撑整幅图像层面的类别判断。",
+    "explanation": "这题必须依赖图中的映射关系。特征点和输入区域是一对多层级关系，不能把局部响应直接误当成全局判定。",
+    "options": [
+      "A. 该点看到的信息范围过窄，可能只反映局部纹理而不足以支撑整幅图像层面的类别判断。",
+      "B. 该点会失去所有像素信息，因此既不能表示局部也不能表示全局。",
+      "C. 只要卷积核共享参数，单个点就等价于整张 feature map 的判断结果。",
+      "D. 该点会自动拥有整幅图像的全局语义，因此分类反而最稳定。"
+    ],
+    "correct_option": "A",
+    "source_chunk_ids": [
+      "chunk-2756fa000305",
+      "chunk-d59d15dc06ea",
+      "chunk-8e2850f41ef4",
+      "chunk-c657d29df851",
+      "chunk-34d05a3fabd6",
+      "chunk-ee1c849df2c9",
+      "chunk-6146684f621a",
+      "chunk-09393fafd21a"
+    ],
+    "source_files": [
+      "Week3/0.3-DeepLearing-CNN-C3.pdf",
+      "Week4/0.3-DeepLearing-CNN-C4.pdf",
+      "Week5/0.3-DeepLearing-CNN-C5.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week3/0.3-DeepLearing-CNN-C3.pdf",
+        "unit_type": "page",
+        "unit_index": 27,
+        "chunk_index": 1,
+        "section": "卷积神经网络的感受野",
+        "excerpt": "卷积神经网络的感受野 q感受野 卷积神经网络每一层输出的特征图（feature map）上的像素点在输 入图片上映射的区域大小，即特征图上的一个点对应输入图上的区",
+        "location": "第 27 页"
+      },
+      {
+        "source": "Week5/0.3-DeepLearing-CNN-C5.pdf",
+        "unit_type": "page",
+        "unit_index": 56,
+        "chunk_index": 1,
+        "section": "中英文术语对照",
+        "excerpt": "中英文术语对照 q 卷积神经网络：Convolutional Neural Networks，CNN q 感受野：Receptive Field q 中心感受野：In-center Receptive Field",
+        "location": "第 56 页"
+      }
+    ],
+    "image_path": "images/0-3-deeplearing-cnn-c3/page-027.png",
+    "image_caption": "0.3-DeepLearing-CNN-C3.pdf 第 27 页"
+  },
+  {
+    "question_id": "kp-典型卷积网络与视觉应用-q1",
+    "kp_id": "kp-典型卷积网络与视觉应用",
+    "kp_name": "典型卷积网络与视觉应用",
+    "question_type": "multiple_choice",
+    "question": "ResNet 引入残差连接，最主要是为了解决什么训练痛点？",
+    "answer": "缓解深层网络训练困难，使信息和梯度更容易跨层传播。",
+    "explanation": "残差连接最核心的价值，是让很深的网络更容易优化，而不是简单\"多加一条边\"。",
+    "options": [
+      "A. 减少对数据的依赖，让模型主要依靠人工特征工作。",
+      "B. 彻底取消非线性层，让深层网络退化成纯线性模型。",
+      "C. 缓解深层网络训练困难，使信息和梯度更容易跨层传播。",
+      "D. 把图像网络改造成循环网络，以便处理长序列。"
+    ],
+    "correct_option": "C",
+    "source_chunk_ids": [
+      "chunk-a5a3770376df",
+      "chunk-8816d040b3f7",
+      "chunk-043836696421",
+      "chunk-dddf22d4760f",
+      "chunk-2ed6b6faa441",
+      "chunk-74a5728ca573",
+      "chunk-4e325cdb9d14",
+      "chunk-37ce263683f5"
+    ],
+    "source_files": [
+      "Week1/0.1-DeepLearning-Introduction-C1.pdf",
+      "Week13/0.8-DeepLearning-tools-C13_modified.pdf",
+      "Week4/0.3-DeepLearing-CNN-C4.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week4/0.3-DeepLearing-CNN-C4.pdf",
+        "unit_type": "page",
+        "unit_index": 37,
+        "chunk_index": 1,
+        "section": "ResNet",
+        "excerpt": "ResNet q随着卷积网络层数的增加，误差的逆传播过程中存在的梯 度消失和梯度爆炸问题同样也会导致模型的训练难以进行 q甚至会出现随着网络深度的加深，模型在训练集上的训练",
+        "location": "第 37 页"
+      },
+      {
+        "source": "Week4/0.3-DeepLearing-CNN-C4.pdf",
+        "unit_type": "page",
+        "unit_index": 38,
+        "chunk_index": 1,
+        "section": "ResNet",
+        "excerpt": "ResNet q ResNet的核心是叫做残差块（Residual block）的小单元， 残差块可以视作在标准神经网络基础上加入了跳跃连接 （Skip connection）",
+        "location": "第 38 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-典型卷积网络与视觉应用-q2",
+    "kp_id": "kp-典型卷积网络与视觉应用",
+    "kp_name": "典型卷积网络与视觉应用",
+    "question_type": "multiple_choice",
+    "question": "VGG 系列网络最有代表性的结构思路是什么？",
+    "answer": "倾向于重复堆叠较小卷积核，通过更深层数提升表达能力。",
+    "explanation": "VGG 的代表性思路，是用简单规则的小卷积核重复堆叠，构造更深的网络。",
+    "options": [
+      "A. 把跳跃连接作为骨干设计核心，重点解决超深训练问题。",
+      "B. 大幅削弱卷积层作用，只保留池化和分类模块。",
+      "C. 主要依赖大卷积核的浅层结构，而不追求网络加深。",
+      "D. 倾向于重复堆叠较小卷积核，通过更深层数提升表达能力。"
+    ],
+    "correct_option": "D",
+    "source_chunk_ids": [
+      "chunk-a5a3770376df",
+      "chunk-8816d040b3f7",
+      "chunk-043836696421",
+      "chunk-dddf22d4760f",
+      "chunk-2ed6b6faa441",
+      "chunk-74a5728ca573",
+      "chunk-4e325cdb9d14",
+      "chunk-37ce263683f5"
+    ],
+    "source_files": [
+      "Week1/0.1-DeepLearning-Introduction-C1.pdf",
+      "Week13/0.8-DeepLearning-tools-C13_modified.pdf",
+      "Week4/0.3-DeepLearing-CNN-C4.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week4/0.3-DeepLearing-CNN-C4.pdf",
+        "unit_type": "page",
+        "unit_index": 33,
+        "chunk_index": 1,
+        "section": "Inception Net",
+        "excerpt": "Inception Net q深度：层数更深，采用了22层，在不同深度处增加了两个 loss来避免上述提到的梯度消失问题 q宽度：Inception Module包含4个分支，在卷积核3x3、5x5",
+        "location": "第 33 页"
+      },
+      {
+        "source": "Week4/0.3-DeepLearing-CNN-C4.pdf",
+        "unit_type": "page",
+        "unit_index": 29,
+        "chunk_index": 1,
+        "section": "VGG-16",
+        "excerpt": "VGG-16 q网络结构 Conv1 Conv2 Conv3 Conv4 Conv5 卷积层数 2 2 3 3 3",
+        "location": "第 29 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-典型卷积网络与视觉应用-q3",
+    "kp_id": "kp-典型卷积网络与视觉应用",
+    "kp_name": "典型卷积网络与视觉应用",
+    "question_type": "multiple_choice",
+    "question": "LeNet 最常被视为哪类经典任务的代表网络？",
+    "answer": "早期手写数字识别等基础视觉分类任务。",
+    "explanation": "LeNet 是经典 CNN 入门网络，最常见的应用示例就是手写数字识别。",
+    "options": [
+      "A. 早期手写数字识别等基础视觉分类任务。",
+      "B. 基于自注意力的机器翻译或长文本建模任务。",
+      "C. 大规模语言模型的自回归文本生成任务。",
+      "D. 扩散模型中的逐步去噪采样任务。"
+    ],
+    "correct_option": "A",
+    "source_chunk_ids": [
+      "chunk-a5a3770376df",
+      "chunk-8816d040b3f7",
+      "chunk-043836696421",
+      "chunk-dddf22d4760f",
+      "chunk-2ed6b6faa441",
+      "chunk-74a5728ca573",
+      "chunk-4e325cdb9d14",
+      "chunk-37ce263683f5"
+    ],
+    "source_files": [
+      "Week1/0.1-DeepLearning-Introduction-C1.pdf",
+      "Week13/0.8-DeepLearning-tools-C13_modified.pdf",
+      "Week4/0.3-DeepLearing-CNN-C4.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week4/0.3-DeepLearing-CNN-C4.pdf",
+        "unit_type": "page",
+        "unit_index": 5,
+        "chunk_index": 1,
+        "section": "LeNet-5",
+        "excerpt": "LeNet-5 q LeNet-5由LeCun等人提出于1998年提出 q主要进行手写数字识别和英文字母识别 q经典的卷积神经网络，LeNet虽小，各模块齐全，是学习",
+        "location": "第 5 页"
+      },
+      {
+        "source": "Week13/0.8-DeepLearning-tools-C13_modified.pdf",
+        "unit_type": "page",
+        "unit_index": 66,
+        "chunk_index": 1,
+        "section": "示例1：LeNet-5网络手写数字识别",
+        "excerpt": "示例1：LeNet-5网络手写数字识别 q建立LeNet-5网络模型",
+        "location": "第 66 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-典型卷积网络与视觉应用-q4",
+    "kp_id": "kp-典型卷积网络与视觉应用",
+    "kp_name": "典型卷积网络与视觉应用",
+    "question_type": "multiple_choice",
+    "question": "图中同时给出 ILSVRC 2015 冠军和 CVPR 2016 Best Paper。仅依据这两类信息，哪项对 ResNet 价值的概括最准确？",
+    "answer": "它不仅取得了基准结果上的领先，而且对应的方法创新足以改变\"网络能否继续加深\"这一训练范式。",
+    "explanation": "图里既有竞赛结果，也有顶会奖项。正确判断要把\"效果领先\"和\"方法影响力大\"这两层信息一起读出来。",
+    "options": [
+      "A. 它不仅取得了基准结果上的领先，而且对应的方法创新足以改变\"网络能否继续加深\"这一训练范式。",
+      "B. 它的核心价值在于把循环门控机制首次引入图像分类网络。",
+      "C. 它说明人工特征重新优于端到端学习，因此竞赛成绩才会提高。",
+      "D. 它的贡献主要是把所有卷积核统一成 3×3，因此结构更整齐。"
+    ],
+    "correct_option": "A",
+    "source_chunk_ids": [
+      "chunk-a5a3770376df",
+      "chunk-8816d040b3f7",
+      "chunk-043836696421",
+      "chunk-dddf22d4760f",
+      "chunk-2ed6b6faa441",
+      "chunk-74a5728ca573",
+      "chunk-4e325cdb9d14",
+      "chunk-37ce263683f5"
+    ],
+    "source_files": [
+      "Week1/0.1-DeepLearning-Introduction-C1.pdf",
+      "Week13/0.8-DeepLearning-tools-C13_modified.pdf",
+      "Week4/0.3-DeepLearing-CNN-C4.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week4/0.3-DeepLearing-CNN-C4.pdf",
+        "unit_type": "page",
+        "unit_index": 36,
+        "chunk_index": 1,
+        "section": "ResNet",
+        "excerpt": "ResNet q ResNet（Residual Neural Network），又叫做残差神经网 络，是由微软研究院的何凯明等人2015年提出 q获得ImageNet ILSVRC 2015比赛冠军",
+        "location": "第 36 页"
+      },
+      {
+        "source": "Week1/0.1-DeepLearning-Introduction-C1.pdf",
+        "unit_type": "page",
+        "unit_index": 21,
+        "chunk_index": 1,
+        "section": "深度学习的发展",
+        "excerpt": "深度学习的发展 q 2012年：Frank Seide等人使用深度神经网络进行语音识别， 相比于传统的GMM和HMM，识别错误率下降了20%-30%， 取得了突破性的进展。",
+        "location": "第 21 页"
+      }
+    ],
+    "image_path": "images/0-3-deeplearing-cnn-c4/page-036.png",
+    "image_caption": "0.3-DeepLearing-CNN-C4.pdf 第 36 页"
+  },
+  {
+    "question_id": "kp-典型卷积网络与视觉应用-q5",
+    "kp_id": "kp-典型卷积网络与视觉应用",
+    "kp_name": "典型卷积网络与视觉应用",
+    "question_type": "multiple_choice",
+    "question": "根据图中的 3×3 same 卷积和 2×2 池化设置，VGG 的设计思路更接近哪一项？",
+    "answer": "用多层小卷积逐步扩大有效感受野，并通过更深的堆叠增加非线性表达能力。",
+    "explanation": "正确答案不能只抄图里的 3×3 和 2×2，而要根据这组配置判断 VGG 想解决的是\"大卷积还是多层小卷积\"的设计问题。",
+    "options": [
+      "A. 把循环门控单元作为主干，卷积层只负责输入预处理。",
+      "B. 尽量去掉池化和分类头，只保留最前面的浅层卷积结构。",
+      "C. 用单层大卷积一次覆盖大范围区域，因此网络不必继续加深。",
+      "D. 用多层小卷积逐步扩大有效感受野，并通过更深的堆叠增加非线性表达能力。"
+    ],
+    "correct_option": "D",
+    "source_chunk_ids": [
+      "chunk-a5a3770376df",
+      "chunk-8816d040b3f7",
+      "chunk-043836696421",
+      "chunk-dddf22d4760f",
+      "chunk-2ed6b6faa441",
+      "chunk-74a5728ca573",
+      "chunk-4e325cdb9d14",
+      "chunk-37ce263683f5"
+    ],
+    "source_files": [
+      "Week1/0.1-DeepLearning-Introduction-C1.pdf",
+      "Week13/0.8-DeepLearning-tools-C13_modified.pdf",
+      "Week4/0.3-DeepLearing-CNN-C4.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week4/0.3-DeepLearing-CNN-C4.pdf",
+        "unit_type": "page",
+        "unit_index": 28,
+        "chunk_index": 1,
+        "section": "VGG-16",
+        "excerpt": "VGG-16 q VGGNet由牛津大学和DeepMind公司提出 Visual Geometry Group：https://www.robots.ox.ac.uk/~vgg/ DeepMind：https://deepmind.com/",
+        "location": "第 28 页"
+      },
+      {
+        "source": "Week4/0.3-DeepLearing-CNN-C4.pdf",
+        "unit_type": "page",
+        "unit_index": 33,
+        "chunk_index": 1,
+        "section": "Inception Net",
+        "excerpt": "Inception Net q深度：层数更深，采用了22层，在不同深度处增加了两个 loss来避免上述提到的梯度消失问题 q宽度：Inception Module包含4个分支，在卷积核3x3、5x5",
+        "location": "第 33 页"
+      }
+    ],
+    "image_path": "images/0-3-deeplearing-cnn-c4/page-028.png",
+    "image_caption": "0.3-DeepLearing-CNN-C4.pdf 第 28 页"
+  },
+  {
+    "question_id": "kp-典型卷积网络与视觉应用-q6",
+    "kp_id": "kp-典型卷积网络与视觉应用",
+    "kp_name": "典型卷积网络与视觉应用",
+    "question_type": "multiple_choice",
+    "question": "若把图中 VGG 的多层 3×3 卷积粗暴替换成单层大卷积核，最可能先失去哪一类结构优势？",
+    "answer": "在保持规则化设计的同时，通过层数堆叠逐步增强非线性表达能力这一优势。",
+    "explanation": "图里给出的不是一串孤立参数，而是一种结构哲学。把多层小卷积换成单层大卷积，损失的不只是参数形式，更是分层表示方式。",
+    "options": [
+      "A. 池化层对空间尺寸的压缩能力会完全消失，因为它依赖 3×3 卷积才能工作。",
+      "B. 网络会自动转成残差结构，因此深层优化困难会被直接消除。",
+      "C. ImageNet 竞赛结果会自动保持不变，因为卷积核大小不会影响表示方式。",
+      "D. 在保持规则化设计的同时，通过层数堆叠逐步增强非线性表达能力这一优势。"
+    ],
+    "correct_option": "D",
+    "source_chunk_ids": [
+      "chunk-a5a3770376df",
+      "chunk-8816d040b3f7",
+      "chunk-043836696421",
+      "chunk-dddf22d4760f",
+      "chunk-2ed6b6faa441",
+      "chunk-74a5728ca573",
+      "chunk-4e325cdb9d14",
+      "chunk-37ce263683f5"
+    ],
+    "source_files": [
+      "Week1/0.1-DeepLearning-Introduction-C1.pdf",
+      "Week13/0.8-DeepLearning-tools-C13_modified.pdf",
+      "Week4/0.3-DeepLearing-CNN-C4.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week4/0.3-DeepLearing-CNN-C4.pdf",
+        "unit_type": "page",
+        "unit_index": 28,
+        "chunk_index": 1,
+        "section": "VGG-16",
+        "excerpt": "VGG-16 q VGGNet由牛津大学和DeepMind公司提出 Visual Geometry Group：https://www.robots.ox.ac.uk/~vgg/ DeepMind：https://deepmind.com/",
+        "location": "第 28 页"
+      },
+      {
+        "source": "Week4/0.3-DeepLearing-CNN-C4.pdf",
+        "unit_type": "page",
+        "unit_index": 33,
+        "chunk_index": 1,
+        "section": "Inception Net",
+        "excerpt": "Inception Net q深度：层数更深，采用了22层，在不同深度处增加了两个 loss来避免上述提到的梯度消失问题 q宽度：Inception Module包含4个分支，在卷积核3x3、5x5",
+        "location": "第 33 页"
+      }
+    ],
+    "image_path": "images/0-3-deeplearing-cnn-c4/page-028.png",
+    "image_caption": "0.3-DeepLearing-CNN-C4.pdf 第 28 页"
+  },
+  {
+    "question_id": "kp-循环神经网络与lstm-q1",
+    "kp_id": "kp-循环神经网络与lstm",
+    "kp_name": "循环神经网络与LSTM",
+    "question_type": "multiple_choice",
+    "question": "RNN 能用于序列建模，关键不只是\"循环\"这个名字，而是什么？",
+    "answer": "它在时间步之间传递隐藏状态，能够利用前后时刻的信息。",
+    "explanation": "RNN 的关键不在于\"循环\"这个名字，而在于隐藏状态把序列依赖串联起来。",
+    "options": [
+      "A. 它只能处理长度固定为 1 的输入，因此更稳定。",
+      "B. 它把每个时间步都当成彼此独立的样本来处理。",
+      "C. 它在时间步之间传递隐藏状态，能够利用前后时刻的信息。",
+      "D. 它主要依靠卷积核共享去建模时间依赖。"
+    ],
+    "correct_option": "C",
+    "source_chunk_ids": [
+      "chunk-16a748441b83",
+      "chunk-f6597a6d1e8b",
+      "chunk-71a3f6157b13",
+      "chunk-3b940711a2ed",
+      "chunk-e44622f6de86",
+      "chunk-48b0691987b2",
+      "chunk-6cafdeb37561",
+      "chunk-336830748bd2"
+    ],
+    "source_files": [
+      "Week6/0.4-DeepLearing-RNN-C6.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week6/0.4-DeepLearing-RNN-C6.pdf",
+        "unit_type": "page",
+        "unit_index": 87,
+        "chunk_index": 1,
+        "section": "生成式摘要的关键技术",
+        "excerpt": "生成式摘要的关键技术 q注意力机制 由于\"长距离依赖\"问题的存在，RNN到最后一个时间步输入单词 时，已经丢失了相当一部分信息",
+        "location": "第 87 页"
+      },
+      {
+        "source": "Week6/0.4-DeepLearing-RNN-C6.pdf",
+        "unit_type": "page",
+        "unit_index": 36,
+        "chunk_index": 1,
+        "section": "LSTM的基本结构",
+        "excerpt": "LSTM的基本结构 q LSTM依靠贯穿隐藏层的细胞 状态实现隐藏单元之间的信息 传递，其中只有少量的线性操",
+        "location": "第 36 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-循环神经网络与lstm-q2",
+    "kp_id": "kp-循环神经网络与lstm",
+    "kp_name": "循环神经网络与LSTM",
+    "question_type": "multiple_choice",
+    "question": "LSTM 相比普通 RNN，结构上最关键的增强是什么？",
+    "answer": "通过门控机制更稳定地保留和更新长期信息。",
+    "explanation": "LSTM 的核心创新就是门控单元和记忆单元，用来缓解长期依赖难学的问题。",
+    "options": [
+      "A. 直接把循环单元替换成卷积或随机森林集成。",
+      "B. 通过门控机制更稳定地保留和更新长期信息。",
+      "C. 不改网络结构，只靠调大学习率来解决长期依赖问题。",
+      "D. 不再传递状态，只根据当前时刻输入独立做判断。"
+    ],
+    "correct_option": "B",
+    "source_chunk_ids": [
+      "chunk-16a748441b83",
+      "chunk-f6597a6d1e8b",
+      "chunk-71a3f6157b13",
+      "chunk-3b940711a2ed",
+      "chunk-e44622f6de86",
+      "chunk-48b0691987b2",
+      "chunk-6cafdeb37561",
+      "chunk-336830748bd2"
+    ],
+    "source_files": [
+      "Week6/0.4-DeepLearing-RNN-C6.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week6/0.4-DeepLearing-RNN-C6.pdf",
+        "unit_type": "page",
+        "unit_index": 76,
+        "chunk_index": 1,
+        "section": "循环神经网络语言模型",
+        "excerpt": "循环神经网络语言模型 q缺点：理论上可以记录全部的历史信息，但是由于\"梯度 消失\"和\"梯度爆炸\"现象，在实践中，循环神经网络语 言模型并不具备这种处理\"长期依赖\"的能力",
+        "location": "第 76 页"
+      },
+      {
+        "source": "Week6/0.4-DeepLearing-RNN-C6.pdf",
+        "unit_type": "page",
+        "unit_index": 90,
+        "chunk_index": 1,
+        "section": "生成式摘要的关键技术",
+        "excerpt": "生成式摘要的关键技术 q指针机制（pointer mechanism） pointer-generator network是seq2seq模型和pointer network的混合模型 一方面通过seq2seq模型保持抽象生成的能力，另一方面通过pointer",
+        "location": "第 90 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-循环神经网络与lstm-q3",
+    "kp_id": "kp-循环神经网络与lstm",
+    "kp_name": "循环神经网络与LSTM",
+    "question_type": "multiple_choice",
+    "question": "训练 RNN 时，先沿时间轴展开再做反向传播，这个过程通常叫什么？",
+    "answer": "时间反向传播（BPTT）。",
+    "explanation": "BPTT 是把循环结构展开成时间上的深层计算图，再做反向传播。",
+    "options": [
+      "A. Teacher forcing。",
+      "B. 批量归一化。",
+      "C. 时间反向传播（BPTT）。",
+      "D. 随机失活（Dropout）。"
+    ],
+    "correct_option": "C",
+    "source_chunk_ids": [
+      "chunk-16a748441b83",
+      "chunk-f6597a6d1e8b",
+      "chunk-71a3f6157b13",
+      "chunk-3b940711a2ed",
+      "chunk-e44622f6de86",
+      "chunk-48b0691987b2",
+      "chunk-6cafdeb37561",
+      "chunk-336830748bd2"
+    ],
+    "source_files": [
+      "Week6/0.4-DeepLearing-RNN-C6.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week6/0.4-DeepLearing-RNN-C6.pdf",
+        "unit_type": "page",
+        "unit_index": 7,
+        "chunk_index": 1,
+        "section": "循环神经网络的起源与发展",
+        "excerpt": "循环神经网络的起源与发展 q同样是1990年，Paul Werbos提出了循环神经网络的训练 算法--基于时间的反向传播算法（Backward Propagation Through Time，BPTT），它在人工神经网",
+        "location": "第 7 页"
+      },
+      {
+        "source": "Week6/0.4-DeepLearing-RNN-C6.pdf",
+        "unit_type": "page",
+        "unit_index": 110,
+        "chunk_index": 1,
+        "section": "中英文术语对照",
+        "excerpt": "中英文术语对照 q 循环神经网络：Recurrent Neural Networks，RNN q 基于时间的反向传播算法：Backward Propagation Through Time， BPTT",
+        "location": "第 110 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-循环神经网络与lstm-q4",
+    "kp_id": "kp-循环神经网络与lstm",
+    "kp_name": "循环神经网络与LSTM",
+    "question_type": "multiple_choice",
+    "question": "若按图中的时间展开结构，把横向状态连接删去，仅保留每个时刻的输入到隐藏层映射，模型最接近哪种退化情形？",
+    "answer": "各时刻近似独立处理，难以利用前文区分\"当前输入相同但语义不同\"的序列情况。",
+    "explanation": "这题必须利用图中的时间展开和横向状态连接来判断。删除这条递推链，损失的是跨时刻上下文，而不是别的结构性质。",
+    "options": [
+      "A. 退化为多头注意力模型，只能依赖 Query、Key、Value 的并行对齐。",
+      "B. 退化为池化网络，主要问题变成特征图尺寸无法压缩。",
+      "C. 各时刻近似独立处理，难以利用前文区分\"当前输入相同但语义不同\"的序列情况。",
+      "D. 退化为共享卷积核的二维图像分类器，主要丢失空间局部性。"
+    ],
+    "correct_option": "C",
+    "source_chunk_ids": [
+      "chunk-16a748441b83",
+      "chunk-f6597a6d1e8b",
+      "chunk-71a3f6157b13",
+      "chunk-3b940711a2ed",
+      "chunk-e44622f6de86",
+      "chunk-48b0691987b2",
+      "chunk-6cafdeb37561",
+      "chunk-336830748bd2"
+    ],
+    "source_files": [
+      "Week6/0.4-DeepLearing-RNN-C6.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week6/0.4-DeepLearing-RNN-C6.pdf",
+        "unit_type": "page",
+        "unit_index": 30,
+        "chunk_index": 1,
+        "section": "RNN的一般结构",
+        "excerpt": "RNN的一般结构 q Elman Network +1 +2",
+        "location": "第 30 页"
+      },
+      {
+        "source": "Week6/0.4-DeepLearing-RNN-C6.pdf",
+        "unit_type": "page",
+        "unit_index": 48,
+        "chunk_index": 1,
+        "section": "双向RNN",
+        "excerpt": "双向RNN q Bidirectional RNN(双向RNN)假设当前t的输出不仅仅和之 前的序列有关，并且还与之后的序列有关，例如:完形填空 q Bidirectional RNN由两个RNNs上下叠加在一起组成，输出",
+        "location": "第 48 页"
+      }
+    ],
+    "image_path": "images/0-4-deeplearing-rnn-c6/page-030.png",
+    "image_caption": "0.4-DeepLearing-RNN-C6.pdf 第 30 页"
+  },
+  {
+    "question_id": "kp-循环神经网络与lstm-q5",
+    "kp_id": "kp-循环神经网络与lstm",
+    "kp_name": "循环神经网络与LSTM",
+    "question_type": "multiple_choice",
+    "question": "根据图中的 forget gate 公式，若某一维旧记忆应被主动清空，则该维对应的 f_t 最应接近哪种状态？",
+    "answer": "接近 0，使上一时刻单元状态在这一维被显著压低。",
+    "explanation": "图中的公式说明 forget gate 直接控制旧状态保留多少。若要清空某维记忆，关键不是换输入，而是让该维的 f_t 接近 0。",
+    "options": [
+      "A. 取任意较大的负值，使 softmax 输出更尖锐。",
+      "B. 保持与类别数相同的常数值，用于决定输出层标签。",
+      "C. 接近 1，使旧记忆在该维被完整保留下来。",
+      "D. 接近 0，使上一时刻单元状态在这一维被显著压低。"
+    ],
+    "correct_option": "D",
+    "source_chunk_ids": [
+      "chunk-16a748441b83",
+      "chunk-f6597a6d1e8b",
+      "chunk-71a3f6157b13",
+      "chunk-3b940711a2ed",
+      "chunk-e44622f6de86",
+      "chunk-48b0691987b2",
+      "chunk-6cafdeb37561",
+      "chunk-336830748bd2"
+    ],
+    "source_files": [
+      "Week6/0.4-DeepLearing-RNN-C6.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week6/0.4-DeepLearing-RNN-C6.pdf",
+        "unit_type": "page",
+        "unit_index": 37,
+        "chunk_index": 1,
+        "section": "LSTM的基本结构",
+        "excerpt": "LSTM的基本结构 q遗忘门 LSTM通过遗忘门（forget gate）实现对细胞状态信息遗忘程度的控 制，输出当前状态的遗忘权重，取决于ℎ-1和",
+        "location": "第 37 页"
+      },
+      {
+        "source": "Week6/0.4-DeepLearing-RNN-C6.pdf",
+        "unit_type": "page",
+        "unit_index": 34,
+        "chunk_index": 1,
+        "section": "LSTM的介绍",
+        "excerpt": "LSTM的介绍 q Long short-term memory (LSTM) Long short-term memory （LSTM）是1997年由Sepp Hochreiter and Jürgen Schmidhuber提出来的。",
+        "location": "第 34 页"
+      }
+    ],
+    "image_path": "images/0-4-deeplearing-rnn-c6/page-037.png",
+    "image_caption": "0.4-DeepLearing-RNN-C6.pdf 第 37 页"
+  },
+  {
+    "question_id": "kp-循环神经网络与lstm-q6",
+    "kp_id": "kp-循环神经网络与lstm",
+    "kp_name": "循环神经网络与LSTM",
+    "question_type": "multiple_choice",
+    "question": "若一个任务要求跨很多时间步保留某个关键信息，结合图中的 forget gate 机制，该信息对应维度的 f_t 序列更应呈现哪种趋势？",
+    "answer": "在较长时间范围内持续接近 1，使旧记忆能够被长期保留下来。",
+    "explanation": "这题不能脱离图里的门控公式来答。若要长期保留信息，forget gate 就不应频繁关闭对应维度。",
+    "options": [
+      "A. 在不同时间步随机取负值，从而让记忆自动通过 softmax 放大。",
+      "B. 在较长时间范围内持续接近 1，使旧记忆能够被长期保留下来。",
+      "C. 在大多数时间步接近 0，这样才能不断强化长期依赖。",
+      "D. 始终等于类别数，这样记忆长度才能与输出维度对齐。"
+    ],
+    "correct_option": "B",
+    "source_chunk_ids": [
+      "chunk-16a748441b83",
+      "chunk-f6597a6d1e8b",
+      "chunk-71a3f6157b13",
+      "chunk-3b940711a2ed",
+      "chunk-e44622f6de86",
+      "chunk-48b0691987b2",
+      "chunk-6cafdeb37561",
+      "chunk-336830748bd2"
+    ],
+    "source_files": [
+      "Week6/0.4-DeepLearing-RNN-C6.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week6/0.4-DeepLearing-RNN-C6.pdf",
+        "unit_type": "page",
+        "unit_index": 37,
+        "chunk_index": 1,
+        "section": "LSTM的基本结构",
+        "excerpt": "LSTM的基本结构 q遗忘门 LSTM通过遗忘门（forget gate）实现对细胞状态信息遗忘程度的控 制，输出当前状态的遗忘权重，取决于ℎ-1和",
+        "location": "第 37 页"
+      },
+      {
+        "source": "Week6/0.4-DeepLearing-RNN-C6.pdf",
+        "unit_type": "page",
+        "unit_index": 34,
+        "chunk_index": 1,
+        "section": "LSTM的介绍",
+        "excerpt": "LSTM的介绍 q Long short-term memory (LSTM) Long short-term memory （LSTM）是1997年由Sepp Hochreiter and Jürgen Schmidhuber提出来的。",
+        "location": "第 34 页"
+      }
+    ],
+    "image_path": "images/0-4-deeplearing-rnn-c6/page-037.png",
+    "image_caption": "0.4-DeepLearing-RNN-C6.pdf 第 37 页"
+  },
+  {
+    "question_id": "kp-注意力机制与transformer-q1",
+    "kp_id": "kp-注意力机制与transformer",
+    "kp_name": "注意力机制与Transformer",
+    "question_type": "multiple_choice",
+    "question": "在自注意力里，Q、K、V 三者的分工更接近下面哪种说法？",
+    "answer": "Query 用来发起匹配，Key 用来被匹配，Value 提供最终聚合的信息内容。",
+    "explanation": "理解 Q、K、V 的角色分工，是理解注意力机制的第一步。",
+    "options": [
+      "A. Query 用来发起匹配，Key 用来被匹配，Value 提供最终聚合的信息内容。",
+      "B. 真正参与注意力计算的只有 V，Q 和 K 主要用于可视化展示。",
+      "C. Q 决定训练轮数，K 决定学习率，V 决定 batch size。",
+      "D. Q、K、V 只是名字不同，实际计算角色完全相同。"
+    ],
+    "correct_option": "A",
+    "source_chunk_ids": [
+      "chunk-706e33d667f6",
+      "chunk-a32997dbedbf",
+      "chunk-151c17866020",
+      "chunk-6fe39c62bb3e",
+      "chunk-062c9dd9f471",
+      "chunk-1fe98fcc23d1",
+      "chunk-f8f23a273ddc",
+      "chunk-ab8bba41e29c"
+    ],
+    "source_files": [
+      "Week7/0.5-Transformer-C7.pdf",
+      "Week8/0.5-Transformer-C8.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week7/0.5-Transformer-C7.pdf",
+        "unit_type": "page",
+        "unit_index": 15,
+        "chunk_index": 1,
+        "section": "注意力机制的抽象理解",
+        "excerpt": "注意力机制的抽象理解 q 注意力系数计算 Ø 阶段1：根据Query和Key计算两者 的相似性或者相关性",
+        "location": "第 15 页"
+      },
+      {
+        "source": "Week7/0.5-Transformer-C7.pdf",
+        "unit_type": "page",
+        "unit_index": 14,
+        "chunk_index": 1,
+        "section": "注意力机制的抽象理解",
+        "excerpt": "注意力机制的抽象理解 q Attention函数的本质可以被描述为一个查询（query）到一 系列（键key-值value）对的映射 Attention(Query, Source) = =1",
+        "location": "第 14 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-注意力机制与transformer-q2",
+    "kp_id": "kp-注意力机制与transformer",
+    "kp_name": "注意力机制与Transformer",
+    "question_type": "multiple_choice",
+    "question": "如果 Transformer 完全不加入位置编码，最直接会遇到什么问题？",
+    "answer": "模型难以区分同一组词在不同顺序下的差别。",
+    "explanation": "自注意力本身对顺序不敏感，因此需要额外的位置编码告诉模型\"谁在前、谁在后\"。",
+    "options": [
+      "A. 模型会自动改写成树模型来补偿顺序信息的缺失。",
+      "B. 模型会失去全部可训练参数，因此无法反向传播。",
+      "C. 模型会被迫把所有句子截断成长度为 1 的输入。",
+      "D. 模型难以区分同一组词在不同顺序下的差别。"
+    ],
+    "correct_option": "D",
+    "source_chunk_ids": [
+      "chunk-706e33d667f6",
+      "chunk-a32997dbedbf",
+      "chunk-151c17866020",
+      "chunk-6fe39c62bb3e",
+      "chunk-062c9dd9f471",
+      "chunk-1fe98fcc23d1",
+      "chunk-f8f23a273ddc",
+      "chunk-ab8bba41e29c"
+    ],
+    "source_files": [
+      "Week7/0.5-Transformer-C7.pdf",
+      "Week8/0.5-Transformer-C8.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week8/0.5-Transformer-C8.pdf",
+        "unit_type": "page",
+        "unit_index": 20,
+        "chunk_index": 1,
+        "section": "图像分类",
+        "excerpt": "图像分类 q ViT没有采用原始Transformer的位置编码方式，而是直接 设置为可学习的位置编码（Positional Encoding）。 q 在进行图块嵌入（Patch Embedding）之后，图像序列将进",
+        "location": "第 20 页"
+      },
+      {
+        "source": "Week8/0.5-Transformer-C8.pdf",
+        "unit_type": "page",
+        "unit_index": 28,
+        "chunk_index": 1,
+        "section": "目标检测",
+        "excerpt": "目标检测 q 原始Transformer中的位置编码为： q 原始Transformer只考虑x方向的位置编码，但是DETR考 虑了x、y两个方向的位置编码，因为图像特征是2D特征。",
+        "location": "第 28 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-注意力机制与transformer-q3",
+    "kp_id": "kp-注意力机制与transformer",
+    "kp_name": "注意力机制与Transformer",
+    "question_type": "multiple_choice",
+    "question": "多头注意力机制想带来的核心收益是什么？",
+    "answer": "让模型能在不同子空间和不同关系模式上并行建模依赖。",
+    "explanation": "多头并不是为了\"重复同一件事\"，而是让模型从多个视角提取相关性。",
+    "options": [
+      "A. 让所有注意力头尽量学习同一种关系，以减少表达差异。",
+      "B. 把原本可并行的注意力过程改成严格串行扫描。",
+      "C. 让模型能在不同子空间和不同关系模式上并行建模依赖。",
+      "D. 让模型不再依赖反向传播也能自动学到表示。"
+    ],
+    "correct_option": "C",
+    "source_chunk_ids": [
+      "chunk-706e33d667f6",
+      "chunk-a32997dbedbf",
+      "chunk-151c17866020",
+      "chunk-6fe39c62bb3e",
+      "chunk-062c9dd9f471",
+      "chunk-1fe98fcc23d1",
+      "chunk-f8f23a273ddc",
+      "chunk-ab8bba41e29c"
+    ],
+    "source_files": [
+      "Week7/0.5-Transformer-C7.pdf",
+      "Week8/0.5-Transformer-C8.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week7/0.5-Transformer-C7.pdf",
+        "unit_type": "page",
+        "unit_index": 34,
+        "chunk_index": 1,
+        "section": "Transformer中的自注意力机制",
+        "excerpt": "Transformer中的自注意力机制 q Transformer可以并行 地执行自注意力机制， 产生多个输出值，再",
+        "location": "第 34 页"
+      },
+      {
+        "source": "Week8/0.5-Transformer-C8.pdf",
+        "unit_type": "page",
+        "unit_index": 46,
+        "chunk_index": 1,
+        "section": "Transformer-Transformer类方法",
+        "excerpt": "Transformer-Transformer类方法 q PureT中使用了原始的多头自注意力机制（Multi-head Self Attention，MSA）及其变体窗口自注意力机制（Window MSA，W-MSA）与移位窗口自注意力机制（Shifted",
+        "location": "第 46 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-注意力机制与transformer-q4",
+    "kp_id": "kp-注意力机制与transformer",
+    "kp_name": "注意力机制与Transformer",
+    "question_type": "multiple_choice",
+    "question": "按图中的三阶段流程，若第一阶段得到的相关性分值不经过第二阶段就直接去加权 Value，最可能出现的后果是？",
+    "answer": "权重不再是可比较的归一化分配，不同位置的原始分值会直接主导加权结果。",
+    "explanation": "这题要结合图里的三阶段结构来答。第二阶段的作用不是装饰，而是把原始打分变成真正可用于加权的权重分布。",
+    "options": [
+      "A. 注意力机制会退化成卷积运算，因此是否归一化不再重要。",
+      "B. Value 会被强制转换为 one-hot 编码，因此无法继续求和。",
+      "C. Query 与 Key 会自动失去维度信息，导致模型无法前向计算。",
+      "D. 权重不再是可比较的归一化分配，不同位置的原始分值会直接主导加权结果。"
+    ],
+    "correct_option": "D",
+    "source_chunk_ids": [
+      "chunk-706e33d667f6",
+      "chunk-a32997dbedbf",
+      "chunk-151c17866020",
+      "chunk-6fe39c62bb3e",
+      "chunk-062c9dd9f471",
+      "chunk-1fe98fcc23d1",
+      "chunk-f8f23a273ddc",
+      "chunk-ab8bba41e29c"
+    ],
+    "source_files": [
+      "Week7/0.5-Transformer-C7.pdf",
+      "Week8/0.5-Transformer-C8.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week7/0.5-Transformer-C7.pdf",
+        "unit_type": "page",
+        "unit_index": 15,
+        "chunk_index": 1,
+        "section": "注意力机制的抽象理解",
+        "excerpt": "注意力机制的抽象理解 q 注意力系数计算 Ø 阶段1：根据Query和Key计算两者 的相似性或者相关性",
+        "location": "第 15 页"
+      },
+      {
+        "source": "Week8/0.5-Transformer-C8.pdf",
+        "unit_type": "page",
+        "unit_index": 29,
+        "chunk_index": 1,
+        "section": "目标检测",
+        "excerpt": "目标检测 q 与原始Transformer不同，DETR的位置编码向量需要加入 到每个编码器层中。在编码器内部位置编码仅仅作用于 Query和Key，即只与Query和Key相加，Value不做任何处",
+        "location": "第 29 页"
+      }
+    ],
+    "image_path": "images/0-5-transformer-c7/page-015.png",
+    "image_caption": "0.5-Transformer-C7.pdf 第 15 页"
+  },
+  {
+    "question_id": "kp-注意力机制与transformer-q5",
+    "kp_id": "kp-注意力机制与transformer",
+    "kp_name": "注意力机制与Transformer",
+    "question_type": "multiple_choice",
+    "question": "根据图中的公式位置关系，1/sqrt(d_k) 这一因子直接服务于哪一步的数值稳定性？",
+    "answer": "服务于 softmax 前的点积打分，防止维度增大时分值过大而使 softmax 过早饱和。",
+    "explanation": "正确答案要同时读懂图里的公式顺序和缩放因子所在位置。它修正的是打分阶段的数值范围，而不是输出长度或头数。",
+    "options": [
+      "A. 服务于 softmax 前的点积打分，防止维度增大时分值过大而使 softmax 过早饱和。",
+      "B. 服务于 Value 与输出向量的维度对齐，否则矩阵乘法无法定义。",
+      "C. 服务于多头数量的平衡，否则不同注意力头无法并行计算。",
+      "D. 服务于序列长度归一化，否则输出 token 数会少于输入 token 数。"
+    ],
+    "correct_option": "A",
+    "source_chunk_ids": [
+      "chunk-706e33d667f6",
+      "chunk-a32997dbedbf",
+      "chunk-151c17866020",
+      "chunk-6fe39c62bb3e",
+      "chunk-062c9dd9f471",
+      "chunk-1fe98fcc23d1",
+      "chunk-f8f23a273ddc",
+      "chunk-ab8bba41e29c"
+    ],
+    "source_files": [
+      "Week7/0.5-Transformer-C7.pdf",
+      "Week8/0.5-Transformer-C8.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week7/0.5-Transformer-C7.pdf",
+        "unit_type": "page",
+        "unit_index": 32,
+        "chunk_index": 1,
+        "section": "Transformer中的自注意力机制",
+        "excerpt": "Transformer中的自注意力机制 q 在Transformer中，提出了一种可缩放的点积注意力 （Scaled Dot-product Attention），也就是自注意力。 q 该注意力机制的输入由查询向量Q、维度为dk的键向量K和",
+        "location": "第 32 页"
+      },
+      {
+        "source": "Week7/0.5-Transformer-C7.pdf",
+        "unit_type": "page",
+        "unit_index": 15,
+        "chunk_index": 1,
+        "section": "注意力机制的抽象理解",
+        "excerpt": "注意力机制的抽象理解 q 注意力系数计算 Ø 阶段1：根据Query和Key计算两者 的相似性或者相关性",
+        "location": "第 15 页"
+      }
+    ],
+    "image_path": "images/0-5-transformer-c7/page-032.png",
+    "image_caption": "0.5-Transformer-C7.pdf 第 32 页"
+  },
+  {
+    "question_id": "kp-注意力机制与transformer-q6",
+    "kp_id": "kp-注意力机制与transformer",
+    "kp_name": "注意力机制与Transformer",
+    "question_type": "multiple_choice",
+    "question": "若按图中的三阶段流程，第二阶段输出的权重几乎变成均匀分布，那么第三阶段得到的 Attention Value 更接近哪种效果？",
+    "answer": "更接近对各个 Value 做近似平均，而不是突出少数高度相关的位置。",
+    "explanation": "这道题必须依赖图中的三阶段含义。第二阶段给出的就是第三阶段的加权系数；若它近似均匀，最终结果自然接近平均汇聚。",
+    "options": [
+      "A. 更接近对各个 Value 做近似平均，而不是突出少数高度相关的位置。",
+      "B. 更接近把 Query 与 Key 重新拼接，因此 Value 不再参与结果生成。",
+      "C. 更接近卷积核滑动结果，因为注意力一旦均匀就会变成卷积。",
+      "D. 更接近只保留单个最大 Value，因为均匀分布会自动退化成 one-hot。"
+    ],
+    "correct_option": "A",
+    "source_chunk_ids": [
+      "chunk-706e33d667f6",
+      "chunk-a32997dbedbf",
+      "chunk-151c17866020",
+      "chunk-6fe39c62bb3e",
+      "chunk-062c9dd9f471",
+      "chunk-1fe98fcc23d1",
+      "chunk-f8f23a273ddc",
+      "chunk-ab8bba41e29c"
+    ],
+    "source_files": [
+      "Week7/0.5-Transformer-C7.pdf",
+      "Week8/0.5-Transformer-C8.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week7/0.5-Transformer-C7.pdf",
+        "unit_type": "page",
+        "unit_index": 15,
+        "chunk_index": 1,
+        "section": "注意力机制的抽象理解",
+        "excerpt": "注意力机制的抽象理解 q 注意力系数计算 Ø 阶段1：根据Query和Key计算两者 的相似性或者相关性",
+        "location": "第 15 页"
+      },
+      {
+        "source": "Week7/0.5-Transformer-C7.pdf",
+        "unit_type": "page",
+        "unit_index": 32,
+        "chunk_index": 1,
+        "section": "Transformer中的自注意力机制",
+        "excerpt": "Transformer中的自注意力机制 q 在Transformer中，提出了一种可缩放的点积注意力 （Scaled Dot-product Attention），也就是自注意力。 q 该注意力机制的输入由查询向量Q、维度为dk的键向量K和",
+        "location": "第 32 页"
+      }
+    ],
+    "image_path": "images/0-5-transformer-c7/page-015.png",
+    "image_caption": "0.5-Transformer-C7.pdf 第 15 页"
+  },
+  {
+    "question_id": "kp-gpt-bert与视觉transformer-q1",
+    "kp_id": "kp-gpt-bert与视觉transformer",
+    "kp_name": "GPT、BERT与视觉Transformer",
+    "question_type": "multiple_choice",
+    "question": "GPT 和 BERT 在预训练目标上的典型区别，下面哪一项说得更对？",
+    "answer": "GPT 更偏自回归预测下一个 token，BERT 更偏基于上下文的掩码预测。",
+    "explanation": "课程里对 GPT / BERT 的比较，首先看的是训练目标和上下文利用方式。",
+    "options": [
+      "A. GPT 更偏自回归预测下一个 token，BERT 更偏基于上下文的掩码预测。",
+      "B. GPT 不依赖预训练，BERT 只能在测试阶段在线训练。",
+      "C. GPT 主要做图像建模，BERT 主要做语音建模。",
+      "D. 二者训练目标本质相同，只是论文命名方式不同。"
+    ],
+    "correct_option": "A",
+    "source_chunk_ids": [
+      "chunk-2a86b0d793c4",
+      "chunk-6225475e2f32",
+      "chunk-9a72ede80f34",
+      "chunk-ea077b2c73af",
+      "chunk-28bd506135a8",
+      "chunk-ef3f842671d4",
+      "chunk-ed7094993f47",
+      "chunk-ab8bba41e29c"
+    ],
+    "source_files": [
+      "Week7/0.5-Transformer-C7.pdf",
+      "Week8/0.5-Transformer-C8.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week7/0.5-Transformer-C7.pdf",
+        "unit_type": "page",
+        "unit_index": 74,
+        "chunk_index": 1,
+        "section": "BERT的训练",
+        "excerpt": "BERT的训练 q BERT同样采用两阶段训练方法，分别是在大规模无标注 语料上的预训练和在特定任务有标签数据上进行的微调。 q 在预训练阶段，BERT使用了掩码语言模型（Masked",
+        "location": "第 74 页"
+      },
+      {
+        "source": "Week7/0.5-Transformer-C7.pdf",
+        "unit_type": "page",
+        "unit_index": 79,
+        "chunk_index": 1,
+        "section": "BERT的变种",
+        "excerpt": "BERT的变种 q RoBERTa对BERT进行了改进 首先，原始的BERT模型使用的是静态掩码，而RoBERTa使用的是 动态掩码，在预训练的不同时刻，重新挑选15%的单词进行掩码。",
+        "location": "第 79 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-gpt-bert与视觉transformer-q2",
+    "kp_id": "kp-gpt-bert与视觉transformer",
+    "kp_name": "GPT、BERT与视觉Transformer",
+    "question_type": "multiple_choice",
+    "question": "如果一个任务非常依赖某个词左右两侧的上下文，哪类预训练思路通常更合适？",
+    "answer": "以 BERT 为代表的双向上下文编码思路。",
+    "explanation": "双向建模的关键优势，就是同时整合当前位置左右两侧的信息。",
+    "options": [
+      "A. 只看左侧历史、不显式结合右侧信息的单向生成思路。",
+      "B. 以 BERT 为代表的双向上下文编码思路。",
+      "C. 完全不利用上下文表示、直接套用树模型投票。",
+      "D. 只看当前词本身、不整合上下文的浅层线性模型。"
+    ],
+    "correct_option": "B",
+    "source_chunk_ids": [
+      "chunk-2a86b0d793c4",
+      "chunk-6225475e2f32",
+      "chunk-9a72ede80f34",
+      "chunk-ea077b2c73af",
+      "chunk-28bd506135a8",
+      "chunk-ef3f842671d4",
+      "chunk-ed7094993f47",
+      "chunk-ab8bba41e29c"
+    ],
+    "source_files": [
+      "Week7/0.5-Transformer-C7.pdf",
+      "Week8/0.5-Transformer-C8.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week7/0.5-Transformer-C7.pdf",
+        "unit_type": "page",
+        "unit_index": 66,
+        "chunk_index": 1,
+        "section": "BERT简介",
+        "excerpt": "BERT简介 q 基于Transformer的双向编码器表示模型（Bidirectional Encoder Representations from Transformers，BERT）是 一种基于Transformer的纯Encoder模型。",
+        "location": "第 66 页"
+      },
+      {
+        "source": "Week7/0.5-Transformer-C7.pdf",
+        "unit_type": "page",
+        "unit_index": 47,
+        "chunk_index": 1,
+        "section": "GPT-1",
+        "excerpt": "GPT-1 q 无监督预训练 GPT-1使用一个多层Transformer解码器进行语言建模，该模型对输 入上下文使用多头自注意力机制，然后使用前馈神经网络预测目标",
+        "location": "第 47 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-gpt-bert与视觉transformer-q3",
+    "kp_id": "kp-gpt-bert与视觉transformer",
+    "kp_name": "GPT、BERT与视觉Transformer",
+    "question_type": "multiple_choice",
+    "question": "Swin Transformer 在视觉任务中被强调的结构特点是什么？",
+    "answer": "通过窗口化和层次化设计，在视觉场景中平衡建模能力与计算代价。",
+    "explanation": "Swin 的代表性特点是局部窗口注意力和层次化表示，这使它更适合视觉任务。",
+    "options": [
+      "A. 通过窗口化和层次化设计，在视觉场景中平衡建模能力与计算代价。",
+      "B. 完全放弃注意力机制，改由循环门控单元承担主干。",
+      "C. 把所有 patch 先压成一个标量，再交给分类层处理。",
+      "D. 用 GAN 判别器直接替代编码器完成特征抽取。"
+    ],
+    "correct_option": "A",
+    "source_chunk_ids": [
+      "chunk-2a86b0d793c4",
+      "chunk-6225475e2f32",
+      "chunk-9a72ede80f34",
+      "chunk-ea077b2c73af",
+      "chunk-28bd506135a8",
+      "chunk-ef3f842671d4",
+      "chunk-ed7094993f47",
+      "chunk-ab8bba41e29c"
+    ],
+    "source_files": [
+      "Week7/0.5-Transformer-C7.pdf",
+      "Week8/0.5-Transformer-C8.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week8/0.5-Transformer-C8.pdf",
+        "unit_type": "page",
+        "unit_index": 46,
+        "chunk_index": 1,
+        "section": "Transformer-Transformer类方法",
+        "excerpt": "Transformer-Transformer类方法 q PureT中使用了原始的多头自注意力机制（Multi-head Self Attention，MSA）及其变体窗口自注意力机制（Window MSA，W-MSA）与移位窗口自注意力机制（Shifted",
+        "location": "第 46 页"
+      },
+      {
+        "source": "Week7/0.5-Transformer-C7.pdf",
+        "unit_type": "page",
+        "unit_index": 86,
+        "chunk_index": 1,
+        "section": "Swin Transformer的结构",
+        "excerpt": "Swin Transformer的结构 q Swin Transformer的结构采用层级化设计，一共分为4个阶 段。",
+        "location": "第 86 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-gpt-bert与视觉transformer-q4",
+    "kp_id": "kp-gpt-bert与视觉transformer",
+    "kp_name": "GPT、BERT与视觉Transformer",
+    "question_type": "multiple_choice",
+    "question": "根据图中\"一个预训练模型扇出到多个任务\"的布局，若把这些连线改成\"每个任务各配一个独立模型\"，最先被削弱的教学结论是？",
+    "answer": "预训练得到的共享表示具有迁移性，同一个基础模型可以经微调服务多个下游任务。",
+    "explanation": "这道题必须依赖图里的\"一个模型对应多任务\"布局。被强调的不是任务名称本身，而是共享表示的迁移能力。",
+    "options": [
+      "A. 只要参数规模足够大，模型就不再需要任何任务相关的数据。",
+      "B. 不同下游任务的标签空间完全相同，因此天然可以共用一个分类头。",
+      "C. 预训练模型都必须先在图像数据上做监督学习，然后才能用于 NLP 任务。",
+      "D. 预训练得到的共享表示具有迁移性，同一个基础模型可以经微调服务多个下游任务。"
+    ],
+    "correct_option": "D",
+    "source_chunk_ids": [
+      "chunk-2a86b0d793c4",
+      "chunk-6225475e2f32",
+      "chunk-9a72ede80f34",
+      "chunk-ea077b2c73af",
+      "chunk-28bd506135a8",
+      "chunk-ef3f842671d4",
+      "chunk-ed7094993f47",
+      "chunk-ab8bba41e29c"
+    ],
+    "source_files": [
+      "Week7/0.5-Transformer-C7.pdf",
+      "Week8/0.5-Transformer-C8.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week7/0.5-Transformer-C7.pdf",
+        "unit_type": "page",
+        "unit_index": 42,
+        "chunk_index": 1,
+        "section": "基于Transformer的大规模预训练模型",
+        "excerpt": "基于Transformer的大规模预训练模型 q Transformer能够并行处理较长的输入序列，这一优点吸引 了大量研究人员的关注，基于Transformer的大规模预训练 模型应运而生。",
+        "location": "第 42 页"
+      },
+      {
+        "source": "Week7/0.5-Transformer-C7.pdf",
+        "unit_type": "page",
+        "unit_index": 67,
+        "chunk_index": 1,
+        "section": "BERT简介",
+        "excerpt": "BERT简介 q 将预训练模型应用于下游任务有两种策略，分别是基于特 征的策略和基于微调的策略。 q ELMO使用的是一种基于特征的方法，GPT系列模型使用",
+        "location": "第 67 页"
+      }
+    ],
+    "image_path": "images/0-5-transformer-c7/page-042.png",
+    "image_caption": "0.5-Transformer-C7.pdf 第 42 页"
+  },
+  {
+    "question_id": "kp-gpt-bert与视觉transformer-q5",
+    "kp_id": "kp-gpt-bert与视觉transformer",
+    "kp_name": "GPT、BERT与视觉Transformer",
+    "question_type": "multiple_choice",
+    "question": "图中只给出\"hierarchical\"和\"4-stage\"。若据此判断它最适合哪类视觉需求，下列哪项最合理？",
+    "answer": "需要多尺度表征的视觉任务，因为层级结构意味着特征会随阶段推进逐步汇聚更大范围的信息。",
+    "explanation": "这页信息其实很少，因此答题关键在于把\"层级化、4-stage\"翻译成具体的视觉建模含义，而不是死记数字。",
+    "options": [
+      "A. 只适合完全无监督聚类，因为分阶段设计与分类、检测无关。",
+      "B. 只适合单尺度像素回归，因为层级结构会破坏高层语义信息。",
+      "C. 需要多尺度表征的视觉任务，因为层级结构意味着特征会随阶段推进逐步汇聚更大范围的信息。",
+      "D. 只适合固定长度文本建模，因为 4-stage 结构本质上等价于时间展开。"
+    ],
+    "correct_option": "C",
+    "source_chunk_ids": [
+      "chunk-2a86b0d793c4",
+      "chunk-6225475e2f32",
+      "chunk-9a72ede80f34",
+      "chunk-ea077b2c73af",
+      "chunk-28bd506135a8",
+      "chunk-ef3f842671d4",
+      "chunk-ed7094993f47",
+      "chunk-ab8bba41e29c"
+    ],
+    "source_files": [
+      "Week7/0.5-Transformer-C7.pdf",
+      "Week8/0.5-Transformer-C8.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week7/0.5-Transformer-C7.pdf",
+        "unit_type": "page",
+        "unit_index": 86,
+        "chunk_index": 1,
+        "section": "Swin Transformer的结构",
+        "excerpt": "Swin Transformer的结构 q Swin Transformer的结构采用层级化设计，一共分为4个阶 段。",
+        "location": "第 86 页"
+      },
+      {
+        "source": "Week7/0.5-Transformer-C7.pdf",
+        "unit_type": "page",
+        "unit_index": 85,
+        "chunk_index": 1,
+        "section": "Swin Transformer的提出",
+        "excerpt": "Swin Transformer的提出 q 把Transformer从自然语言处理领域迁移到计算机视觉领域 主要面临两个挑战： 不同视觉主体存在很大尺寸差异；",
+        "location": "第 85 页"
+      }
+    ],
+    "image_path": "images/0-5-transformer-c7/page-086.png",
+    "image_caption": "0.5-Transformer-C7.pdf 第 86 页"
+  },
+  {
+    "question_id": "kp-gpt-bert与视觉transformer-q6",
+    "kp_id": "kp-gpt-bert与视觉transformer",
+    "kp_name": "GPT、BERT与视觉Transformer",
+    "question_type": "multiple_choice",
+    "question": "若把图中 Swin Transformer 的层级式 4-stage 结构改成单阶段平铺表示，最难保持的能力是什么？",
+    "answer": "逐阶段形成从局部细节到更大尺度语义的多层级视觉表征能力。",
+    "explanation": "这题要利用图里唯一给出的关键信息：层级化和分阶段。去掉这两点，最先损失的就是多尺度表征。",
+    "options": [
+      "A. 逐阶段形成从局部细节到更大尺度语义的多层级视觉表征能力。",
+      "B. 通过遗忘门精确控制旧状态保留比例的能力。",
+      "C. 把时间步递推到下一时刻的循环记忆能力。",
+      "D. 把所有类别映射到同一监督标签空间的能力。"
+    ],
+    "correct_option": "A",
+    "source_chunk_ids": [
+      "chunk-2a86b0d793c4",
+      "chunk-6225475e2f32",
+      "chunk-9a72ede80f34",
+      "chunk-ea077b2c73af",
+      "chunk-28bd506135a8",
+      "chunk-ef3f842671d4",
+      "chunk-ed7094993f47",
+      "chunk-ab8bba41e29c"
+    ],
+    "source_files": [
+      "Week7/0.5-Transformer-C7.pdf",
+      "Week8/0.5-Transformer-C8.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week7/0.5-Transformer-C7.pdf",
+        "unit_type": "page",
+        "unit_index": 86,
+        "chunk_index": 1,
+        "section": "Swin Transformer的结构",
+        "excerpt": "Swin Transformer的结构 q Swin Transformer的结构采用层级化设计，一共分为4个阶 段。",
+        "location": "第 86 页"
+      },
+      {
+        "source": "Week7/0.5-Transformer-C7.pdf",
+        "unit_type": "page",
+        "unit_index": 85,
+        "chunk_index": 1,
+        "section": "Swin Transformer的提出",
+        "excerpt": "Swin Transformer的提出 q 把Transformer从自然语言处理领域迁移到计算机视觉领域 主要面临两个挑战： 不同视觉主体存在很大尺寸差异；",
+        "location": "第 85 页"
+      }
+    ],
+    "image_path": "images/0-5-transformer-c7/page-086.png",
+    "image_caption": "0.5-Transformer-C7.pdf 第 86 页"
+  },
+  {
+    "question_id": "kp-gan-对抗生成-q1",
+    "kp_id": "kp-gan-对抗生成",
+    "kp_name": "GAN 对抗生成",
+    "question_type": "multiple_choice",
+    "question": "关于 GAN 中生成器与判别器的关系，下列说法正确的是？",
+    "answer": "生成器努力生成更逼真的样本，判别器努力区分真假，两者通过对抗共同推动性能提升。",
+    "explanation": "GAN 的核心不是\"有两个网络\"这么简单，而是二者在目标上相互博弈。",
+    "options": [
+      "A. 两者各自训练各自的，不会通过目标函数相互影响。",
+      "B. 两者主要在测试阶段起作用，训练阶段并不形成对抗。",
+      "C. 生成器努力生成更逼真的样本，判别器努力区分真假，两者通过对抗共同推动性能提升。",
+      "D. 判别器负责生成样本，生成器负责判定真假。"
+    ],
+    "correct_option": "C",
+    "source_chunk_ids": [
+      "chunk-cd702f7f493d",
+      "chunk-577a351724a9",
+      "chunk-f3bfbda0c946",
+      "chunk-1216d86b4fa8",
+      "chunk-d4e1c1ad989e",
+      "chunk-db689788fea6",
+      "chunk-4c350f296d9e",
+      "chunk-48a78bfd26d1"
+    ],
+    "source_files": [
+      "Week8/0.6-GAN-C8.pdf",
+      "Week9/0.6-GAN-C9.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week8/0.6-GAN-C8.pdf",
+        "unit_type": "page",
+        "unit_index": 14,
+        "chunk_index": 1,
+        "section": "GAN模型",
+        "excerpt": "GAN模型 q GAN主要由两部分组成：生成器（Generator）和判别器 （Discriminator），它们分别扮演了两个不同的角色。 生成器的任务是生成接近真实数据分布的样本，而判别器的任务则",
+        "location": "第 14 页"
+      },
+      {
+        "source": "Week9/0.6-GAN-C9.pdf",
+        "unit_type": "page",
+        "unit_index": 56,
+        "chunk_index": 1,
+        "section": "GAN产生背景",
+        "excerpt": "GAN产生背景 q 生成对抗网络：Generative Adversarial Networks，GAN q 零和博弈：Zero-sum Game q 生成器：Generator",
+        "location": "第 56 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-gan-对抗生成-q2",
+    "kp_id": "kp-gan-对抗生成",
+    "kp_name": "GAN 对抗生成",
+    "question_type": "multiple_choice",
+    "question": "如果 GAN 长期只能生成几种非常相似的样本，这通常对应什么问题？",
+    "answer": "模式崩塌（mode collapse）。",
+    "explanation": "模式崩塌指生成器缺乏多样性，总是输出相似样本，是 GAN 训练的经典难点之一。",
+    "options": [
+      "A. 标签平滑。",
+      "B. 梯度爆炸。",
+      "C. 梯度裁剪。",
+      "D. 模式崩塌（mode collapse）。"
+    ],
+    "correct_option": "D",
+    "source_chunk_ids": [
+      "chunk-cd702f7f493d",
+      "chunk-577a351724a9",
+      "chunk-f3bfbda0c946",
+      "chunk-1216d86b4fa8",
+      "chunk-d4e1c1ad989e",
+      "chunk-db689788fea6",
+      "chunk-4c350f296d9e",
+      "chunk-48a78bfd26d1"
+    ],
+    "source_files": [
+      "Week8/0.6-GAN-C8.pdf",
+      "Week9/0.6-GAN-C9.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week9/0.6-GAN-C9.pdf",
+        "unit_type": "page",
+        "unit_index": 44,
+        "chunk_index": 1,
+        "section": "异常检测",
+        "excerpt": "异常检测 q AnoGAN包含以下三个组成部分： 生成器：AnoGAN使用生成器来生成与正常数据类似的样本。生成 器接受一个随机向量作为输入，并输出生成的样本。通过使用正常",
+        "location": "第 44 页"
+      },
+      {
+        "source": "Week8/0.6-GAN-C8.pdf",
+        "unit_type": "page",
+        "unit_index": 14,
+        "chunk_index": 1,
+        "section": "GAN模型",
+        "excerpt": "GAN模型 q GAN主要由两部分组成：生成器（Generator）和判别器 （Discriminator），它们分别扮演了两个不同的角色。 生成器的任务是生成接近真实数据分布的样本，而判别器的任务则",
+        "location": "第 14 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-gan-对抗生成-q3",
+    "kp_id": "kp-gan-对抗生成",
+    "kp_name": "GAN 对抗生成",
+    "question_type": "multiple_choice",
+    "question": "条件 GAN 和普通 GAN 的直接区别，最核心的是哪一点？",
+    "answer": "条件 GAN 在生成或判别时额外利用类别、文本等条件信息。",
+    "explanation": "引入条件的意义，是让生成过程能受控，而不是完全无条件地\"随便生成\"。",
+    "options": [
+      "A. 条件 GAN 训练时不再使用损失函数约束生成过程。",
+      "B. 条件 GAN 不再需要判别器，只保留生成器即可。",
+      "C. 条件 GAN 在生成或判别时额外利用类别、文本等条件信息。",
+      "D. 条件 GAN 只能处理一维信号，不能用于图像任务。"
+    ],
+    "correct_option": "C",
+    "source_chunk_ids": [
+      "chunk-cd702f7f493d",
+      "chunk-577a351724a9",
+      "chunk-f3bfbda0c946",
+      "chunk-1216d86b4fa8",
+      "chunk-d4e1c1ad989e",
+      "chunk-db689788fea6",
+      "chunk-4c350f296d9e",
+      "chunk-48a78bfd26d1"
+    ],
+    "source_files": [
+      "Week8/0.6-GAN-C8.pdf",
+      "Week9/0.6-GAN-C9.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week8/0.6-GAN-C8.pdf",
+        "unit_type": "page",
+        "unit_index": 31,
+        "chunk_index": 1,
+        "section": "限定条件优化",
+        "excerpt": "限定条件优化 q通过加入一些限定条件，可以让生成器产生更多样、更有 价值的数据。例如，如果希望GAN生成属于特定类别的图 像，可以在训练GAN时加入额外的标签信息。",
+        "location": "第 31 页"
+      },
+      {
+        "source": "Week8/0.6-GAN-C8.pdf",
+        "unit_type": "page",
+        "unit_index": 60,
+        "chunk_index": 1,
+        "section": "StackGAN",
+        "excerpt": "StackGAN q StackGAN分为两个阶段，阶段I的GAN以文本嵌入为条件信 息生成具有基本颜色和粗略草图的低分辨率图像。文本描述t 首先由一个编码器进行编码，从而生成一个文本嵌入 ，然",
+        "location": "第 60 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-gan-对抗生成-q4",
+    "kp_id": "kp-gan-对抗生成",
+    "kp_name": "GAN 对抗生成",
+    "question_type": "multiple_choice",
+    "question": "根据图中对动态平衡的定义，若训练末期判别器准确率长期接近 90%，更说明发生了哪种情况？",
+    "answer": "系统尚未达到图中所说的平衡，生成分布与真实分布之间仍存在明显差距。",
+    "explanation": "要答这题，必须用图中\"平衡时生成分布接近真实分布、判别器约 50%\"这一成对描述来反推 90% 代表什么。",
+    "options": [
+      "A. 生成器已经完全学到真实分布，因此判别器准确率自然应继续上升。",
+      "B. 系统已经达到最理想平衡，只是判别器比随机猜测更稳定。",
+      "C. 判别器准确率越高越能说明 GAN 训练成功，90% 比 50% 更接近平衡。",
+      "D. 系统尚未达到图中所说的平衡，生成分布与真实分布之间仍存在明显差距。"
+    ],
+    "correct_option": "D",
+    "source_chunk_ids": [
+      "chunk-cd702f7f493d",
+      "chunk-577a351724a9",
+      "chunk-f3bfbda0c946",
+      "chunk-1216d86b4fa8",
+      "chunk-d4e1c1ad989e",
+      "chunk-db689788fea6",
+      "chunk-4c350f296d9e",
+      "chunk-48a78bfd26d1"
+    ],
+    "source_files": [
+      "Week8/0.6-GAN-C8.pdf",
+      "Week9/0.6-GAN-C9.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week8/0.6-GAN-C8.pdf",
+        "unit_type": "page",
+        "unit_index": 24,
+        "chunk_index": 1,
+        "section": "GAN模型训练",
+        "excerpt": "GAN模型训练 q GAN在训练的过程中固定一方，更新另一方的网络权重 q交替迭代，在这个过程中，双方都极力优化自己的网络， 从而形成竞争对抗，直到双方达到一个动态的平衡（纳什",
+        "location": "第 24 页"
+      },
+      {
+        "source": "Week8/0.6-GAN-C8.pdf",
+        "unit_type": "page",
+        "unit_index": 61,
+        "chunk_index": 1,
+        "section": "StackGAN",
+        "excerpt": "StackGAN q这是标准高斯分布和条件高斯分布之间的Kullback-Leibler散 度（KL散度）。在高斯潜在变量0的条件下，第一阶段GAN 通过在下述公式中最大化 0来训练判别器，用最小化0来",
+        "location": "第 61 页"
+      }
+    ],
+    "image_path": "images/0-6-gan-c8/page-024.png",
+    "image_caption": "0.6-GAN-C8.pdf 第 24 页"
+  },
+  {
+    "question_id": "kp-gan-对抗生成-q5",
+    "kp_id": "kp-gan-对抗生成",
+    "kp_name": "GAN 对抗生成",
+    "question_type": "multiple_choice",
+    "question": "根据图中样本的按行排布，若固定条件标签只更换随机噪声，理论上最应保持不变、允许变化的分别是什么？",
+    "answer": "数字类别应保持不变，而具体书写风格、笔画粗细和局部形状可以变化。",
+    "explanation": "这道题必须依赖图中的排布方式来判断。图里同一行体现的是\"类别约束不变\"，但并不意味着样本外观被锁成完全一样。",
+    "options": [
+      "A. 只要卷积核共享不变，类别和风格都会随噪声一起随机改变。",
+      "B. 数字类别和像素细节都应完全不变，否则说明条件标签失效。",
+      "C. 数字类别应保持不变，而具体书写风格、笔画粗细和局部形状可以变化。",
+      "D. 数字类别可以任意变化，只要同一行的灰度分布接近即可。"
+    ],
+    "correct_option": "C",
+    "source_chunk_ids": [
+      "chunk-cd702f7f493d",
+      "chunk-577a351724a9",
+      "chunk-f3bfbda0c946",
+      "chunk-1216d86b4fa8",
+      "chunk-d4e1c1ad989e",
+      "chunk-db689788fea6",
+      "chunk-4c350f296d9e",
+      "chunk-48a78bfd26d1"
+    ],
+    "source_files": [
+      "Week8/0.6-GAN-C8.pdf",
+      "Week9/0.6-GAN-C9.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week8/0.6-GAN-C8.pdf",
+        "unit_type": "page",
+        "unit_index": 36,
+        "chunk_index": 1,
+        "section": "CGAN",
+        "excerpt": "CGAN q CGAN性能 Generated MNIST digits, each row conditioned on one label",
+        "location": "第 36 页"
+      },
+      {
+        "source": "Week8/0.6-GAN-C8.pdf",
+        "unit_type": "page",
+        "unit_index": 31,
+        "chunk_index": 1,
+        "section": "限定条件优化",
+        "excerpt": "限定条件优化 q通过加入一些限定条件，可以让生成器产生更多样、更有 价值的数据。例如，如果希望GAN生成属于特定类别的图 像，可以在训练GAN时加入额外的标签信息。",
+        "location": "第 31 页"
+      }
+    ],
+    "image_path": "images/0-6-gan-c8/page-036.png",
+    "image_caption": "0.6-GAN-C8.pdf 第 36 页"
+  },
+  {
+    "question_id": "kp-gan-对抗生成-q6",
+    "kp_id": "kp-gan-对抗生成",
+    "kp_name": "GAN 对抗生成",
+    "question_type": "multiple_choice",
+    "question": "若图中同一行在固定标签条件下生成出的样本几乎完全相同、只剩微小噪声差别，这更可能提示哪类问题？",
+    "answer": "在该条件标签下生成多样性不足，模型可能出现了条件内的模式塌缩。",
+    "explanation": "这题必须结合图中同一行多样本的排布来判断。条件生成不等于每个标签只输出一个模板，完全相同反而暴露多样性问题。",
+    "options": [
+      "A. 在该条件标签下生成多样性不足，模型可能出现了条件内的模式塌缩。",
+      "B. 说明随机噪声比条件标签更重要，所以类别约束已经完全失效。",
+      "C. 说明判别器准确率已经稳定在 50%，系统必然达到最优平衡。",
+      "D. 条件控制效果更强，因此生成器已经学会在每个标签下只产生唯一正确答案。"
+    ],
+    "correct_option": "A",
+    "source_chunk_ids": [
+      "chunk-cd702f7f493d",
+      "chunk-577a351724a9",
+      "chunk-f3bfbda0c946",
+      "chunk-1216d86b4fa8",
+      "chunk-d4e1c1ad989e",
+      "chunk-db689788fea6",
+      "chunk-4c350f296d9e",
+      "chunk-48a78bfd26d1"
+    ],
+    "source_files": [
+      "Week8/0.6-GAN-C8.pdf",
+      "Week9/0.6-GAN-C9.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week8/0.6-GAN-C8.pdf",
+        "unit_type": "page",
+        "unit_index": 36,
+        "chunk_index": 1,
+        "section": "CGAN",
+        "excerpt": "CGAN q CGAN性能 Generated MNIST digits, each row conditioned on one label",
+        "location": "第 36 页"
+      },
+      {
+        "source": "Week9/0.6-GAN-C9.pdf",
+        "unit_type": "page",
+        "unit_index": 35,
+        "chunk_index": 1,
+        "section": "音乐生成",
+        "excerpt": "音乐生成 q 混合模型就是混合上述两种模型的模型，每个音轨一个生 成器，接受独立的zi（Intra-track Random Vector）及全局 的z（Inter-track Random Vector）共同组合成的输入向量，",
+        "location": "第 35 页"
+      }
+    ],
+    "image_path": "images/0-6-gan-c8/page-036.png",
+    "image_caption": "0.6-GAN-C8.pdf 第 36 页"
+  },
+  {
+    "question_id": "kp-深度生成模型与扩散模型-q1",
+    "kp_id": "kp-深度生成模型与扩散模型",
+    "kp_name": "深度生成模型与扩散模型",
+    "question_type": "multiple_choice",
+    "question": "自编码器最基础的训练目标是什么？",
+    "answer": "把输入压缩到潜在表示后，再尽量重建出原始输入。",
+    "explanation": "自编码器最基础的目标是重建输入，借此学习压缩表示。",
+    "options": [
+      "A. 完全依靠对抗训练生成样本，不需要编码器和解码器。",
+      "B. 只学习类别标签，不关心输入本身的内容结构。",
+      "C. 只负责判别样本真假，不需要重建输入。",
+      "D. 把输入压缩到潜在表示后，再尽量重建出原始输入。"
+    ],
+    "correct_option": "D",
+    "source_chunk_ids": [
+      "chunk-6d1639c19592",
+      "chunk-851e6876c1d0",
+      "chunk-8807169bc718",
+      "chunk-12275d2f218b",
+      "chunk-0e0f14f73b7a",
+      "chunk-11175d87739e",
+      "chunk-84ee6590cd3b",
+      "chunk-9f1f9cd03004"
+    ],
+    "source_files": [
+      "Week10/0.6-GenerativeModel-C10.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week10/0.6-GenerativeModel-C10.pdf",
+        "unit_type": "page",
+        "unit_index": 65,
+        "chunk_index": 1,
+        "section": "自编码器",
+        "excerpt": "自编码器 q自编码器的核心思想是使用编码器（Encoder）对高维数据 进行降维并表示为一个隐向量，然后将隐向量通过解码器 （Decoder）进行重构，使得原始输入与重构的输入尽可能",
+        "location": "第 65 页"
+      },
+      {
+        "source": "Week10/0.6-GenerativeModel-C10.pdf",
+        "unit_type": "page",
+        "unit_index": 72,
+        "chunk_index": 1,
+        "section": "稀疏自编码器",
+        "excerpt": "稀疏自编码器 q自编码器的中间层神经元数量一般都要小于输入层的神经 元数量，如果中间层神经元的数量过少，可能会造成一些 输入特征的丢失，往往无法重构原始输入，而中间层的神",
+        "location": "第 72 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-深度生成模型与扩散模型-q2",
+    "kp_id": "kp-深度生成模型与扩散模型",
+    "kp_name": "深度生成模型与扩散模型",
+    "question_type": "multiple_choice",
+    "question": "扩散模型处理生成任务时，最有代表性的思路是什么？",
+    "answer": "先逐步加噪，再学习反向去噪过程以恢复或生成样本。",
+    "explanation": "扩散模型之所以有效，很大程度上就在于把复杂生成问题改写成可学习的逐步去噪过程。",
+    "options": [
+      "A. 先逐步加噪，再学习反向去噪过程以恢复或生成样本。",
+      "B. 先不断裁剪网络层数，再通过集成投票恢复样本。",
+      "C. 先由判别器判断真假，再靠门控结构直接删除噪声。",
+      "D. 只做一次前向映射，不需要逐步噪声建模过程。"
+    ],
+    "correct_option": "A",
+    "source_chunk_ids": [
+      "chunk-6d1639c19592",
+      "chunk-851e6876c1d0",
+      "chunk-8807169bc718",
+      "chunk-12275d2f218b",
+      "chunk-0e0f14f73b7a",
+      "chunk-11175d87739e",
+      "chunk-84ee6590cd3b",
+      "chunk-9f1f9cd03004"
+    ],
+    "source_files": [
+      "Week10/0.6-GenerativeModel-C10.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week10/0.6-GenerativeModel-C10.pdf",
+        "unit_type": "page",
+        "unit_index": 79,
+        "chunk_index": 1,
+        "section": "扩散模型",
+        "excerpt": "扩散模型 q扩散模型的相关工作大都起源于OpenAI于2020年提出的降 噪扩散概率模型（Denoising Diffusion Probabilistic Models， DDPM）。DDPM包含前向过程（Forward Process）和逆",
+        "location": "第 79 页"
+      },
+      {
+        "source": "Week10/0.6-GenerativeModel-C10.pdf",
+        "unit_type": "page",
+        "unit_index": 52,
+        "chunk_index": 1,
+        "section": "Sigmoid信念网",
+        "excerpt": "Sigmoid信念网 q考虑到模型具有多层，生成模型分解为： q将(, 1, 2, …, )进行边缘化即得到P(x)，但是在实际 中这种计算非常难处理。",
+        "location": "第 52 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-深度生成模型与扩散模型-q3",
+    "kp_id": "kp-深度生成模型与扩散模型",
+    "kp_name": "深度生成模型与扩散模型",
+    "question_type": "multiple_choice",
+    "question": "RBM（受限玻尔兹曼机）在结构上的典型特点是什么？",
+    "answer": "可见层与隐含层之间有连接，而同层节点之间通常不直接相连。",
+    "explanation": "RBM 的\"受限\"就体现在层内不连、层间连的双层二分结构上。",
+    "options": [
+      "A. 它主要依赖输出层与标签层之间的连接来学习表示。",
+      "B. 同一层内部必须是全连接的，这样才能形成受限结构。",
+      "C. 它本质上就是一个加入残差边的前馈网络模块。",
+      "D. 可见层与隐含层之间有连接，而同层节点之间通常不直接相连。"
+    ],
+    "correct_option": "D",
+    "source_chunk_ids": [
+      "chunk-6d1639c19592",
+      "chunk-851e6876c1d0",
+      "chunk-8807169bc718",
+      "chunk-12275d2f218b",
+      "chunk-0e0f14f73b7a",
+      "chunk-11175d87739e",
+      "chunk-84ee6590cd3b",
+      "chunk-9f1f9cd03004"
+    ],
+    "source_files": [
+      "Week10/0.6-GenerativeModel-C10.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week10/0.6-GenerativeModel-C10.pdf",
+        "unit_type": "page",
+        "unit_index": 44,
+        "chunk_index": 1,
+        "section": "受限玻尔兹曼机",
+        "excerpt": "受限玻尔兹曼机 q θ为wij时， (|,) (,,)",
+        "location": "第 44 页"
+      },
+      {
+        "source": "Week10/0.6-GenerativeModel-C10.pdf",
+        "unit_type": "page",
+        "unit_index": 35,
+        "chunk_index": 1,
+        "section": "受限玻尔兹曼机",
+        "excerpt": "受限玻尔兹曼机 q受限玻尔兹曼机（Restricted Boltzmann Machine，RBM） 是玻尔兹曼机的受限版本，由Ruslan Salakhutdinov等人提 出。",
+        "location": "第 35 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-深度生成模型与扩散模型-q4",
+    "kp_id": "kp-深度生成模型与扩散模型",
+    "kp_name": "深度生成模型与扩散模型",
+    "question_type": "multiple_choice",
+    "question": "根据图中的 x→encoder→z→decoder→x_hat 结构，若把 z 当作监督类别标签来用，整个模型会被误读成哪类任务？",
+    "answer": "会把重构式表示学习误读成监督分类，从而忽略 z 作为压缩表示的作用。",
+    "explanation": "这题必须利用图中的箭头链路来判断。z 夹在 encoder 和 decoder 中间，承担的是表示压缩与重构中介，而不是监督标签角色。",
+    "options": [
+      "A. 会把序列到序列翻译误读成位置编码恢复，因为 z 会被当成时间步索引。",
+      "B. 会把无监督聚类误读成随机森林投票，因为 z 会被当成树节点编号。",
+      "C. 会把重构式表示学习误读成监督分类，从而忽略 z 作为压缩表示的作用。",
+      "D. 会把条件生成误读成对抗训练，因为 z 会被当成真假判别分数。"
+    ],
+    "correct_option": "C",
+    "source_chunk_ids": [
+      "chunk-6d1639c19592",
+      "chunk-851e6876c1d0",
+      "chunk-8807169bc718",
+      "chunk-12275d2f218b",
+      "chunk-0e0f14f73b7a",
+      "chunk-11175d87739e",
+      "chunk-84ee6590cd3b",
+      "chunk-9f1f9cd03004"
+    ],
+    "source_files": [
+      "Week10/0.6-GenerativeModel-C10.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week10/0.6-GenerativeModel-C10.pdf",
+        "unit_type": "page",
+        "unit_index": 65,
+        "chunk_index": 1,
+        "section": "自编码器",
+        "excerpt": "自编码器 q自编码器的核心思想是使用编码器（Encoder）对高维数据 进行降维并表示为一个隐向量，然后将隐向量通过解码器 （Decoder）进行重构，使得原始输入与重构的输入尽可能",
+        "location": "第 65 页"
+      },
+      {
+        "source": "Week10/0.6-GenerativeModel-C10.pdf",
+        "unit_type": "page",
+        "unit_index": 72,
+        "chunk_index": 1,
+        "section": "稀疏自编码器",
+        "excerpt": "稀疏自编码器 q自编码器的中间层神经元数量一般都要小于输入层的神经 元数量，如果中间层神经元的数量过少，可能会造成一些 输入特征的丢失，往往无法重构原始输入，而中间层的神",
+        "location": "第 72 页"
+      }
+    ],
+    "image_path": "images/0-6-generativemodel-c10/page-065.png",
+    "image_caption": "0.6-GenerativeModel-C10.pdf 第 65 页"
+  },
+  {
+    "question_id": "kp-深度生成模型与扩散模型-q5",
+    "kp_id": "kp-深度生成模型与扩散模型",
+    "kp_name": "深度生成模型与扩散模型",
+    "question_type": "multiple_choice",
+    "question": "根据图中的时间线，若把 2014 年视为一个分界点，哪项对其后研究演进的概括最准确？",
+    "answer": "生成模型不再围绕单一路线推进，而是先后出现了对抗式、自回归/流式以及扩散式等多条代表性路线并行发展。",
+    "explanation": "这题不能只抄某个年份。要看完整条时间线在 2014 年之后呈现出的\"多路线并行演进\"这一结构性变化。",
+    "options": [
+      "A. 时间线表明生成模型研究在 2014 年后让位于分类模型，因此不再出现新的代表方法。",
+      "B. 2014 年以后主流方法几乎全部停止更新，时间线后半段只是早期方法的重复罗列。",
+      "C. 2014 年后的重要进展都集中在同一类自编码器框架中，方法范式没有明显变化。",
+      "D. 生成模型不再围绕单一路线推进，而是先后出现了对抗式、自回归/流式以及扩散式等多条代表性路线并行发展。"
+    ],
+    "correct_option": "D",
+    "source_chunk_ids": [
+      "chunk-6d1639c19592",
+      "chunk-851e6876c1d0",
+      "chunk-8807169bc718",
+      "chunk-12275d2f218b",
+      "chunk-0e0f14f73b7a",
+      "chunk-11175d87739e",
+      "chunk-84ee6590cd3b",
+      "chunk-9f1f9cd03004"
+    ],
+    "source_files": [
+      "Week10/0.6-GenerativeModel-C10.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week10/0.6-GenerativeModel-C10.pdf",
+        "unit_type": "page",
+        "unit_index": 7,
+        "chunk_index": 1,
+        "section": "深度生成模型概述",
+        "excerpt": "深度生成模型概述 年份 事件 相关论文/Reference 1982 Hopfield网络提出 J. J . Hopfield . Neural networks and physical systems with emergent collective computational abilities. Proceedings of the National Academy of Sciences, Vol. 79 , No. 8,…",
+        "location": "第 7 页"
+      },
+      {
+        "source": "Week10/0.6-GenerativeModel-C10.pdf",
+        "unit_type": "page",
+        "unit_index": 6,
+        "chunk_index": 1,
+        "section": "深度生成模型概述",
+        "excerpt": "深度生成模型概述 q将深度生成模型分为三类：一类是以受限玻尔兹曼机为基 础的深度玻尔兹曼机与深度信念网络，一类是以自编码器 为基础的深度自编码器，一类是近期出现的扩散模型",
+        "location": "第 6 页"
+      }
+    ],
+    "image_path": "images/0-6-generativemodel-c10/page-007.png",
+    "image_caption": "0.6-GenerativeModel-C10.pdf 第 7 页"
+  },
+  {
+    "question_id": "kp-深度生成模型与扩散模型-q6",
+    "kp_id": "kp-深度生成模型与扩散模型",
+    "kp_name": "深度生成模型与扩散模型",
+    "question_type": "multiple_choice",
+    "question": "若把图中的时间线误读成\"后出现的方法一定完全替代先出现的方法\"，最容易忽略哪一事实？",
+    "answer": "时间线展示的是代表方法不断扩展和并行发展，而不是所有旧路线在新路线出现后立刻失去研究价值。",
+    "explanation": "要答对这题，必须真的看时间线的整体结构。它体现的是路线扩展，而不是简单的单线替代关系。",
+    "options": [
+      "A. 时间线展示的是代表方法不断扩展和并行发展，而不是所有旧路线在新路线出现后立刻失去研究价值。",
+      "B. 时间线说明 2014 年之后只剩下 GAN，一切其他生成方法都不再重要。",
+      "C. 时间线说明所有方法都属于同一种模型，只是论文年份不同。",
+      "D. 时间线说明生成模型在 2020 年后停止发展，因此不存在后续新方向。"
+    ],
+    "correct_option": "A",
+    "source_chunk_ids": [
+      "chunk-6d1639c19592",
+      "chunk-851e6876c1d0",
+      "chunk-8807169bc718",
+      "chunk-12275d2f218b",
+      "chunk-0e0f14f73b7a",
+      "chunk-11175d87739e",
+      "chunk-84ee6590cd3b",
+      "chunk-9f1f9cd03004"
+    ],
+    "source_files": [
+      "Week10/0.6-GenerativeModel-C10.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week10/0.6-GenerativeModel-C10.pdf",
+        "unit_type": "page",
+        "unit_index": 7,
+        "chunk_index": 1,
+        "section": "深度生成模型概述",
+        "excerpt": "深度生成模型概述 年份 事件 相关论文/Reference 1982 Hopfield网络提出 J. J . Hopfield . Neural networks and physical systems with emergent collective computational abilities. Proceedings of the National Academy of Sciences, Vol. 79 , No. 8,…",
+        "location": "第 7 页"
+      },
+      {
+        "source": "Week10/0.6-GenerativeModel-C10.pdf",
+        "unit_type": "page",
+        "unit_index": 6,
+        "chunk_index": 1,
+        "section": "深度生成模型概述",
+        "excerpt": "深度生成模型概述 q将深度生成模型分为三类：一类是以受限玻尔兹曼机为基 础的深度玻尔兹曼机与深度信念网络，一类是以自编码器 为基础的深度自编码器，一类是近期出现的扩散模型",
+        "location": "第 6 页"
+      }
+    ],
+    "image_path": "images/0-6-generativemodel-c10/page-007.png",
+    "image_caption": "0.6-GenerativeModel-C10.pdf 第 7 页"
+  },
+  {
+    "question_id": "kp-正则化与优化-q1",
+    "kp_id": "kp-正则化与优化",
+    "kp_name": "正则化与优化",
+    "question_type": "multiple_choice",
+    "question": "Dropout 在训练阶段被引入，主要是为了解决什么问题？",
+    "answer": "降低神经元之间的过度共适应，从而缓解过拟合。",
+    "explanation": "Dropout 的核心不是简单\"删点\"，而是通过随机失活提高模型泛化能力。",
+    "options": [
+      "A. 把前馈网络自动改造成循环网络，提高记忆能力。",
+      "B. 降低神经元之间的过度共适应，从而缓解过拟合。",
+      "C. 保证训练误差一定高于测试误差，从而提升泛化。",
+      "D. 让每一层输出尽量固定不变，减少网络波动。"
+    ],
+    "correct_option": "B",
+    "source_chunk_ids": [
+      "chunk-6e9bd270b356",
+      "chunk-ed12471d004a",
+      "chunk-b0e7d3f02f54",
+      "chunk-e556c314ce59",
+      "chunk-31ce50cc612b",
+      "chunk-578d09bff85e",
+      "chunk-d46aa3296a0d",
+      "chunk-31821b08c25c"
+    ],
+    "source_files": [
+      "Week11/0.7-RegularizationOptimization-C11.pdf",
+      "Week12/0.7-RegularizationOptimization-C12.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week12/0.7-RegularizationOptimization-C12.pdf",
+        "unit_type": "page",
+        "unit_index": 19,
+        "chunk_index": 1,
+        "section": "DropConnect",
+        "excerpt": "DropConnect q DropConnect也是通过舍弃一部分单元来防止过拟合问题 的方法 DropConnect可以认为是Dropout的扩展。它是丢掉神经元和神经元",
+        "location": "第 19 页"
+      },
+      {
+        "source": "Week11/0.7-RegularizationOptimization-C11.pdf",
+        "unit_type": "page",
+        "unit_index": 3,
+        "chunk_index": 1,
+        "section": "正则化与优化",
+        "excerpt": "正则化与优化 q机器学习中的正则化方法可分为两类：狭义正则化和广义 正则化。 狭义正则化是指通过在模型的损失函数中增加惩罚项来增强模型泛",
+        "location": "第 3 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-正则化与优化-q2",
+    "kp_id": "kp-正则化与优化",
+    "kp_name": "正则化与优化",
+    "question_type": "multiple_choice",
+    "question": "如果训练误差还在降，但验证误差已经开始回升，这通常说明什么？",
+    "answer": "模型开始过拟合训练集。",
+    "explanation": "训练好、泛化差是过拟合的典型信号，也是学习报告应重点提示的现象。",
+    "options": [
+      "A. 说明标签没有继续参与训练，因此误差曲线失去意义。",
+      "B. 说明模型已经自动获得最优泛化，一般无需再调参。",
+      "C. 模型开始过拟合训练集。",
+      "D. 模型明显欠拟合，应先继续降低模型容量。"
+    ],
+    "correct_option": "C",
+    "source_chunk_ids": [
+      "chunk-6e9bd270b356",
+      "chunk-ed12471d004a",
+      "chunk-b0e7d3f02f54",
+      "chunk-e556c314ce59",
+      "chunk-31ce50cc612b",
+      "chunk-578d09bff85e",
+      "chunk-d46aa3296a0d",
+      "chunk-31821b08c25c"
+    ],
+    "source_files": [
+      "Week11/0.7-RegularizationOptimization-C11.pdf",
+      "Week12/0.7-RegularizationOptimization-C12.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week11/0.7-RegularizationOptimization-C11.pdf",
+        "unit_type": "page",
+        "unit_index": 8,
+        "chunk_index": 1,
+        "section": "过拟合和欠拟合",
+        "excerpt": "过拟合和欠拟合 q过拟合 是指模型能很好地拟合训练样本，而无法很好地拟合测试样本的现 象，从而导致泛化性能下降",
+        "location": "第 8 页"
+      },
+      {
+        "source": "Week12/0.7-RegularizationOptimization-C12.pdf",
+        "unit_type": "page",
+        "unit_index": 23,
+        "chunk_index": 1,
+        "section": "提前终止",
+        "excerpt": "提前终止 q随着训练迭代次数的增加，训练误差也在逐步降低。但是 会发现验证集损失先下降后在某个节点开始上升的现象 提前终止（Early stopping）目的则在于找到这个上升的时间点，并",
+        "location": "第 23 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-正则化与优化-q3",
+    "kp_id": "kp-正则化与优化",
+    "kp_name": "正则化与优化",
+    "question_type": "multiple_choice",
+    "question": "提前终止（early stopping）最直接依赖哪类信息来决定何时停下？",
+    "answer": "验证集性能随训练轮数变化的趋势。",
+    "explanation": "提前终止并不是\"提早结束就更好\"，而是借助验证集寻找泛化更优的停点。",
+    "options": [
+      "A. 训练集文件名的排列顺序。",
+      "B. 验证集性能随训练轮数变化的趋势。",
+      "C. GPU 显存占用在某个时刻达到的峰值。",
+      "D. 第一轮训练时卷积核参数的初始化大小。"
+    ],
+    "correct_option": "B",
+    "source_chunk_ids": [
+      "chunk-6e9bd270b356",
+      "chunk-ed12471d004a",
+      "chunk-b0e7d3f02f54",
+      "chunk-e556c314ce59",
+      "chunk-31ce50cc612b",
+      "chunk-578d09bff85e",
+      "chunk-d46aa3296a0d",
+      "chunk-31821b08c25c"
+    ],
+    "source_files": [
+      "Week11/0.7-RegularizationOptimization-C11.pdf",
+      "Week12/0.7-RegularizationOptimization-C12.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week12/0.7-RegularizationOptimization-C12.pdf",
+        "unit_type": "page",
+        "unit_index": 25,
+        "chunk_index": 1,
+        "section": "提前终止算法：额外训练",
+        "excerpt": "提前终止算法：额外训练 q使用提前终止策略过程中需要使用到验证集（Validation Set），这也就意味着在训练过程中会有一部分数据无法进 行训练。",
+        "location": "第 25 页"
+      },
+      {
+        "source": "Week12/0.7-RegularizationOptimization-C12.pdf",
+        "unit_type": "page",
+        "unit_index": 23,
+        "chunk_index": 1,
+        "section": "提前终止",
+        "excerpt": "提前终止 q随着训练迭代次数的增加，训练误差也在逐步降低。但是 会发现验证集损失先下降后在某个节点开始上升的现象 提前终止（Early stopping）目的则在于找到这个上升的时间点，并",
+        "location": "第 23 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-正则化与优化-q4",
+    "kp_id": "kp-正则化与优化",
+    "kp_name": "正则化与优化",
+    "question_type": "multiple_choice",
+    "question": "在目标函数里加入参数范数惩罚项，最直接是想达到什么效果？",
+    "answer": "约束参数规模，降低模型过于复杂带来的过拟合风险。",
+    "explanation": "参数范数正则化的核心思想，是在拟合训练数据之外，对模型复杂度再施加额外约束。",
+    "options": [
+      "A. 把原本的监督分类任务自动改写成无监督聚类任务。",
+      "B. 强制所有参数收缩到 0，因此模型会自动停止学习。",
+      "C. 约束参数规模，降低模型过于复杂带来的过拟合风险。",
+      "D. 让模型不再依赖训练数据，也能直接得到可用结果。"
+    ],
+    "correct_option": "C",
+    "source_chunk_ids": [
+      "chunk-6e9bd270b356",
+      "chunk-ed12471d004a",
+      "chunk-b0e7d3f02f54",
+      "chunk-e556c314ce59",
+      "chunk-31ce50cc612b",
+      "chunk-578d09bff85e",
+      "chunk-d46aa3296a0d",
+      "chunk-31821b08c25c"
+    ],
+    "source_files": [
+      "Week11/0.7-RegularizationOptimization-C11.pdf",
+      "Week12/0.7-RegularizationOptimization-C12.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week11/0.7-RegularizationOptimization-C11.pdf",
+        "unit_type": "page",
+        "unit_index": 8,
+        "chunk_index": 1,
+        "section": "过拟合和欠拟合",
+        "excerpt": "过拟合和欠拟合 q过拟合 是指模型能很好地拟合训练样本，而无法很好地拟合测试样本的现 象，从而导致泛化性能下降",
+        "location": "第 8 页"
+      },
+      {
+        "source": "Week11/0.7-RegularizationOptimization-C11.pdf",
+        "unit_type": "page",
+        "unit_index": 27,
+        "chunk_index": 1,
+        "section": "参数范数正则化",
+        "excerpt": "参数范数正则化 q通过简单地在损失函数J(·)后添加一个参数范数正则化项 Ω(θ)，来限制模型的学习能力，正则化后的损失函数可表 示为",
+        "location": "第 27 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-正则化与优化-q5",
+    "kp_id": "kp-正则化与优化",
+    "kp_name": "正则化与优化",
+    "question_type": "multiple_choice",
+    "question": "根据图中训练集、验证集和测试集的职责划分，若研究组每轮都先看测试集结果再决定是否换结构，被破坏的核心前提是？",
+    "answer": "测试集作为最终独立评估基准的无偏性被破坏，因为模型选择过程已经反复利用了测试信息。",
+    "explanation": "这道题不是在考一句口号，而是要求根据图中的三类数据职责，判断为什么\"反复看测试集\"会破坏最终评估的统计前提。",
+    "options": [
+      "A. 训练集将失去拟合参数的功能，因此模型无法继续更新权重。",
+      "B. 测试集会因为被查看多次而失去标签，只能继续用于无监督训练。",
+      "C. 验证集会自动转化为训练集的一部分，因此不能再做超参数选择。",
+      "D. 测试集作为最终独立评估基准的无偏性被破坏，因为模型选择过程已经反复利用了测试信息。"
+    ],
+    "correct_option": "D",
+    "source_chunk_ids": [
+      "chunk-6e9bd270b356",
+      "chunk-ed12471d004a",
+      "chunk-b0e7d3f02f54",
+      "chunk-e556c314ce59",
+      "chunk-31ce50cc612b",
+      "chunk-578d09bff85e",
+      "chunk-d46aa3296a0d",
+      "chunk-31821b08c25c"
+    ],
+    "source_files": [
+      "Week11/0.7-RegularizationOptimization-C11.pdf",
+      "Week12/0.7-RegularizationOptimization-C12.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week11/0.7-RegularizationOptimization-C11.pdf",
+        "unit_type": "page",
+        "unit_index": 7,
+        "chunk_index": 1,
+        "section": "深度学习中的数据集划分",
+        "excerpt": "深度学习中的数据集划分 q数据集分类 训练集(Training set)：用于模型拟合的数据样本 验证集(Validation set)：是模型训练过程中单独留出的样本集，它可",
+        "location": "第 7 页"
+      },
+      {
+        "source": "Week12/0.7-RegularizationOptimization-C12.pdf",
+        "unit_type": "page",
+        "unit_index": 25,
+        "chunk_index": 1,
+        "section": "提前终止算法：额外训练",
+        "excerpt": "提前终止算法：额外训练 q使用提前终止策略过程中需要使用到验证集（Validation Set），这也就意味着在训练过程中会有一部分数据无法进 行训练。",
+        "location": "第 25 页"
+      }
+    ],
+    "image_path": "images/0-7-regularizationoptimization-c11/page-007.png",
+    "image_caption": "0.7-RegularizationOptimization-C11.pdf 第 7 页"
+  },
+  {
+    "question_id": "kp-正则化与优化-q6",
+    "kp_id": "kp-正则化与优化",
+    "kp_name": "正则化与优化",
+    "question_type": "multiple_choice",
+    "question": "若一篇论文声称\"训练集拟合参数、测试集挑结构、验证集最后报告结果\"，根据图中的职责划分，最明显的错误是什么？",
+    "answer": "把验证集和测试集的角色对调了：测试集不应参与结构选择，而验证集才用于调参和初步比较。",
+    "explanation": "这题要求真正读懂图中三类数据集的职责，而不是只记住名词。角色一旦对调，评估逻辑就会失真。",
+    "options": [
+      "A. 把训练集和验证集对调了，因为训练集只能用于最终一次性评估。",
+      "B. 没有错误，只要三个集合都用到了，顺序可以任意更换。",
+      "C. 错误在于验证集不应出现，深度学习只需要训练集和测试集即可。",
+      "D. 把验证集和测试集的角色对调了：测试集不应参与结构选择，而验证集才用于调参和初步比较。"
+    ],
+    "correct_option": "D",
+    "source_chunk_ids": [
+      "chunk-6e9bd270b356",
+      "chunk-ed12471d004a",
+      "chunk-b0e7d3f02f54",
+      "chunk-e556c314ce59",
+      "chunk-31ce50cc612b",
+      "chunk-578d09bff85e",
+      "chunk-d46aa3296a0d",
+      "chunk-31821b08c25c"
+    ],
+    "source_files": [
+      "Week11/0.7-RegularizationOptimization-C11.pdf",
+      "Week12/0.7-RegularizationOptimization-C12.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week11/0.7-RegularizationOptimization-C11.pdf",
+        "unit_type": "page",
+        "unit_index": 7,
+        "chunk_index": 1,
+        "section": "深度学习中的数据集划分",
+        "excerpt": "深度学习中的数据集划分 q数据集分类 训练集(Training set)：用于模型拟合的数据样本 验证集(Validation set)：是模型训练过程中单独留出的样本集，它可",
+        "location": "第 7 页"
+      },
+      {
+        "source": "Week11/0.7-RegularizationOptimization-C11.pdf",
+        "unit_type": "page",
+        "unit_index": 9,
+        "chunk_index": 1,
+        "section": "误差分析",
+        "excerpt": "误差分析 q模型训练的状态 欠拟合、合适和过拟合的模型 训练集和测试集误",
+        "location": "第 9 页"
+      }
+    ],
+    "image_path": "images/0-7-regularizationoptimization-c11/page-007.png",
+    "image_caption": "0.7-RegularizationOptimization-C11.pdf 第 7 页"
+  },
+  {
+    "question_id": "kp-深度学习开发平台-q1",
+    "kp_id": "kp-深度学习开发平台",
+    "kp_name": "深度学习开发平台",
+    "question_type": "multiple_choice",
+    "question": "比较不同深度学习框架时，下列哪一项是更值得优先关注的？",
+    "answer": "不同框架在建模、调试、部署和生态上的取舍。",
+    "explanation": "平台章节最重要的不是背名字，而是知道什么场景下该选什么工具。",
+    "options": [
+      "A. 确认所有框架内部实现完全一样，因此选型没有实际差别。",
+      "B. 只有把所有框架底层源码都读完，才有资格开始训练模型。",
+      "C. 深度学习训练只能依赖某一个商业平台，其他框架都只是包装。",
+      "D. 不同框架在建模、调试、部署和生态上的取舍。"
+    ],
+    "correct_option": "D",
+    "source_chunk_ids": [
+      "chunk-46498bbd6855",
+      "chunk-de0e1dccc216",
+      "chunk-84ab9f6da872",
+      "chunk-0e99b8d1af99",
+      "chunk-2e0f393221eb",
+      "chunk-142b38fbbdb0",
+      "chunk-f6b444f2af3a",
+      "chunk-a9d043523379"
+    ],
+    "source_files": [
+      "Week13/0.8-DeepLearning-tools-C13_modified.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week13/0.8-DeepLearning-tools-C13_modified.pdf",
+        "unit_type": "page",
+        "unit_index": 2,
+        "chunk_index": 1,
+        "section": "Ø 深度学习平台概览",
+        "excerpt": "提纲 Ø 深度学习平台概览 Ø Tensorflow Ø PyTorch",
+        "location": "第 2 页"
+      },
+      {
+        "source": "Week13/0.8-DeepLearning-tools-C13_modified.pdf",
+        "unit_type": "page",
+        "unit_index": 83,
+        "chunk_index": 1,
+        "section": "过度的封装",
+        "excerpt": "过度的封装 q严格意义上来说，Keras并不能称为一个深度学习框架，它 更像是一个高层的深度学习接口。Keras的缺点也很明显： 过度的封装导致调试困难",
+        "location": "第 83 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-深度学习开发平台-q2",
+    "kp_id": "kp-深度学习开发平台",
+    "kp_name": "深度学习开发平台",
+    "question_type": "multiple_choice",
+    "question": "关于 PyTorch 的特点，下列说法正确的是？",
+    "answer": "更强调灵活建模和研究原型开发，便于调试和实验。",
+    "explanation": "PyTorch 常被视为适合研究原型开发和快速实验迭代的框架。",
+    "options": [
+      "A. 更强调灵活建模和研究原型开发，便于调试和实验。",
+      "B. 由于不支持自动求导，所以往往需要手工推导梯度。",
+      "C. 主要面向固定静态图部署，对研究迭代并不友好。",
+      "D. 它更适合树模型和传统机器学习，不适合神经网络实验。"
+    ],
+    "correct_option": "A",
+    "source_chunk_ids": [
+      "chunk-46498bbd6855",
+      "chunk-de0e1dccc216",
+      "chunk-84ab9f6da872",
+      "chunk-0e99b8d1af99",
+      "chunk-2e0f393221eb",
+      "chunk-142b38fbbdb0",
+      "chunk-f6b444f2af3a",
+      "chunk-a9d043523379"
+    ],
+    "source_files": [
+      "Week13/0.8-DeepLearning-tools-C13_modified.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week13/0.8-DeepLearning-tools-C13_modified.pdf",
+        "unit_type": "page",
+        "unit_index": 82,
+        "chunk_index": 1,
+        "section": "较低的使用门槛",
+        "excerpt": "较低的使用门槛 q Keras为支持快速实验而生，能够把想法迅速转换为结果 q Keras应该是深度学习框架中最容易上手的一个，它提供了 一致而简洁的API，能大大减少一般应用下用户的工作量",
+        "location": "第 82 页"
+      },
+      {
+        "source": "Week13/0.8-DeepLearning-tools-C13_modified.pdf",
+        "unit_type": "page",
+        "unit_index": 124,
+        "chunk_index": 1,
+        "section": "MindSpore",
+        "excerpt": "MindSpore q华为开源自研AI框架MindSpore https://www.mindspore.cn/ MindSpore提供了Python编程范式",
+        "location": "第 124 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-深度学习开发平台-q3",
+    "kp_id": "kp-深度学习开发平台",
+    "kp_name": "深度学习开发平台",
+    "question_type": "multiple_choice",
+    "question": "TensorFlow 2.0 相比早期版本，一个重要变化是什么？",
+    "answer": "它相比早期版本更强调易用性，并与 Keras 风格结合得更紧密。",
+    "explanation": "TensorFlow 2.0 更强调易用性，并提供了更统一的高层接口与更直观的编程方式。",
+    "options": [
+      "A. 它彻底取消了自动微分，因此训练需要手工写梯度。",
+      "B. 它相比早期版本更强调易用性，并与 Keras 风格结合得更紧密。",
+      "C. 它只能在 CPU 上运行，不能再利用 GPU 加速。",
+      "D. 它不再以神经网络训练为核心，而主要用于数据清洗流程。"
+    ],
+    "correct_option": "B",
+    "source_chunk_ids": [
+      "chunk-46498bbd6855",
+      "chunk-de0e1dccc216",
+      "chunk-84ab9f6da872",
+      "chunk-0e99b8d1af99",
+      "chunk-2e0f393221eb",
+      "chunk-142b38fbbdb0",
+      "chunk-f6b444f2af3a",
+      "chunk-a9d043523379"
+    ],
+    "source_files": [
+      "Week13/0.8-DeepLearning-tools-C13_modified.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week13/0.8-DeepLearning-tools-C13_modified.pdf",
+        "unit_type": "page",
+        "unit_index": 15,
+        "chunk_index": 1,
+        "section": "TensorFlow 1.0架构",
+        "excerpt": "TensorFlow 1.0架构 q前端系统 提供多语言编程环境，提供统一的编程模型来构造计算图 通过Session的形式，连接TensorFlow后端的「运行时」系统，启动",
+        "location": "第 15 页"
+      },
+      {
+        "source": "Week13/0.8-DeepLearning-tools-C13_modified.pdf",
+        "unit_type": "page",
+        "unit_index": 18,
+        "chunk_index": 1,
+        "section": "TensorFlow2.0",
+        "excerpt": "TensorFlow2.0 q为应对PyTorch等框架的挑战，Google于2019年正式发布 TensorFlow 2.0 q移除Session",
+        "location": "第 18 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-深度学习开发平台-q4",
+    "kp_id": "kp-深度学习开发平台",
+    "kp_name": "深度学习开发平台",
+    "question_type": "multiple_choice",
+    "question": "根据图中列出的\"移除 Session、强化 tf.keras、tf.function、自动初始化\"等变化，TensorFlow 2.0 的改版目标最接近哪一项？",
+    "answer": "把原本偏图执行、偏工程化的使用门槛，改成更接近直接编写并立即运行的开发体验。",
+    "explanation": "正确答案要同时利用图中的多条改动，而不是单独盯着某一个术语。它们共同指向的是\"降低使用和实验门槛\"这一目标。",
+    "options": [
+      "A. 把原本偏图执行、偏工程化的使用门槛，改成更接近直接编写并立即运行的开发体验。",
+      "B. 弱化高层接口，要求用户在训练前手动完成所有变量和会话管理。",
+      "C. 进一步强化手写静态图和底层执行细节，让开发者必须显式控制每一步图构建。",
+      "D. 把深度学习框架改造成只适合随机森林与 SVM 的传统机器学习平台。"
+    ],
+    "correct_option": "A",
+    "source_chunk_ids": [
+      "chunk-46498bbd6855",
+      "chunk-de0e1dccc216",
+      "chunk-84ab9f6da872",
+      "chunk-0e99b8d1af99",
+      "chunk-2e0f393221eb",
+      "chunk-142b38fbbdb0",
+      "chunk-f6b444f2af3a",
+      "chunk-a9d043523379"
+    ],
+    "source_files": [
+      "Week13/0.8-DeepLearning-tools-C13_modified.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week13/0.8-DeepLearning-tools-C13_modified.pdf",
+        "unit_type": "page",
+        "unit_index": 18,
+        "chunk_index": 1,
+        "section": "TensorFlow2.0",
+        "excerpt": "TensorFlow2.0 q为应对PyTorch等框架的挑战，Google于2019年正式发布 TensorFlow 2.0 q移除Session",
+        "location": "第 18 页"
+      },
+      {
+        "source": "Week13/0.8-DeepLearning-tools-C13_modified.pdf",
+        "unit_type": "page",
+        "unit_index": 82,
+        "chunk_index": 1,
+        "section": "较低的使用门槛",
+        "excerpt": "较低的使用门槛 q Keras为支持快速实验而生，能够把想法迅速转换为结果 q Keras应该是深度学习框架中最容易上手的一个，它提供了 一致而简洁的API，能大大减少一般应用下用户的工作量",
+        "location": "第 82 页"
+      }
+    ],
+    "image_path": "images/0-8-deeplearning-tools-c13-modified/page-018.png",
+    "image_caption": "0.8-DeepLearning-tools-C13_modified.pdf 第 18 页"
+  },
+  {
+    "question_id": "kp-深度学习开发平台-q5",
+    "kp_id": "kp-深度学习开发平台",
+    "kp_name": "深度学习开发平台",
+    "question_type": "multiple_choice",
+    "question": "根据图中对 PyTorch 的描述，若课程实验需要频繁插入打印、单步定位和快速查错，优先选它的核心理由是？",
+    "answer": "程序执行路径更贴近代码书写顺序，调试时更容易把错误与具体计算过程对应起来。",
+    "explanation": "答题要利用图中对\"线性、直观、易于使用\"和\"代码更简洁直观\"的描述，判断其真正受益最大的场景是调试与原型实验。",
+    "options": [
+      "A. 它主要面向固定部署流程，研究阶段频繁改结构反而不适合使用。",
+      "B. 它要求先构造复杂 Session 再统一运行，因此更方便把错误集中到最后一步。",
+      "C. 它会自动隐藏底层执行细节，因此最适合完全不看中间状态地黑箱训练。",
+      "D. 程序执行路径更贴近代码书写顺序，调试时更容易把错误与具体计算过程对应起来。"
+    ],
+    "correct_option": "D",
+    "source_chunk_ids": [
+      "chunk-46498bbd6855",
+      "chunk-de0e1dccc216",
+      "chunk-84ab9f6da872",
+      "chunk-0e99b8d1af99",
+      "chunk-2e0f393221eb",
+      "chunk-142b38fbbdb0",
+      "chunk-f6b444f2af3a",
+      "chunk-a9d043523379"
+    ],
+    "source_files": [
+      "Week13/0.8-DeepLearning-tools-C13_modified.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week13/0.8-DeepLearning-tools-C13_modified.pdf",
+        "unit_type": "page",
+        "unit_index": 50,
+        "chunk_index": 1,
+        "section": "简洁直观的设计理念",
+        "excerpt": "简洁直观的设计理念 q PyTorch 的设计思路是线性、直观且易于使用的。当你的 代码出现Bug 的时候，不会因为错误的指向或者异步和不 透明的引擎浪费太多的时间",
+        "location": "第 50 页"
+      },
+      {
+        "source": "Week13/0.8-DeepLearning-tools-C13_modified.pdf",
+        "unit_type": "page",
+        "unit_index": 124,
+        "chunk_index": 1,
+        "section": "MindSpore",
+        "excerpt": "MindSpore q华为开源自研AI框架MindSpore https://www.mindspore.cn/ MindSpore提供了Python编程范式",
+        "location": "第 124 页"
+      }
+    ],
+    "image_path": "images/0-8-deeplearning-tools-c13-modified/page-050.png",
+    "image_caption": "0.8-DeepLearning-tools-C13_modified.pdf 第 50 页"
+  },
+  {
+    "question_id": "kp-深度学习开发平台-q6",
+    "kp_id": "kp-深度学习开发平台",
+    "kp_name": "深度学习开发平台",
+    "question_type": "multiple_choice",
+    "question": "若课程要求学生先快速完成原型试验、再逐步理解底层实现，图中哪套框架描述更直接支持这一教学安排？",
+    "answer": "更支持 PyTorch，因为图中强调它的代码直观、易读、便于查错，更适合原型实验和教学入门。",
+    "explanation": "这题要结合图中对 PyTorch 使用体验的整段描述来判断适用场景，而不是把\"友好\"二字当成泛泛宣传语。",
+    "options": [
+      "A. 更支持随机森林工具链，因为原型实验主要依赖多数投票而不是神经网络调试。",
+      "B. 更支持早期 TensorFlow 的 Session/图执行方式，因为它更依赖显式底层控制，最适合初学者快速试错。",
+      "C. 更支持 PyTorch，因为图中强调它的代码直观、易读、便于查错，更适合原型实验和教学入门。",
+      "D. 两者完全等价，因为图中说明框架差异只体现在论文年份，不影响开发体验。"
+    ],
+    "correct_option": "C",
+    "source_chunk_ids": [
+      "chunk-46498bbd6855",
+      "chunk-de0e1dccc216",
+      "chunk-84ab9f6da872",
+      "chunk-0e99b8d1af99",
+      "chunk-2e0f393221eb",
+      "chunk-142b38fbbdb0",
+      "chunk-f6b444f2af3a",
+      "chunk-a9d043523379"
+    ],
+    "source_files": [
+      "Week13/0.8-DeepLearning-tools-C13_modified.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week13/0.8-DeepLearning-tools-C13_modified.pdf",
+        "unit_type": "page",
+        "unit_index": 50,
+        "chunk_index": 1,
+        "section": "简洁直观的设计理念",
+        "excerpt": "简洁直观的设计理念 q PyTorch 的设计思路是线性、直观且易于使用的。当你的 代码出现Bug 的时候，不会因为错误的指向或者异步和不 透明的引擎浪费太多的时间",
+        "location": "第 50 页"
+      },
+      {
+        "source": "Week13/0.8-DeepLearning-tools-C13_modified.pdf",
+        "unit_type": "page",
+        "unit_index": 104,
+        "chunk_index": 1,
+        "section": "百度AIStudio简介",
+        "excerpt": "百度AIStudio简介 AI学习地图  新手入门 秒懂强大的在线编程平台  初级-高级课程 帮您轻松掌握AI开发",
+        "location": "第 104 页"
+      }
+    ],
+    "image_path": "images/0-8-deeplearning-tools-c13-modified/page-050.png",
+    "image_caption": "0.8-DeepLearning-tools-C13_modified.pdf 第 50 页"
+  },
+  {
+    "question_id": "kp-决策树-随机森林与-deepforest-q1",
+    "kp_id": "kp-决策树-随机森林与-deepforest",
+    "kp_name": "决策树、随机森林与 DeepForest",
+    "question_type": "multiple_choice",
+    "question": "随机森林最核心的方法思想，下面哪一项概括得更准确？",
+    "answer": "通过构建多棵具有随机性的决策树，再进行集成决策。",
+    "explanation": "随机森林的关键不是\"树多\"，而是\"多棵有差异的树 + 集成\"。",
+    "options": [
+      "A. 把卷积层和注意力层叠在一起，形成单一的混合神经网络。",
+      "B. 主要依靠手工规则判断，不依赖训练数据中的统计规律。",
+      "C. 只训练一棵极深的决策树，然后把它当作最终模型固定下来。",
+      "D. 通过构建多棵具有随机性的决策树，再进行集成决策。"
+    ],
+    "correct_option": "D",
+    "source_chunk_ids": [
+      "chunk-dbe25372a50e",
+      "chunk-3f2101f58261",
+      "chunk-0eb8e434bb1a",
+      "chunk-d33b8206b871",
+      "chunk-1c14c27038dd",
+      "chunk-5e0e875b4567",
+      "chunk-5a49716f4e37",
+      "chunk-a42d84e57230"
+    ],
+    "source_files": [
+      "Week11/DeepForest-C11.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week11/DeepForest-C11.pdf",
+        "unit_type": "page",
+        "unit_index": 3,
+        "chunk_index": 1,
+        "section": "随机森林",
+        "excerpt": "随机森林 q 随机森林（Random Forest） 用随机的方式建立起一棵棵决策树，然后由这些决策树组成一个森 林，其中每棵决策树之间没有关联，当有一个新的样本输入时，就",
+        "location": "第 3 页"
+      },
+      {
+        "source": "Week11/DeepForest-C11.pdf",
+        "unit_type": "page",
+        "unit_index": 4,
+        "chunk_index": 1,
+        "section": "随机森林",
+        "excerpt": "随机森林 q 随机森林的生成方法 从样本集中通过重采样的方式产生n个样本 假设样本特征数目为a，对n个样本选择a中的k个特征，用建立决策",
+        "location": "第 4 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-决策树-随机森林与-deepforest-q2",
+    "kp_id": "kp-决策树-随机森林与-deepforest",
+    "kp_name": "决策树、随机森林与 DeepForest",
+    "question_type": "multiple_choice",
+    "question": "随机森林训练每棵树时，常见的随机性主要来自哪两部分？",
+    "answer": "样本的随机重采样，以及划分时特征子集的随机选择。",
+    "explanation": "样本随机性和特征随机性共同帮助随机森林提升多样性，减少过拟合。",
+    "options": [
+      "A. 只随机初始化输出层参数，其余结构全部固定不变。",
+      "B. 样本的随机重采样，以及划分时特征子集的随机选择。",
+      "C. 把标签随机打乱，再把学习率随机设为 0。",
+      "D. 随机翻转卷积核，再随机删除位置编码。"
+    ],
+    "correct_option": "B",
+    "source_chunk_ids": [
+      "chunk-dbe25372a50e",
+      "chunk-3f2101f58261",
+      "chunk-0eb8e434bb1a",
+      "chunk-d33b8206b871",
+      "chunk-1c14c27038dd",
+      "chunk-5e0e875b4567",
+      "chunk-5a49716f4e37",
+      "chunk-a42d84e57230"
+    ],
+    "source_files": [
+      "Week11/DeepForest-C11.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week11/DeepForest-C11.pdf",
+        "unit_type": "page",
+        "unit_index": 4,
+        "chunk_index": 1,
+        "section": "随机森林",
+        "excerpt": "随机森林 q 随机森林的生成方法 从样本集中通过重采样的方式产生n个样本 假设样本特征数目为a，对n个样本选择a中的k个特征，用建立决策",
+        "location": "第 4 页"
+      },
+      {
+        "source": "Week11/DeepForest-C11.pdf",
+        "unit_type": "page",
+        "unit_index": 3,
+        "chunk_index": 1,
+        "section": "随机森林",
+        "excerpt": "随机森林 q 随机森林（Random Forest） 用随机的方式建立起一棵棵决策树，然后由这些决策树组成一个森 林，其中每棵决策树之间没有关联，当有一个新的样本输入时，就",
+        "location": "第 3 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-决策树-随机森林与-deepforest-q3",
+    "kp_id": "kp-决策树-随机森林与-deepforest",
+    "kp_name": "决策树、随机森林与 DeepForest",
+    "question_type": "multiple_choice",
+    "question": "随机森林对一个新样本做分类时，最常见的集成决策方式是什么？",
+    "answer": "由多棵树分别给出结果，再通过多数投票形成最终分类。",
+    "explanation": "多数投票是随机森林在分类问题中的标准集成方式之一。",
+    "options": [
+      "A. 由多棵树分别给出结果，再通过多数投票形成最终分类。",
+      "B. 先训练一个判别器判断哪棵树更真实，再采用那棵树的结果。",
+      "C. 只采用第一棵树的输出，其余树主要用来做可视化说明。",
+      "D. 把所有树的节点参数直接逐项相加，再映射成类别。"
+    ],
+    "correct_option": "A",
+    "source_chunk_ids": [
+      "chunk-dbe25372a50e",
+      "chunk-3f2101f58261",
+      "chunk-0eb8e434bb1a",
+      "chunk-d33b8206b871",
+      "chunk-1c14c27038dd",
+      "chunk-5e0e875b4567",
+      "chunk-5a49716f4e37",
+      "chunk-a42d84e57230"
+    ],
+    "source_files": [
+      "Week11/DeepForest-C11.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week11/DeepForest-C11.pdf",
+        "unit_type": "page",
+        "unit_index": 4,
+        "chunk_index": 1,
+        "section": "随机森林",
+        "excerpt": "随机森林 q 随机森林的生成方法 从样本集中通过重采样的方式产生n个样本 假设样本特征数目为a，对n个样本选择a中的k个特征，用建立决策",
+        "location": "第 4 页"
+      },
+      {
+        "source": "Week11/DeepForest-C11.pdf",
+        "unit_type": "page",
+        "unit_index": 3,
+        "chunk_index": 1,
+        "section": "随机森林",
+        "excerpt": "随机森林 q 随机森林（Random Forest） 用随机的方式建立起一棵棵决策树，然后由这些决策树组成一个森 林，其中每棵决策树之间没有关联，当有一个新的样本输入时，就",
+        "location": "第 3 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-决策树-随机森林与-deepforest-q4",
+    "kp_id": "kp-决策树-随机森林与-deepforest",
+    "kp_name": "决策树、随机森林与 DeepForest",
+    "question_type": "multiple_choice",
+    "question": "DeepForest 这类方法的提出，最能帮助学生理解哪一点？",
+    "answer": "并不是所有层次化学习思路都必须依赖神经网络，树模型也可以构造多层级集成结构。",
+    "explanation": "DeepForest 的教学价值在于帮助学生把\"深层结构\"和\"神经网络\"这两个概念区分开。",
+    "options": [
+      "A. DeepForest 的关键做法是把所有树节点替换成 LSTM 单元。",
+      "B. DeepForest 的出现意味着以后不再需要任何集成学习方法。",
+      "C. 并不是所有层次化学习思路都必须依赖神经网络，树模型也可以构造多层级集成结构。",
+      "D. DeepForest 和随机森林没有方法上的关联，只是名字碰巧相似。"
+    ],
+    "correct_option": "C",
+    "source_chunk_ids": [
+      "chunk-dbe25372a50e",
+      "chunk-3f2101f58261",
+      "chunk-0eb8e434bb1a",
+      "chunk-d33b8206b871",
+      "chunk-1c14c27038dd",
+      "chunk-5e0e875b4567",
+      "chunk-5a49716f4e37",
+      "chunk-a42d84e57230"
+    ],
+    "source_files": [
+      "Week11/DeepForest-C11.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week11/DeepForest-C11.pdf",
+        "unit_type": "page",
+        "unit_index": 5,
+        "chunk_index": 1,
+        "section": "深度森林",
+        "excerpt": "深度森林 q 神经网络可以堆叠为深度神经网络，并且取得了显著的效 果。那我们可以考虑，是不是可以将其他的学习模型堆叠 起来，以获取更好的表示性能，深度森林模型就是基于这",
+        "location": "第 5 页"
+      },
+      {
+        "source": "Week11/DeepForest-C11.pdf",
+        "unit_type": "page",
+        "unit_index": 3,
+        "chunk_index": 1,
+        "section": "随机森林",
+        "excerpt": "随机森林 q 随机森林（Random Forest） 用随机的方式建立起一棵棵决策树，然后由这些决策树组成一个森 林，其中每棵决策树之间没有关联，当有一个新的样本输入时，就",
+        "location": "第 3 页"
+      }
+    ],
+    "image_path": null,
+    "image_caption": null
+  },
+  {
+    "question_id": "kp-决策树-随机森林与-deepforest-q5",
+    "kp_id": "kp-决策树-随机森林与-deepforest",
+    "kp_name": "决策树、随机森林与 DeepForest",
+    "question_type": "multiple_choice",
+    "question": "根据图中\"上半部分建树、下半部分投票预测\"的两段流程，若只保留下半部分而去掉上半部分的随机化设计，最可能损失的是什么？",
+    "answer": "树与树之间的差异性不足，集成带来的降方差效果会明显下降。",
+    "explanation": "图里把\"随机采样建树\"和\"多数投票预测\"明确分成两段。真正提供集成收益的是上半部分的随机化，而不只是下半部分的投票动作。",
+    "options": [
+      "A. 每棵树都会自动退化成循环网络，因此无法继续处理表格特征。",
+      "B. 所有决策树的深度都会被固定为 1，因此模型只能做线性判别。",
+      "C. 树与树之间的差异性不足，集成带来的降方差效果会明显下降。",
+      "D. 多数投票会被强制替换成 softmax，因此随机森林不再输出离散类别。"
+    ],
+    "correct_option": "C",
+    "source_chunk_ids": [
+      "chunk-dbe25372a50e",
+      "chunk-3f2101f58261",
+      "chunk-0eb8e434bb1a",
+      "chunk-d33b8206b871",
+      "chunk-1c14c27038dd",
+      "chunk-5e0e875b4567",
+      "chunk-5a49716f4e37",
+      "chunk-a42d84e57230"
+    ],
+    "source_files": [
+      "Week11/DeepForest-C11.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week11/DeepForest-C11.pdf",
+        "unit_type": "page",
+        "unit_index": 4,
+        "chunk_index": 1,
+        "section": "随机森林",
+        "excerpt": "随机森林 q 随机森林的生成方法 从样本集中通过重采样的方式产生n个样本 假设样本特征数目为a，对n个样本选择a中的k个特征，用建立决策",
+        "location": "第 4 页"
+      },
+      {
+        "source": "Week11/DeepForest-C11.pdf",
+        "unit_type": "page",
+        "unit_index": 3,
+        "chunk_index": 1,
+        "section": "随机森林",
+        "excerpt": "随机森林 q 随机森林（Random Forest） 用随机的方式建立起一棵棵决策树，然后由这些决策树组成一个森 林，其中每棵决策树之间没有关联，当有一个新的样本输入时，就",
+        "location": "第 3 页"
+      }
+    ],
+    "image_path": "images/deepforest-c11/page-004.png",
+    "image_caption": "DeepForest-C11.pdf 第 4 页"
+  },
+  {
+    "question_id": "kp-决策树-随机森林与-deepforest-q6",
+    "kp_id": "kp-决策树-随机森林与-deepforest",
+    "kp_name": "决策树、随机森林与 DeepForest",
+    "question_type": "multiple_choice",
+    "question": "若保留图中上半部分的随机采样建树，但预测时不再采用下半部分的多数投票，而只随机选一棵树输出，最先失去的是什么？",
+    "answer": "集成决策带来的稳定性，因为随机森林的最终优势并不来自某一棵树，而来自多棵树的综合判断。",
+    "explanation": "图里上、下两部分分别对应\"制造差异\"和\"聚合差异\"。若去掉投票，训练随机性还在，但集成结果的稳定性会直接打折。",
+    "options": [
+      "A. 集成决策带来的稳定性，因为随机森林的最终优势并不来自某一棵树，而来自多棵树的综合判断。",
+      "B. 训练阶段的重采样能力，因为多数投票会反向影响建树数据分布。",
+      "C. 决策树本身的分裂能力，因为没有投票时树节点无法继续做划分。",
+      "D. 随机特征选择能力，因为投票阶段决定了每棵树如何挑选特征。"
+    ],
+    "correct_option": "A",
+    "source_chunk_ids": [
+      "chunk-dbe25372a50e",
+      "chunk-3f2101f58261",
+      "chunk-0eb8e434bb1a",
+      "chunk-d33b8206b871",
+      "chunk-1c14c27038dd",
+      "chunk-5e0e875b4567",
+      "chunk-5a49716f4e37",
+      "chunk-a42d84e57230"
+    ],
+    "source_files": [
+      "Week11/DeepForest-C11.pdf"
+    ],
+    "review_refs": [
+      {
+        "source": "Week11/DeepForest-C11.pdf",
+        "unit_type": "page",
+        "unit_index": 4,
+        "chunk_index": 1,
+        "section": "随机森林",
+        "excerpt": "随机森林 q 随机森林的生成方法 从样本集中通过重采样的方式产生n个样本 假设样本特征数目为a，对n个样本选择a中的k个特征，用建立决策",
+        "location": "第 4 页"
+      },
+      {
+        "source": "Week11/DeepForest-C11.pdf",
+        "unit_type": "page",
+        "unit_index": 3,
+        "chunk_index": 1,
+        "section": "随机森林",
+        "excerpt": "随机森林 q 随机森林（Random Forest） 用随机的方式建立起一棵棵决策树，然后由这些决策树组成一个森 林，其中每棵决策树之间没有关联，当有一个新的样本输入时，就",
+        "location": "第 3 页"
+      }
+    ],
+    "image_path": "images/deepforest-c11/page-004.png",
+    "image_caption": "DeepForest-C11.pdf 第 4 页"
+  }
+]

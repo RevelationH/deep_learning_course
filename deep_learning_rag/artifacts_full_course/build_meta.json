@@ -1,0 +1,14 @@
+{
+  "course_root": "deep_learning\\deep_learning_materials",
+  "artifact_dir": "deep_learning\\deep_learning_rag\\artifacts_full_course",
+  "knowledge_point_count": 13,
+  "question_count": 78,
+  "dense_index": {
+    "status": "built",
+    "count": 1206,
+    "index_dir": "deep_learning\\deep_learning_rag\\artifacts_full_course\\chunk_index",
+    "model_name": "sentence-transformers/all-MiniLM-L6-v2"
+  },
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "max_week": null
+}
