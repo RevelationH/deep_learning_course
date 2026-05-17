@@ -3,6 +3,7 @@ __pycache__/
 *.pyo
 *.log
 .env
+.env.example
 .env.local
 deploy.env
 
@@ -44,5 +45,6 @@ lesson.znbverynb.xin_nginx/
 dlcourse.online_nginx.zip
 
 manual_checks/
+project_report_20260429/
 project_report_20260429/_*
 project_report_20260429/*backup*.docx
