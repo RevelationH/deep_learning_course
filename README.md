@@ -57,9 +57,14 @@ COURSE_LLM_BASE_URL=https://api.example.com/v1
 COURSE_LLM_MODEL=your-model-name
 ```
 
-- `COURSE_LLM_API_KEY`
-- `COURSE_LLM_BASE_URL`
-- `COURSE_LLM_MODEL`
+- `COURSE_LLM_API_KEY`  
+  大模型服务的访问密钥。
+
+- `COURSE_LLM_BASE_URL`  
+  大模型服务的接口地址。例如兼容 OpenAI 风格接口的服务，通常填写到 `/v1` 这一层。
+
+- `COURSE_LLM_MODEL`  
+  调用的大模型名称。例如 `kimi-k2-0711-preview`、`gpt-4.1` 或你实际部署时使用的模型名。
 
 ### 2. 课程材料与知识库配置
 
@@ -71,9 +76,14 @@ DEEP_LEARNING_ARTIFACT_DIR=D:/digital_human/deep_learning/deep_learning_rag/arti
 DEEP_LEARNING_EMBED_MODEL=sentence-transformers/all-MiniLM-L6-v2
 ```
 
-- `DEEP_LEARNING_MATERIAL_ROOT`
-- `DEEP_LEARNING_ARTIFACT_DIR`
-- `DEEP_LEARNING_EMBED_MODEL`
+- `DEEP_LEARNING_MATERIAL_ROOT`  
+  课程材料目录。这里存放平台用于构建知识库的课程 PDF 文件。
+
+- `DEEP_LEARNING_ARTIFACT_DIR`  
+  知识库构建输出目录。向量索引、知识点产物、题库产物等会写到这里。
+
+- `DEEP_LEARNING_EMBED_MODEL`  
+  向量化所使用的嵌入模型名称。通常保持默认即可，除非你准备替换 embedding 模型。
 
 ### 3. 应用运行配置
 
@@ -84,10 +94,31 @@ DEEP_LEARNING_PORTAL_SECRET=replace_with_a_random_secret
 DEEP_LEARNING_STORAGE_BACKEND=postgres
 ```
 
-- `DEEP_LEARNING_PORTAL_SECRET`
-- `DEEP_LEARNING_STORAGE_BACKEND`
+- `DEEP_LEARNING_PORTAL_SECRET`  
+  Web 应用的会话签名密钥，用于保护登录状态和 Session 数据。  
+  不要直接使用示例值。部署时应改成一段随机、足够长的字符串，例如：
+
+  ```text
+  DEEP_LEARNING_PORTAL_SECRET=deep-learning-portal-2026-a-long-random-secret
+  ```
+
+- `DEEP_LEARNING_STORAGE_BACKEND`  
+  指定平台使用哪种存储后端。当前支持两种取值：
+
+  - `postgres` 或 `postgresql`：使用 PostgreSQL
+  - `firebase`：使用 Firebase
+
+  示例：
+
+  ```text
+  DEEP_LEARNING_STORAGE_BACKEND=postgres
+  ```
 
 ### 4. 数据库配置
+
+平台支持两类数据库接入方式：PostgreSQL 或 Firebase。二选一即可，不需要同时配置。
+
+#### 4.1 使用 PostgreSQL
 
 如使用 PostgreSQL，可采用单条连接串方式：
 
@@ -95,7 +126,16 @@ DEEP_LEARNING_STORAGE_BACKEND=postgres
 DEEP_LEARNING_POSTGRES_DSN=postgresql://postgres:your_password@127.0.0.1:5432/deep_learning_portal
 ```
 
-也可拆分配置：
+这条配置的含义如下：
+
+- `postgresql://`：协议头
+- `postgres`：数据库用户名
+- `your_password`：数据库密码
+- `127.0.0.1`：数据库主机
+- `5432`：数据库端口
+- `deep_learning_portal`：数据库名
+
+如果你不想写成一整条连接串，也可以拆分配置：
 
 ```text
 DEEP_LEARNING_PGHOST=127.0.0.1
@@ -105,7 +145,22 @@ DEEP_LEARNING_PGUSER=postgres
 DEEP_LEARNING_PGPASSWORD=your_password
 ```
 
-如使用 Firebase，可配置服务账号文件路径：
+各字段含义如下：
+
+- `DEEP_LEARNING_PGHOST`：数据库主机地址
+- `DEEP_LEARNING_PGPORT`：数据库端口
+- `DEEP_LEARNING_PGDATABASE`：数据库名
+- `DEEP_LEARNING_PGUSER`：数据库用户名
+- `DEEP_LEARNING_PGPASSWORD`：数据库密码
+
+说明：
+
+- 如果已经填写了 `DEEP_LEARNING_POSTGRES_DSN`，通常不需要再拆分写主机、端口、用户名、密码。
+- 如果数据库不在本机，需要把 `127.0.0.1` 改成实际数据库地址。
+
+#### 4.2 使用 Firebase
+
+如使用 Firebase，需要提供 Firebase 服务账号 JSON 文件路径。可使用以下任一变量：
 
 ```text
 FIREBASE_CREDENTIALS=D:/path/to/firebase-service-account.json
@@ -117,14 +172,12 @@ FIREBASE_CREDENTIALS=D:/path/to/firebase-service-account.json
 GOOGLE_APPLICATION_CREDENTIALS=D:/path/to/firebase-service-account.json
 ```
 
-- `DEEP_LEARNING_POSTGRES_DSN`
-- `DEEP_LEARNING_PGHOST`
-- `DEEP_LEARNING_PGPORT`
-- `DEEP_LEARNING_PGDATABASE`
-- `DEEP_LEARNING_PGUSER`
-- `DEEP_LEARNING_PGPASSWORD`
-- `FIREBASE_CREDENTIALS`
-- `GOOGLE_APPLICATION_CREDENTIALS`
+说明：
+
+- `FIREBASE_CREDENTIALS`：项目内自定义读取的服务账号路径变量
+- `GOOGLE_APPLICATION_CREDENTIALS`：Google 官方 SDK 常用的默认变量名
+
+通常只需要配置其中一个即可。如果两个都配置，建议保持为同一个文件路径，避免混淆。
 
 ### 5. 缓存配置
 
@@ -134,7 +187,27 @@ GOOGLE_APPLICATION_CREDENTIALS=D:/path/to/firebase-service-account.json
 DEEP_LEARNING_REDIS_URL=redis://127.0.0.1:6379/0
 ```
 
-- `DEEP_LEARNING_REDIS_URL`
+- `DEEP_LEARNING_REDIS_URL`  
+  Redis 连接地址，主要用于缓存、异步任务状态和高并发下的运行支撑。
+
+这条地址的含义如下：
+
+- `redis://`：Redis 协议头
+- `127.0.0.1`：Redis 主机地址
+- `6379`：Redis 默认端口
+- `/0`：使用的 Redis 数据库编号，`0` 表示第 0 号库
+
+如果 Redis 部署在其他机器上，可写成：
+
+```text
+DEEP_LEARNING_REDIS_URL=redis://192.168.1.20:6379/0
+```
+
+如果 Redis 设置了密码，可写成：
+
+```text
+DEEP_LEARNING_REDIS_URL=redis://:your_redis_password@127.0.0.1:6379/0
+```
 
 ---
 
