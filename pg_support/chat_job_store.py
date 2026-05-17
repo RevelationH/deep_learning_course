@@ -23,6 +23,37 @@ def _iso(value: Any) -> str:
 
 
 class ChatJobStore:
+    def fail_running_jobs_for_restart(self, error_message: str = "Job was interrupted by a service restart.") -> int:
+        now = _now()
+        with open_connection() as conn, conn.cursor() as cur:
+            cur.execute(
+                """
+                UPDATE deep_learning_chat_jobs
+                SET status = 'failed',
+                    error_message = %s,
+                    finished_at = %s,
+                    updated_at = %s
+                WHERE status = 'running'
+                """,
+                (" ".join(str(error_message or "").split())[:500], now, now),
+            )
+            return int(cur.rowcount or 0)
+
+    def touch_running_job(self, job_id: str, worker_id: str) -> bool:
+        now = _now()
+        with open_connection() as conn, conn.cursor() as cur:
+            cur.execute(
+                """
+                UPDATE deep_learning_chat_jobs
+                SET updated_at = %s
+                WHERE job_id = %s
+                  AND status = 'running'
+                  AND worker_id = %s
+                """,
+                (now, str(job_id or "").strip(), str(worker_id or "").strip()),
+            )
+            return bool(cur.rowcount or 0)
+
     def enqueue(
         self,
         *,

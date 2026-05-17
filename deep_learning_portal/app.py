@@ -25,6 +25,7 @@ from deep_learning_portal.async_services import (
     AsyncChatService,
     ChatJobAlreadyActiveError,
     ChatQueueFullError,
+    ChatWorkersUnavailableError,
     LearningReportSnapshotService,
     signature_to_key,
 )
@@ -60,6 +61,8 @@ PUBLIC_ENDPOINTS = {
     "deep_learning_material_asset",
 }
 
+CHAT_BUSY_STUDENT_MESSAGE = "当前系统繁忙，请稍后再聊天，或先体验 Quiz 和 Learning Report。"
+
 
 def clean_account_name(value: Optional[str]) -> str:
     return (value or "").strip()[:40]
@@ -67,6 +70,17 @@ def clean_account_name(value: Optional[str]) -> str:
 
 def clean_login_name(value: Optional[str]) -> str:
     return (value or "").strip()
+
+
+def _env_bool(name: str, default: bool) -> bool:
+    raw = os.getenv(name, "").strip().lower()
+    if not raw:
+        return bool(default)
+    if raw in {"1", "true", "yes", "on"}:
+        return True
+    if raw in {"0", "false", "no", "off"}:
+        return False
+    return bool(default)
 
 
 def is_portal_authenticated() -> bool:
@@ -83,6 +97,34 @@ def safe_next_path(candidate: Optional[str]) -> str:
     if not value.startswith("/"):
         return ""
     return value
+
+
+def normalize_chat_runtime_error_message(raw_message: Any) -> str:
+    message = clean_display_text(str(raw_message or ""))
+    compact = " ".join(message.lower().split())
+    if not compact:
+        return CHAT_BUSY_STUDENT_MESSAGE
+
+    overload_markers = (
+        "engine is currently overloaded",
+        "engine_overloaded_error",
+        "too many requests",
+        "rate limit",
+        "rate_limit",
+        "429",
+        "temporarily overloaded",
+        "service unavailable",
+    )
+    restart_markers = (
+        "service restart",
+        "interrupted by a service restart",
+    )
+
+    if any(marker in compact for marker in overload_markers):
+        return CHAT_BUSY_STUDENT_MESSAGE
+    if any(marker in compact for marker in restart_markers):
+        return "系统刚刚完成更新，请重新发送这条问题。"
+    return message
 
 
 def login_error_message(exc: Exception) -> str:
@@ -294,7 +336,11 @@ def default_learning_report_context(summary: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 
-def create_app() -> Flask:
+def create_app(
+    *,
+    start_chat_workers: Optional[bool] = None,
+    start_report_workers: Optional[bool] = None,
+) -> Flask:
     app = Flask(__name__, template_folder=str(APP_DIR / "templates"))
     app.config["SECRET_KEY"] = os.getenv("DEEP_LEARNING_PORTAL_SECRET", "").strip() or "deep-learning-portal-secret"
     app.config["SESSION_COOKIE_NAME"] = "deep_learning_portal_session"
@@ -307,6 +353,8 @@ def create_app() -> Flask:
     chat_pipeline = DeepLearningChatPipeline(kb)
     redis_cache = RedisJsonCache()
     runtime_services_ready = get_storage_backend_name() == "postgresql" and storage_backend_ready()
+    chat_workers_enabled = bool(start_chat_workers) if start_chat_workers is not None else _env_bool("DEEP_LEARNING_ENABLE_CHAT_WORKERS", True)
+    report_workers_enabled = bool(start_report_workers) if start_report_workers is not None else _env_bool("DEEP_LEARNING_ENABLE_REPORT_WORKERS", True)
     store: Optional[Any] = None
     chat_store: Optional[Any] = None
 
@@ -340,8 +388,13 @@ def create_app() -> Flask:
             progress_store_factory=get_store,
             redis_cache=redis_cache,
         )
-        chat_service.start()
-        report_service.start()
+        if chat_workers_enabled:
+            chat_service.start()
+        if report_workers_enabled:
+            report_service.start()
+
+    app.config["DEEP_LEARNING_CHAT_WORKERS_ENABLED"] = chat_workers_enabled
+    app.config["DEEP_LEARNING_REPORT_WORKERS_ENABLED"] = report_workers_enabled
 
     def analytics_cache() -> Dict[str, Any]:
         cache = getattr(g, "deep_learning_analytics_cache", None)
@@ -379,6 +432,8 @@ def create_app() -> Flask:
             if hasattr(progress_store, "learning_report_signature")
             else {"attempt_count": progress_store.attempt_count(user_id)}
         )
+        fallback_report_context = default_learning_report_context({})
+        fallback_report_context["activity"]["total_attempts"] = int(signature.get("attempt_count") or 0)
         if report_service is None:
             context = default_learning_report_context(progress_store.summary(user_id))
             context["report_status"] = {
@@ -393,7 +448,7 @@ def create_app() -> Flask:
 
         load_state = report_service.load_for_request(user_id, signature)
         context = enrich_review_references_payload(
-            load_state.get("payload") or default_learning_report_context(progress_store.summary(user_id))
+            load_state.get("payload") or fallback_report_context
         )
         context["report_status"] = {
             "fresh": bool(load_state.get("fresh")),
@@ -656,6 +711,10 @@ def create_app() -> Flask:
                 "learning_report_jobs": report_snapshot,
                 "redis": redis_cache.stats(),
                 "pg_pool": pool_info,
+                "process_role": {
+                    "chat_workers_enabled": bool(app.config.get("DEEP_LEARNING_CHAT_WORKERS_ENABLED")),
+                    "report_workers_enabled": bool(app.config.get("DEEP_LEARNING_REPORT_WORKERS_ENABLED")),
+                },
             }
         )
 
@@ -756,12 +815,21 @@ def create_app() -> Flask:
                     "retry_after_seconds": int((exc.job or {}).get("retry_after_seconds") or 0),
                 }
             ), 429
+        except ChatWorkersUnavailableError as exc:
+            return jsonify(
+                {
+                    "ok": False,
+                    "error": CHAT_BUSY_STUDENT_MESSAGE,
+                    "details": "问答服务正在恢复中，暂时无法接收新的提问请求。",
+                    "queue": exc.snapshot,
+                }
+            ), 503
         except ChatQueueFullError as exc:
             if exc.reason == "wait_too_long":
-                error_message = "当前提问人数较多，预计等待时间过长，请稍后再试。"
+                error_message = CHAT_BUSY_STUDENT_MESSAGE
                 details = f"系统估计等待约 {exc.estimated_wait_seconds} 秒，建议 {exc.retry_after_seconds} 秒后重试。"
             else:
-                error_message = "当前提问人数较多，系统正在排队处理中，请稍后再试。"
+                error_message = CHAT_BUSY_STUDENT_MESSAGE
                 details = f"当前排队任务约 {exc.queue_size} 个，系统上限为 {exc.max_queue_size} 个。"
             return jsonify(
                 {
@@ -787,6 +855,8 @@ def create_app() -> Flask:
         if not job:
             return jsonify({"ok": False, "error": "未找到该聊天任务。"}), 404
         payload = dict(job)
+        if str(payload.get("status") or "") == "failed":
+            payload["error_message"] = normalize_chat_runtime_error_message(payload.get("error_message"))
         result = dict(payload.get("result") or {})
         if result:
             result["citations"] = enrich_citation_list(list(result.get("citations") or []))

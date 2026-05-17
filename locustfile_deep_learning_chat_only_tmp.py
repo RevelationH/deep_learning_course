@@ -27,6 +27,22 @@ QUESTION_BANK = [
 ]
 
 
+def next_poll_delay_seconds(job: dict[str, object], attempt: int) -> float:
+    status = str(job.get("status") or "").strip()
+    suggested = max(float(job.get("poll_after_ms") or 0.0), 0.0) / 1000.0
+    retry_after = max(float(job.get("retry_after_seconds") or 0.0), 0.0)
+    estimated_wait = max(float(job.get("estimated_wait_seconds") or 0.0), 0.0)
+
+    if status == "queued":
+        base = max(suggested, retry_after, 1.8)
+        if attempt >= 4:
+            base = max(base, min(estimated_wait * 0.25, 5.5))
+        return min(base, 7.0)
+    if status == "running":
+        return min(max(suggested, 1.2 if attempt < 6 else 1.8), 3.2)
+    return 0.0
+
+
 class DeepLearningChatOnlyUser(HttpUser):
     wait_time = between(2, 5)
     account_number: int
@@ -110,7 +126,7 @@ class DeepLearningChatOnlyUser(HttpUser):
             response.success()
 
         completed = False
-        for _ in range(180):
+        for attempt in range(180):
             with self.client.get(
                 f"/api/deep-learning/chat/jobs/{job_id}",
                 name="GET /api/deep-learning/chat/jobs",
@@ -141,7 +157,9 @@ class DeepLearningChatOnlyUser(HttpUser):
                     response.failure(f"unexpected-job-status={job!r}")
                     return
                 response.success()
-            sleep(1.1 if status == "queued" else 0.8)
+            delay_seconds = next_poll_delay_seconds(job, attempt)
+            if delay_seconds > 0:
+                sleep(delay_seconds)
 
         if not completed:
             raise RuntimeError(f"chat job timeout for {job_id}")

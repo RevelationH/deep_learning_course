@@ -210,79 +210,184 @@ class ProgressStore:
             )
             return computed
 
+    def analytics_snapshot(self, user_id: str, recent_limit: int = 8) -> Dict[str, Any]:
+        clean_user_id = self._clean_user_id(user_id)
+        with open_connection() as conn, conn.cursor() as cur:
+            cur.execute(
+                """
+                SELECT attempt_count
+                FROM deep_learning_progress_users
+                WHERE user_id = %s
+                """,
+                (clean_user_id,),
+            )
+            profile_row = cur.fetchone() or {}
+            attempt_count = int(profile_row.get("attempt_count") or 0)
+
+            cur.execute(
+                """
+                SELECT user_id, question_id, timestamp, kp_id, kp_name, question_type, question,
+                       submitted_answer, reference_answer, is_correct
+                FROM deep_learning_latest_attempts
+                WHERE user_id = %s
+                ORDER BY timestamp ASC, question_id ASC
+                """,
+                (clean_user_id,),
+            )
+            latest_rows = cur.fetchall() or []
+            if not latest_rows:
+                cur.execute(
+                    """
+                    SELECT DISTINCT ON (question_id)
+                           source_attempt_id, timestamp, kp_id, kp_name, question_id, question_type, question,
+                           submitted_answer, reference_answer, is_correct
+                    FROM deep_learning_attempts
+                    WHERE user_id = %s
+                      AND question_id <> ''
+                    ORDER BY question_id ASC, timestamp DESC, attempt_pk DESC
+                    """,
+                    (clean_user_id,),
+                )
+                latest_rows = cur.fetchall() or []
+
+            cur.execute(
+                """
+                SELECT source_attempt_id, timestamp, kp_id, kp_name, question_id, question_type, question,
+                       submitted_answer, reference_answer, is_correct
+                FROM deep_learning_attempts
+                WHERE user_id = %s
+                ORDER BY timestamp DESC, attempt_pk DESC
+                LIMIT %s
+                """,
+                (clean_user_id, max(int(recent_limit), 1)),
+            )
+            recent_rows = cur.fetchall() or []
+
+        return {
+            "attempt_count": attempt_count,
+            "latest_attempts": [self._serialize_attempt(row) for row in latest_rows],
+            "recent_attempts": [self._serialize_attempt(row) for row in recent_rows],
+        }
+
     def record_attempts(self, user_id: str, kp_id: str, kp_name: str, results: List[Dict[str, Any]]) -> None:
         clean_user_id = self._clean_user_id(user_id)
         if not results:
             return
         profile = self.ensure_user(clean_user_id)
         now = _now()
+        attempt_rows: List[Dict[str, Any]] = []
+        latest_by_question: Dict[str, Dict[str, Any]] = {}
+        for index, result in enumerate(results, start=1):
+            payload = {
+                "timestamp": _iso(now),
+                "kp_id": str(kp_id or ""),
+                "kp_name": str(kp_name or ""),
+                "question_id": str(result.get("question_id") or ""),
+                "question_type": str(result.get("question_type") or ""),
+                "question": str(result.get("question") or ""),
+                "submitted_answer": str(result.get("submitted_answer") or ""),
+                "reference_answer": str(result.get("reference_answer") or ""),
+                "is_correct": bool(result.get("is_correct")),
+            }
+            payload["source_attempt_id"] = self._generated_attempt_source_id(clean_user_id, index, payload)
+            attempt_rows.append(payload)
+            if payload["question_id"]:
+                latest_by_question[payload["question_id"]] = payload
+
+        inserted_count = 0
         with open_connection() as conn, conn.cursor() as cur:
-            for index, result in enumerate(results, start=1):
-                payload = {
-                    "timestamp": now,
-                    "kp_id": str(kp_id or ""),
-                    "kp_name": str(kp_name or ""),
-                    "question_id": str(result.get("question_id") or ""),
-                    "question_type": str(result.get("question_type") or ""),
-                    "question": str(result.get("question") or ""),
-                    "submitted_answer": str(result.get("submitted_answer") or ""),
-                    "reference_answer": str(result.get("reference_answer") or ""),
-                    "is_correct": bool(result.get("is_correct")),
-                }
-                source_attempt_id = self._generated_attempt_source_id(clean_user_id, index, payload)
-                cur.execute(
-                    """
+            cur.execute(
+                """
+                WITH source AS (
+                    SELECT *
+                    FROM jsonb_to_recordset(%s::jsonb) AS rows(
+                        source_attempt_id text,
+                        timestamp timestamptz,
+                        kp_id text,
+                        kp_name text,
+                        question_id text,
+                        question_type text,
+                        question text,
+                        submitted_answer text,
+                        reference_answer text,
+                        is_correct boolean
+                    )
+                ),
+                inserted AS (
                     INSERT INTO deep_learning_attempts
                     (user_id, source_attempt_id, timestamp, kp_id, kp_name, question_id, question_type,
                      question, submitted_answer, reference_answer, is_correct, metadata)
-                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s::jsonb)
-                    ON CONFLICT (user_id, source_attempt_id) DO NOTHING
-                    """,
-                    (
-                        clean_user_id,
+                    SELECT
+                        %s,
                         source_attempt_id,
-                        payload["timestamp"],
-                        payload["kp_id"],
-                        payload["kp_name"],
-                        payload["question_id"],
-                        payload["question_type"],
-                        payload["question"],
-                        payload["submitted_answer"],
-                        payload["reference_answer"],
-                        payload["is_correct"],
-                        json.dumps({}),
-                    ),
+                        timestamp,
+                        kp_id,
+                        kp_name,
+                        question_id,
+                        question_type,
+                        question,
+                        submitted_answer,
+                        reference_answer,
+                        is_correct,
+                        '{}'::jsonb
+                    FROM source
+                    ON CONFLICT (user_id, source_attempt_id) DO NOTHING
+                    RETURNING 1
                 )
-                if payload["question_id"]:
-                    cur.execute(
-                        """
-                        INSERT INTO deep_learning_latest_attempts
-                        (user_id, question_id, timestamp, kp_id, kp_name, question_type, question,
-                         submitted_answer, reference_answer, is_correct)
-                        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-                        ON CONFLICT (user_id, question_id) DO UPDATE
-                        SET timestamp = EXCLUDED.timestamp,
-                            kp_id = EXCLUDED.kp_id,
-                            kp_name = EXCLUDED.kp_name,
-                            question_type = EXCLUDED.question_type,
-                            question = EXCLUDED.question,
-                            submitted_answer = EXCLUDED.submitted_answer,
-                            reference_answer = EXCLUDED.reference_answer,
-                            is_correct = EXCLUDED.is_correct
-                        """,
-                        (
-                            clean_user_id,
-                            payload["question_id"],
-                            payload["timestamp"],
-                            payload["kp_id"],
-                            payload["kp_name"],
-                            payload["question_type"],
-                            payload["question"],
-                            payload["submitted_answer"],
-                            payload["reference_answer"],
-                            payload["is_correct"],
-                        ),
+                SELECT COUNT(*) AS inserted_count
+                FROM inserted
+                """,
+                (json.dumps(attempt_rows, ensure_ascii=False), clean_user_id),
+            )
+            inserted_row = cur.fetchone() or {}
+            inserted_count = int(inserted_row.get("inserted_count") or 0)
+
+            latest_rows = list(latest_by_question.values())
+            if latest_rows:
+                cur.execute(
+                    """
+                    WITH source AS (
+                        SELECT *
+                        FROM jsonb_to_recordset(%s::jsonb) AS rows(
+                            question_id text,
+                            timestamp timestamptz,
+                            kp_id text,
+                            kp_name text,
+                            question_type text,
+                            question text,
+                            submitted_answer text,
+                            reference_answer text,
+                            is_correct boolean
+                        )
                     )
+                    INSERT INTO deep_learning_latest_attempts
+                    (user_id, question_id, timestamp, kp_id, kp_name, question_type, question,
+                     submitted_answer, reference_answer, is_correct)
+                    SELECT
+                        %s,
+                        question_id,
+                        timestamp,
+                        kp_id,
+                        kp_name,
+                        question_type,
+                        question,
+                        submitted_answer,
+                        reference_answer,
+                        is_correct
+                    FROM source
+                    WHERE question_id <> ''
+                    ON CONFLICT (user_id, question_id) DO UPDATE
+                    SET timestamp = EXCLUDED.timestamp,
+                        kp_id = EXCLUDED.kp_id,
+                        kp_name = EXCLUDED.kp_name,
+                        question_type = EXCLUDED.question_type,
+                        question = EXCLUDED.question,
+                        submitted_answer = EXCLUDED.submitted_answer,
+                        reference_answer = EXCLUDED.reference_answer,
+                        is_correct = EXCLUDED.is_correct
+                    """,
+                    (json.dumps(latest_rows, ensure_ascii=False), clean_user_id),
+                )
             cur.execute(
                 """
                 INSERT INTO deep_learning_progress_users
@@ -303,7 +408,7 @@ class ProgressStore:
                     _parse_ts(profile.get("created_at")) or now,
                     now,
                     now,
-                    len(results),
+                    inserted_count,
                 ),
             )
             cur.execute(

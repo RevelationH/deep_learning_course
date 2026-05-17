@@ -13,6 +13,7 @@ from locust import HttpUser, between, task
 
 BASE_DIR = Path(__file__).resolve().parent
 KP_PATH = BASE_DIR / "deep_learning_rag" / "artifacts_full_course" / "knowledge_points.json"
+QUESTIONS_PATH = BASE_DIR / "deep_learning_rag" / "artifacts_full_course" / "questions.json"
 
 ACCOUNT_PREFIX = "loadtestdl"
 ACCOUNT_COUNT = 240
@@ -20,14 +21,14 @@ _ACCOUNT_COUNTER = count(1)
 _ACCOUNT_LOCK = Semaphore()
 
 QUESTION_BANK = [
-    "What is backpropagation?",
-    "Explain the role of convolution and padding.",
-    "Why does overfitting happen in deep learning?",
-    "What is the difference between CNN and RNN?",
-    "How does attention work in a transformer?",
-    "What problem does batch normalization solve?",
-    "Why do we need activation functions?",
-    "Explain the intuition behind diffusion models.",
+    "什么是反向传播？",
+    "解释一下卷积和 padding 的作用。",
+    "为什么深度学习里会出现过拟合？",
+    "CNN 和 RNN 的主要区别是什么？",
+    "Transformer 里的 attention 是怎么工作的？",
+    "Batch normalization 解决了什么问题？",
+    "为什么需要激活函数？",
+    "请解释 diffusion model 的直觉。",
 ]
 
 
@@ -47,8 +48,50 @@ def load_kp_ids() -> list[str]:
 KP_IDS = load_kp_ids()
 
 
+def load_questions_by_kp() -> dict[str, list[dict[str, str]]]:
+    try:
+        payload = json.loads(QUESTIONS_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    grouped: dict[str, list[dict[str, str]]] = {}
+    for item in payload:
+        kp_id = str(item.get("kp_id") or "").strip()
+        question_id = str(item.get("question_id") or "").strip()
+        if not kp_id or not question_id:
+            continue
+        options = item.get("options") or []
+        labels: list[str] = []
+        for option in options:
+            option_text = str(option).strip()
+            if len(option_text) >= 2 and option_text[1:2] == ".":
+                labels.append(option_text[0].upper())
+        if not labels:
+            labels = ["A", "B", "C", "D"]
+        grouped.setdefault(kp_id, []).append({"question_id": question_id, "options": labels})
+    return grouped
+
+
+QUESTIONS_BY_KP = load_questions_by_kp()
+
+
+def next_poll_delay_seconds(job: dict[str, object], attempt: int) -> float:
+    status = str(job.get("status") or "").strip()
+    suggested = max(float(job.get("poll_after_ms") or 0.0), 0.0) / 1000.0
+    retry_after = max(float(job.get("retry_after_seconds") or 0.0), 0.0)
+    estimated_wait = max(float(job.get("estimated_wait_seconds") or 0.0), 0.0)
+
+    if status == "queued":
+        base = max(suggested, retry_after, 1.8)
+        if attempt >= 4:
+            base = max(base, min(estimated_wait * 0.25, 5.5))
+        return min(base, 7.0)
+    if status == "running":
+        return min(max(suggested, 1.2 if attempt < 6 else 1.8), 3.2)
+    return 0.0
+
+
 class DeepLearningPortalUser(HttpUser):
-    wait_time = between(20, 35)
+    wait_time = between(2, 6)
     account_number: int
     username: str
     password: str
@@ -126,7 +169,7 @@ class DeepLearningPortalUser(HttpUser):
             response.success()
 
         completed = False
-        for _ in range(150):
+        for attempt in range(150):
             with self.client.get(
                 f"/api/deep-learning/chat/jobs/{job_id}",
                 name="GET /api/deep-learning/chat/jobs",
@@ -157,7 +200,9 @@ class DeepLearningPortalUser(HttpUser):
                     response.failure(f"unexpected-job-status={job!r}")
                     return
                 response.success()
-            sleep(1.1 if status == "queued" else 0.8)
+            delay_seconds = next_poll_delay_seconds(job, attempt)
+            if delay_seconds > 0:
+                sleep(delay_seconds)
         if not completed:
             raise RuntimeError(f"chat job timeout for {job_id}")
 
@@ -172,10 +217,63 @@ class DeepLearningPortalUser(HttpUser):
         if not self._login_ok or not KP_IDS:
             return
         kp_id = random.choice(KP_IDS)
-        self.client.get(f"/quiz_deep_learning/practice/{kp_id}", name="GET /quiz_deep_learning/practice")
+        with self.client.get(
+            f"/quiz_deep_learning/practice/{kp_id}",
+            name="GET /quiz_deep_learning/practice",
+            catch_response=True,
+        ) as response:
+            if response.status_code != 200:
+                response.failure(f"status={response.status_code}")
+                return
+            if "practice-form" not in response.text and "answer_" not in response.text:
+                response.failure("missing-practice-form")
+                return
+            response.success()
+
+    @task(1)
+    def quiz_submit(self) -> None:
+        if not self._login_ok or not KP_IDS:
+            return
+        kp_id = random.choice(KP_IDS)
+        questions = QUESTIONS_BY_KP.get(kp_id) or []
+        if not questions:
+            return
+        form_data: dict[str, str] = {}
+        for item in questions:
+            form_data[f"answer_{item['question_id']}"] = random.choice(item["options"])
+        with self.client.post(
+            f"/quiz_deep_learning/practice/{kp_id}",
+            data=form_data,
+            name="POST /quiz_deep_learning/practice",
+            catch_response=True,
+            timeout=120,
+        ) as response:
+            if response.status_code != 200:
+                response.failure(f"status={response.status_code}")
+                return
+            if "正确答案" not in response.text and "已作答" not in response.text:
+                response.failure("missing-graded-content")
+                return
+            response.success()
 
     @task(1)
     def learning_report(self) -> None:
         if not self._login_ok:
             return
-        self.client.get("/learning_report_deep_learning", name="GET /learning_report_deep_learning")
+        with self.client.get(
+            "/learning_report_deep_learning",
+            name="GET /learning_report_deep_learning",
+            catch_response=True,
+            timeout=120,
+        ) as response:
+            if response.status_code != 200:
+                response.failure(f"status={response.status_code}")
+                return
+            if (
+                "学习报告" not in response.text
+                and "优先回顾" not in response.text
+                and "report-status-banner" not in response.text
+            ):
+                response.failure("missing-report-content")
+                return
+            response.success()

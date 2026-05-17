@@ -90,6 +90,27 @@ class RedisJsonCache:
         except Exception as exc:
             self._last_error = " ".join(str(exc).split())[:220]
 
+    def list_json(self, pattern: str, *, limit: int = 128) -> list[dict[str, Any]]:
+        client = self.client()
+        if client is None:
+            return []
+        rows: list[dict[str, Any]] = []
+        try:
+            count = max(int(limit or 0), 1)
+            for key in client.scan_iter(match=pattern, count=count):
+                if len(rows) >= count:
+                    break
+                raw = client.get(key)
+                if not raw:
+                    continue
+                payload = json.loads(raw)
+                if isinstance(payload, dict):
+                    rows.append(payload)
+        except Exception as exc:
+            self._last_error = " ".join(str(exc).split())[:220]
+            return []
+        return rows
+
     def stats(self) -> dict[str, Any]:
         return {
             "configured": bool(self.url),

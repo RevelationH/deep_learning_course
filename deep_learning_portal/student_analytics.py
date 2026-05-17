@@ -65,11 +65,20 @@ def build_learning_report_context(
 
 def _build_attempt_state(kb: Any, store: Any, user_id: str) -> Dict[str, Any]:
     question_lookup = _question_lookup(kb)
-    attempt_count = store.attempt_count(user_id)
-    latest_attempts = _filter_current_attempts(store.latest_attempts(user_id), question_lookup, kb)
+    snapshot = store.analytics_snapshot(user_id, recent_limit=8) if hasattr(store, "analytics_snapshot") else None
+    if isinstance(snapshot, dict):
+        attempt_count = int(snapshot.get("attempt_count") or 0)
+        latest_raw = snapshot.get("latest_attempts") or []
+        recent_raw = snapshot.get("recent_attempts") or []
+    else:
+        attempt_count = store.attempt_count(user_id)
+        latest_raw = store.latest_attempts(user_id)
+        recent_raw = store.recent_attempts(user_id, limit=8)
+
+    latest_attempts = _filter_current_attempts(latest_raw, question_lookup, kb)
     latest_attempts.sort(key=lambda item: (item.get("timestamp") or "", item.get("question_id") or ""))
     kp_stats = _build_kp_stats(kb, latest_attempts)
-    recent_attempts = _filter_current_attempts(store.recent_attempts(user_id, limit=8), question_lookup, kb)
+    recent_attempts = _filter_current_attempts(recent_raw, question_lookup, kb)
     recent_attempts.sort(key=lambda item: item.get("timestamp") or "", reverse=True)
     summary = _build_summary(latest_attempts, kp_stats, recent_attempts, attempt_count)
     return {

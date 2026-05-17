@@ -4,6 +4,7 @@ import os
 from contextlib import contextmanager
 from threading import Lock
 from typing import Any, Iterator, Optional
+from runtime_tuning import default_pg_pool_max_size, default_pg_pool_min_size, default_pg_pool_num_workers
 
 try:
     import psycopg
@@ -60,8 +61,8 @@ def pool_enabled() -> bool:
 
 
 def _pool_config(settings: PostgresSettings) -> dict[str, Any]:
-    max_size = _env_int("DEEP_LEARNING_PGPOOL_MAX_SIZE", 24, minimum=1)
-    min_size = _env_int("DEEP_LEARNING_PGPOOL_MIN_SIZE", min(4, max_size), minimum=1)
+    max_size = _env_int("DEEP_LEARNING_PGPOOL_MAX_SIZE", default_pg_pool_max_size(), minimum=1)
+    min_size = _env_int("DEEP_LEARNING_PGPOOL_MIN_SIZE", default_pg_pool_min_size(max_size), minimum=1)
     min_size = min(min_size, max_size)
     return {
         "min_size": min_size,
@@ -71,7 +72,7 @@ def _pool_config(settings: PostgresSettings) -> dict[str, Any]:
         "max_lifetime": _env_float("DEEP_LEARNING_PGPOOL_MAX_LIFETIME", 900.0, minimum=60.0),
         "max_idle": _env_float("DEEP_LEARNING_PGPOOL_MAX_IDLE", 180.0, minimum=30.0),
         "reconnect_timeout": _env_float("DEEP_LEARNING_PGPOOL_RECONNECT_TIMEOUT", 120.0, minimum=5.0),
-        "num_workers": _env_int("DEEP_LEARNING_PGPOOL_NUM_WORKERS", 3, minimum=1),
+        "num_workers": _env_int("DEEP_LEARNING_PGPOOL_NUM_WORKERS", default_pg_pool_num_workers(), minimum=1),
     }
 
 

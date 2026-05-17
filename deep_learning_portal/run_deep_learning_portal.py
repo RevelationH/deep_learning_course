@@ -22,11 +22,14 @@ preferred_material_root = ROOT_DIR / "deep_learning_materials"
 if preferred_material_root.exists():
     os.environ.setdefault("DEEP_LEARNING_MATERIAL_ROOT", str(preferred_material_root))
 
+os.environ.setdefault("DEEP_LEARNING_ENABLE_CHAT_WORKERS", "0")
+os.environ.setdefault("DEEP_LEARNING_ENABLE_REPORT_WORKERS", "1")
+
 from deep_learning_portal.app import create_app
 from deep_learning_portal.serve_runtime import serve_app
 
 
-app = create_app()
+app = create_app(start_chat_workers=False, start_report_workers=True)
 
 
 def _env_port() -> int:

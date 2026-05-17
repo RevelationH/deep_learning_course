@@ -29,3 +29,20 @@ tmp_deep_learning_portal_*.err.log
 deep_learning_portal/bin/cloudflared.exe
 
 deep_learning_rag/_inspect*/
+
+*.crt
+*.csr
+*.pem
+*.key
+*.pfx
+*.p12
+
+dlcourse.online_nginx/
+lesson.znbverynb.xin_nginx/
+
+*_deploy_bundle*.zip
+dlcourse.online_nginx.zip
+
+manual_checks/
+project_report_20260429/_*
+project_report_20260429/*backup*.docx

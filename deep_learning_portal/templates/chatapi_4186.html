@@ -1353,6 +1353,14 @@ async function parseApiJsonResponse(response) {
     throw new Error('服务器没有返回 JSON 数据。');
 }
 
+function formatChatFailureMessage(message) {
+    const text = String(message || '').trim();
+    if (!text) {
+        return '当前系统繁忙，请稍后再聊天，或先体验 Quiz 和 Learning Report。';
+    }
+    return text;
+}
+
 async function refreshSessions() {
     const response = await fetch('{{ url_for("api_chat_sessions_deep_learning") }}');
     const payload = await parseApiJsonResponse(response);
@@ -1432,6 +1440,29 @@ function sleep(ms) {
     return new Promise(resolve => window.setTimeout(resolve, ms));
 }
 
+function nextPollDelayMs(job, attempt) {
+    const status = String(job?.status || '').trim();
+    const suggested = Math.max(Number(job?.poll_after_ms || 0), 0);
+    const retryAfterMs = Math.max(Number(job?.retry_after_seconds || 0) * 1000, 0);
+    const estimatedWaitMs = Math.max(Number(job?.estimated_wait_seconds || 0) * 1000, 0);
+    const jitterMs = Math.floor(Math.random() * 220);
+
+    if (status === 'queued') {
+        let base = Math.max(suggested, retryAfterMs, 1800);
+        if (attempt >= 4) {
+            base = Math.max(base, Math.min(estimatedWaitMs * 0.25, 5500));
+        }
+        return Math.min(base + jitterMs, 7000);
+    }
+
+    if (status === 'running') {
+        const base = Math.max(suggested, attempt >= 6 ? 1800 : 1200);
+        return Math.min(base + jitterMs, 3200);
+    }
+
+    return 0;
+}
+
 function formatWaitSeconds(seconds) {
     const total = Math.max(Number(seconds || 0), 0);
     if (!total) return '';
@@ -1484,15 +1515,16 @@ async function pollChatJob(jobId) {
             return job;
         }
         if (job.status === 'failed') {
-            throw new Error(job.error_message || '当前回答生成失败，请稍后再试。');
+            throw new Error(formatChatFailureMessage(job.error_message));
         }
-        if (job.status === 'queued') {
-            applyJobStatus(job);
-            await sleep(1200);
-            continue;
+        if (job.status !== 'queued' && job.status !== 'running') {
+            throw new Error('聊天任务状态异常，请稍后重试。');
         }
         applyJobStatus(job);
-        await sleep(900);
+        const delayMs = nextPollDelayMs(job, attempt);
+        if (delayMs > 0) {
+            await sleep(delayMs);
+        }
     }
     throw new Error('等待时间过长，请稍后刷新页面查看结果。');
 }
@@ -1592,7 +1624,7 @@ async function sendMessage() {
         thinkingRow.remove();
         const assistantRow = appendMessage('assistant', '', []);
         const assistantBubble = assistantRow.querySelector('.bubble');
-        await typeWriter(assistantBubble, `当前无法生成回答。${error.message}`);
+        await typeWriter(assistantBubble, formatChatFailureMessage(error.message));
     } finally {
         setComposerBusy(false);
         input.focus();
