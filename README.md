@@ -49,11 +49,27 @@ pip install -r .\requirements.txt
 
 ### 1. 大模型配置
 
+示例：
+
+```text
+COURSE_LLM_API_KEY=your_llm_api_key
+COURSE_LLM_BASE_URL=https://api.example.com/v1
+COURSE_LLM_MODEL=your-model-name
+```
+
 - `COURSE_LLM_API_KEY`
 - `COURSE_LLM_BASE_URL`
 - `COURSE_LLM_MODEL`
 
 ### 2. 课程材料与知识库配置
+
+示例：
+
+```text
+DEEP_LEARNING_MATERIAL_ROOT=D:/digital_human/deep_learning/deep_learning_materials
+DEEP_LEARNING_ARTIFACT_DIR=D:/digital_human/deep_learning/deep_learning_rag/artifacts_full_course
+DEEP_LEARNING_EMBED_MODEL=sentence-transformers/all-MiniLM-L6-v2
+```
 
 - `DEEP_LEARNING_MATERIAL_ROOT`
 - `DEEP_LEARNING_ARTIFACT_DIR`
@@ -61,32 +77,62 @@ pip install -r .\requirements.txt
 
 ### 3. 应用运行配置
 
+示例：
+
+```text
+DEEP_LEARNING_PORTAL_SECRET=replace_with_a_random_secret
+DEEP_LEARNING_STORAGE_BACKEND=postgres
+```
+
 - `DEEP_LEARNING_PORTAL_SECRET`
 - `DEEP_LEARNING_STORAGE_BACKEND`
 
-### 4. PostgreSQL 配置
+### 4. 数据库配置
 
-可使用以下任一方式：
+如使用 PostgreSQL，可采用单条连接串方式：
+
+```text
+DEEP_LEARNING_POSTGRES_DSN=postgresql://postgres:your_password@127.0.0.1:5432/deep_learning_portal
+```
+
+也可拆分配置：
+
+```text
+DEEP_LEARNING_PGHOST=127.0.0.1
+DEEP_LEARNING_PGPORT=5432
+DEEP_LEARNING_PGDATABASE=deep_learning_portal
+DEEP_LEARNING_PGUSER=postgres
+DEEP_LEARNING_PGPASSWORD=your_password
+```
+
+如使用 Firebase，可配置服务账号文件路径：
+
+```text
+FIREBASE_CREDENTIALS=D:/path/to/firebase-service-account.json
+```
+
+或：
+
+```text
+GOOGLE_APPLICATION_CREDENTIALS=D:/path/to/firebase-service-account.json
+```
 
 - `DEEP_LEARNING_POSTGRES_DSN`
-
-或拆分配置：
-
 - `DEEP_LEARNING_PGHOST`
 - `DEEP_LEARNING_PGPORT`
 - `DEEP_LEARNING_PGDATABASE`
 - `DEEP_LEARNING_PGUSER`
 - `DEEP_LEARNING_PGPASSWORD`
-
-### 5. Firebase 配置
-
 - `FIREBASE_CREDENTIALS`
-
-或：
-
 - `GOOGLE_APPLICATION_CREDENTIALS`
 
-### 6. Redis 配置
+### 5. 缓存配置
+
+示例：
+
+```text
+DEEP_LEARNING_REDIS_URL=redis://127.0.0.1:6379/0
+```
 
 - `DEEP_LEARNING_REDIS_URL`
 
